@@ -16,14 +16,13 @@ def parseContent(url):
         content = json.loads(request.content)
         return content
     else:
-        print("Response for '%s' with Code: %i" % (url, request.status_code))
+        vprint("Response for '%s' with Code: %i" % (url, request.status_code))
         return None
     
 def writeSubToFile(subDb, url):
     subArr = []
+    vprint(subDb)
     rContent = parseContent(url)
-    print(subDb)
-    print(url)
     if rContent:
         nxt = rContent["next"]
         while nxt:
@@ -44,6 +43,5 @@ if __name__ == "__main__":
 
     if dbContent:
         for key in dbContent.keys():
-            vprint(key)
             writeSubToFile(key, dbContent[key])
     vprint("Done")
