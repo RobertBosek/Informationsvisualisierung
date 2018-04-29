@@ -1,0 +1,84 @@
+body {
+     background-image: url("http://media.moddb.com/images/mods/1/12/11431/auto/1358622674space00.jpg");
+}
+
+#page-wrap { 
+   
+}
+
+
+header1 nav ul { 
+   list-style-type: none;
+    margin: 20px;
+	margin-bottom: 50px;
+    padding: 9px;
+    overflow: hidden;
+    background-color: rgb(23,12,50);
+	position: fixed;
+	opacity: 0.7;
+}
+
+header1 nav ul li { 
+display: inline; }
+
+header1 nav ul li a {
+	 background-color: rgb(43,29,60);
+    display: inline-block;
+    color: white;
+    display: block;
+    padding-left: 15px;
+	padding: 20px;
+    text-decoration: none;
+	font-size: 20px;
+}
+header1 nav ul li a:hover {
+	 background-color: rgb(204,189,223);
+}	
+.active {
+	 background-color: rgb(204,189,223);
+    color: black;
+	font-size: 25px;
+}
+
+#page-wrap2 { 
+   
+}
+
+
+header2 nav ul { 
+
+    list-style-type: none;
+    margin: 20px;
+	margin-bottom: 50px;
+    padding: 9px;
+    overflow: hidden;
+    background-color: rgb(23,12,50);
+	opacity: 0.7;
+   
+}
+
+header2 nav ul li { 
+    float: left;
+	padding-right: 10px;}
+
+header2 nav ul li a {
+	background-color: rgb(43,29,60);
+    display: inline-block;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-size: 20px;
+	border-radius: 20px;
+}
+header2 nav ul li a:hover {
+	background-color: rgb(204,189,223);
+}	
+.active{
+	 background-color: rgb(204,189,223);
+    color: black;
+	font-size: 25px;
+}
+
+
