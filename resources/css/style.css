@@ -59,7 +59,8 @@ header2 nav ul {
 
 header2 nav ul li { 
     float: left;
-	padding-right: 10px;}
+	padding-right: 10px;
+}
 
 header2 nav ul li a {
 	background-color: rgb(43,29,60);
@@ -81,4 +82,64 @@ header2 nav ul li a:hover {
 	font-size: 25px;
 }
 
+.person-gallery {
+    display: block;
+    float: left;
+    width: 400px;
+    height: 600px;
+    margin-left: 15em;
+    overflow: hidden
+}
+
+.person-search {
+    display: block;
+    width: 266px;
+    height: 25px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-width: 0;
+    font: 20px/25px "Rokkitt", serif
+}
+
+.person-search:focus {
+    outline-style: none;
+    outline-width: 0
+}
+
+.person-gallery .person-list {
+    width: 350px;
+    height: 100%;
+    list-style-type: none;
+    margin: 25px 0;
+    padding: 0;
+    overflow-y: auto
+}
+
+.person-gallery .person-list::-webkit-scrollbar {
+    width: 10px;
+    background: #1cdf76
+}
+
+.person-gallery .person-list::-webkit-scrollbar-thumb {
+    background: #009143
+}
+
+.person-gallery .person-list-entry {
+    position: relative;
+    width: 250px;
+    clear: both;
+    margin: 10px 0
+}
+
+.person-gallery .person-image {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    float: left;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF
+}
 
