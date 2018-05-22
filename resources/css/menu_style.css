@@ -1,0 +1,103 @@
+body {
+      background-image: url("http://media.moddb.com/images/mods/1/12/11431/auto/1358622674space00.jpg"); 
+}
+
+.hor_menu{
+	margin-top:0px;
+}
+
+.hor_menu nav{
+	width:150px;
+	float: left;
+}
+.hor_menu nav ul{
+    list-style-type: none;
+    padding: 9px;
+    overflow: hidden;
+    background-color: rgb(23,12,50);
+	opacity: 0.7;
+	border-radius: 10px;
+}
+
+
+.hor_menu nav ul li a {
+	background-color: rgb(43,29,60);
+    display: inline-block;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	border-radius: 20px;
+}
+
+
+.hor_menu nav ul li a:hover {
+	 background-color: rgb(204,189,223); 
+	 font-size: 20px;
+}	
+
+
+.hor_menu nav ul li { 
+}
+
+.hor_menu nav ul li a:active {
+	background-color: rgb(204,189,223);
+    color: black;
+}
+.vert_menu{
+	margin-top:0px;
+}
+
+.vert_menu nav{
+	width:150px;
+}
+.vert_menu nav ul{
+    list-style-type: none;
+    padding: 9px;
+    overflow: hidden;
+    background-color: rgb(23,12,50);
+	opacity: 0.7;
+	border-radius: 20px;
+}
+
+.vert_menu nav ul li a {
+	background-color: rgb(43,29,60);
+    display: inline-block;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	border-radius: 20px;
+}
+
+.vert_menu nav ul li { 
+	display: inline; 
+}
+
+.vert_menu nav ul li a:hover {
+	 background-color: rgb(204,189,223);
+}	
+.vert_menu nav ul li a:active {
+	background-color: rgb(204,189,223);
+    color: black;
+}
+
+li.liclass.highlight a:visited{
+	background-color: rgb(204,189,223);
+    color: black;
+	border-radius: 40px;
+}
+li.liclass.highlight a:focus{
+	background-color: rgb(204,189,223);
+    color: black;
+	border-radius: 40px;
+}
+
+.liclass .current{
+	background-color: rgb(204,189,223);
+    padding: 20px 20px;
+	color: black;
+	 font-size: 20px;
+}
