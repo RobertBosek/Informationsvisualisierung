@@ -1,19 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<link rel='stylesheet' type='text/css' href='css/menu_style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<link rel='stylesheet' type='text/css' href='css/menu_style.css' />
+	<link rel='stylesheet' type='text/css' href='css/persons_style.css' />
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+	<title>Persons</title>
 </head>
 <body>
-	<div class="hor_menu"><template id="id_hor_menu"><nav><ul><li class="liclass" ><a></a></li></ul></nav></template></div>
-	<div class="vert_menu"><template id="id_vert_menu"><nav><ul><li class="liclass"><a></a></li></ul></nav></template></div>
+	<div class="hor_menu"><ul><li><a href="contact.html">Contact</a></li>
+				    <li><a href="episode1.html">Episode 1</a></li>
+				    <li><a href="episode2">Episode 2</a></li>
+					<li><a href="episode3">Episode 3</a></li>
+					<li><a href="episode4">Episode 4</a></li>
+					<li><a href="episode5">Episode 5</a></li>
+					<li><a href="episode6">Episode 6</a></li>
+					<li><a href="episode7">Episode 7</a></li>
+					<li><a href="episode8">Episode 8</a></li></ul></div>
+	<div class="vert_menu"><ul class="group">
+		          <li><a href="../index.html">Home</a></li>
+				  <li><a class="active" href="persons.html">Personenliste</a></li>
+				  <li><a href="planets.html">Planeten</a></li>
+				  <li><a href="species.html">Spezies</a></li>
+				  <li><a href="starships.html">Raumschiffe</a></li>
+				  <li><a href="vehicles.html">Fahrzeuge</a></li></ul></div>
 	
-	<!-- CODE HERE -->
+    <content>
+	<button id="btn-delete" onclick="deleteAll()">Click me</button>
+        <div class="bird-gallery">
+            <input type="text" class="bird-search" />
+            <ul class="bird-list">
+			
+            </ul>
+        </div>
+        <div class="bird-counter">
+            <ul class="bird-list">
+             
+            </ul>
+        </div>
+    </content>
+
+    <script type="text/template" id="bird-list-entry">
+        <li class="bird-list-entry" bird-id="<%= id %>">
+            <img src="<%= imagePath %>" class="bird-image" />
+            <div class="bird-description">
+                <span class="bird-name"><%= name %></span>
+                <span class="bird-latin-name"><%= latinName %></span>
+            </div>
+            <span class="add-bird-button">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </span>
+        </li>
+    </script>
+    <script type="text/template" id="bird-counter-entry">
+        <li class="bird-list-entry" bird-id="<%= id %>">
+            <img src="<%= imagePath %>" class="bird-image" />
+            <div class="bird-interface">
+                <div class="bird-info">
+                    <span class="bird-name"><%= name %></span>
+                    <span class="bird-latin-name"><%= latinName %></span>
+                    <div class="bird-counter-info">
+                        <span class="bird-counter-decrease button"><i class="fa fa-minus button decrease" aria-hidden="true"></i></span>
+                        <span class="bird-counter-increase button"><i class="fa fa-plus button increase" aria-hidden="true"></i></span>
+                        <span class="bird-current-max"><%= count %></span>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </script>
+    <script type="text/template" id="bird-list">
+        [{ "id":1, "name":"Haussperling", "latinName":"Passer domesticus", "imagePath":"resources/images/haussperling.png", "audioPath":"resources/data/audio/haussperling.ogg" },{ "id":2, "name":"Kohlmeise", "latinName":"Parus major", "imagePath":"resources/images/kohlmeise.png", "audioPath":"resources/data/audio/kohlmeise.ogg" },{ "id":3, "name":"Star", "latinName":"Sturnus vulgaris", "imagePath":"resources/images/star.png", "audioPath":"resources/data/audio/star.ogg" },{ "id":4, "name":"Amsel", "latinName":"Turdus merula", "imagePath":"resources/images/amsel.png", "audioPath":"resources/data/audio/amsel.ogg" },{ "id":5,"name":"Blaumeise", "latinName":"Cyanistes caerruleus", "imagePath":"resources/images/blaumeise.png", "audioPath":"resources/data/audio/blaumeise.ogg" },{ "id":6, "name":"Elster", "latinName":"Pica pica", "imagePath":"resources/images/elster.png", "audioPath":"resources/data/audio/elster.ogg" },{ "id":7, "name":"Grünfink", "latinName":"Chloris chloris", "imagePath":"resources/images/gruenfink.png", "audioPath":"resources/data/audio/gruenfink.ogg" },{ "id":8, "name":"Mehlschwalbe", "latinName":"Delichon urbicum", "imagePath":"resources/images/mehlschwalbe.png", "audioPath":"resources/data/audio/mehlschwalbe.ogg" },{ "id":9, "name":"Mauersegler", "latinName":"Apus apus", "imagePath":"resources/images/mauersegler.png", "audioPath":"resources/data/audio/mauersegler.ogg" },{ "id":10, "name":"Buchfink", "latinName":"Fringilla coelebs", "imagePath":"resources/images/buchfink.png", "audioPath":"resources/data/audio/buchfink.ogg" },{ "id":11, "name":"Ringeltaube", "latinName":"Columba palumbus", "imagePath":"resources/images/ringeltaube.png", "audioPath":"resources/data/audio/ringeltaube.ogg" },{ "id":12, "name":"Feldsperling", "latinName":"Passer montanus", "imagePath":"resources/images/feldsperling.png", "audioPath":"resources/data/audio/feldsperling.ogg" },{ "id":13, "name":"Türkentaube", "latinName":"Streptopelia decaocto", "imagePath":"resources/images/tuerkentaube.png", "audioPath":"resources/data/audio/tuerkentaube.ogg" },{ "id":14, "name":"Rauchschwalbe", "latinName":"Hirundo rustica", "imagePath":"resources/images/rauchschwalbe.png", "audioPath":"resources/data/audio/rauchschwalbe.ogg" },{ "id":15, "name":"Rotkehlchen", "latinName":"Erithacus rubecula", "imagePath":"resources/images/rotkehlchen.png", "audioPath":"resources/data/audio/rotkehlchen.ogg"}]
+    </script>
+    <script src="vendors/underscore/underscore-min.js"></script>
+    <script src="js/BirdingApp.js"></script>
+    <script src="js/BirdingModel.js"></script>
+	<script src="js/BirdingController.js"></script>
+    <script src="js/BirdCounterView.js"></script>
+    <script src="js/BirdListView.js"></script>
+    <script>
+        BirdingApp.init();
+    </script>
 	
-</script>
-	<script type='text/javascript' src='js/nav_js/hor_menu_main.js'></script>
-	<script type='text/javascript' src='js/nav_js/vert_menu_persons.js'></script>
-	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
-    <script type='text/javascript' src='js/dynamicpage.js'></script>
 </body>
 </html>
