@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Starwars Donut</title>
   </head>
-  <body>
+  <body bgcolor=black>
     <style>
         #inputs {
-            fill: black;
             font: 11px 'Arial';
+            color: white;
             text-align: center;
         }
         #tooltipDiv {
-            fill: black;
+            color: white;
             text-align: center;
             font: 30px 'Arial';
         }
@@ -21,13 +21,6 @@
             text-align: center;
             font: 30px 'Arial';
             height: 100%;
-        }
-        #tooltipDiv {
-            text-align: center;
-            font: 30px 'Arial';
-            height: 100%;
-            width: 100%;
-            position: absolute;
         }
         #hover {
             cursor: pointer;
@@ -42,13 +35,13 @@
         <input type="radio" name="radData" id="rad2" value="genToVis" onclick='change(genToVis);' />
         <label for="rad2">Gender</label>
 
-        <input type="radio" name="radData" id="rad3" value="haircolorToVis" onclick='change(haircolorToVis);' />
+        <input type="radio" name="radData" id="rad3" value="hairColorsToVis" onclick='change(hairColorsToVis);' />
         <label for="rad2">Haircolor</label>
 		
-		<input type="radio" name="radData" id="rad3" value="eyeColorsToVis" onclick='change(eyeColorsToVis);' />
+		<input type="radio" name="radData" id="rad4" value="eyeColorsToVis" onclick='change(eyeColorsToVis);' />
         <label for="rad2">Eyecolor</label>
 		
-		<input type="radio" name="radData" id="rad3" value="skincolorsToVis" onclick='change(skinColorsToVis);' />
+		<input type="radio" name="radData" id="rad5" value="skincolorsToVis" onclick='change(skinColorsToVis);' />
         <label for="rad2">Skincolor</label>
 	</div>
     <div class='chartDiv'></div>

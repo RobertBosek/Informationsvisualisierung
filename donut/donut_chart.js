@@ -1,40 +1,38 @@
 //Radiobuttons based on: http://ninjapixel.io/StackOverflow/doughnutTransition.html
-//Pie-Chart based on: http://bl.ocks.org/enjalot/1203641
+//Pie-Chart based on:  
 
 
     var d3 = d3 || {};
 
     var eyeColorsToVis = [], genToVis = [], fractionWeightToVis = [], hairColorsToVis = [], skinColorsToVis = [];
-    var fractionNames = ['Rebel Alliance', 'Galactic Empire', 'Neutral'];
-	var fileData = data;
-	var fileLength = data.length;
-	
+    var fileData = data;
+	var fileLength = fileData.length;
 
 	//FRACTIONS
 	function getFractionWeight(fileData) {
-		var arrRa = [], arrGe = [], arrN = [];
+        
+        var arrFraction = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+		var fractionNames = ['Rebel Alliance', 'Galactic Empire', 'Neutral'];
+        
 		for (var i = 0; i < fileLength; i++){
 			if (fileData[i]['fraction'] === fractionNames[0]) {	
-				arrRa.push(fileData[i]['name']);
+				arrFraction[0].push(fileData[i]['name']);
 			} else if (fileData[i]['fraction'] === fractionNames[1]) {
-				arrGe.push(fileData[i]['name']);
+				arrFraction[1].push(fileData[i]['name']);
 			} else { 
-				arrN.push(fileData[i]['name']);
+				arrFraction[2].push(fileData[i]['name']);
 			}
 		}
-		var newObject1 = {name:"" + fractionNames[0], value: "" + arrRa.length, charcter:"" + arrRa}
-		var newObject2 = {name:"" + fractionNames[1], value: "" + arrGe.length, character:"" + arrGe}
-		var newObject3 = {name:"" + fractionNames[2], value: "" + arrN.length, character:"" + arrN}
-		var newObject4 = {name:"", value: 0, character:""}
 		
-		fractionWeightToVis[0] = newObject1;
-		fractionWeightToVis[1] = newObject2;
-		fractionWeightToVis[2] = newObject3;
-		
-		for (var k = 3; k < 31; k++) {
-			fractionWeightToVis[k] = newObject4;
+        for (var j = 0; j < fractionNames.length; j++) {
+			var newObject = {name: fractionNames[j], value: "" + arrFraction[j].length, character: "" + arrFraction[j]};
+			fractionWeightToVis[j] = newObject;
 		}
-		
+        
+        var defaultObject = {name: "", value: 0, character: ""};
+		for (var k = 3; k < 31; k++) {
+			fractionWeightToVis[k] = defaultObject;
+		}
 		return fractionWeightToVis;
 	}
 
@@ -53,15 +51,14 @@
 				arrGender[2].push(fileData[i]['name']);
 			}
 		}
-		
 		for (var k = 0; k < arrGender.length; k++) {
-			var newObject = {name: gender[k], value: "" + arrGender[k].length, character: "" + arrGender[k]}
+			var newObject = {name: gender[k], value: "" + arrGender[k].length, character: "" + arrGender[k]};
 			genToVis[k] = newObject;
 		}
 	
-		var defaultObject = {name: "", value: 0, character: ""}
+		var defaultObject = {name: "", value: 0, character: ""};
 		for (var l = 13; l < 31; l++) {
-			hairColorsToVis[l] = defaultObject;
+			genToVis[l] = defaultObject;
 		}
 		
 		return genToVis;
@@ -79,9 +76,8 @@
 			if (skinColors.indexOf(fileData[i]['skin_color']) === -1) {
 				skinColors.push(fileData[i]['skin_color']);
 			}
-		}	
-        console.log(skinColors);
-		
+		}
+        
 		for (var j = 0; j < fileLength; j++) {
 			if (fileData[j]['skin_color'] === skinColors[0]) {
 				arrSkinColor[0].push(fileData[j]['name']);
@@ -93,7 +89,7 @@
 				arrSkinColor[3].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[4]) {
 				arrSkinColor[4].push(fileData[j]['name']);
-			} else if (fileData[j]['skin_color'] === skinColors[5]) {
+			} else if (fileData[j]['skin_color'] === skinColors[5] || fileData[j]['skin_color'] === skinColors[30] ) {
 				arrSkinColor[5].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[6]) {
 				arrSkinColor[6].push(fileData[j]['name']);
@@ -115,7 +111,7 @@
 				arrSkinColor[14].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[16]) {
 				arrSkinColor[15].push(fileData[j]['name']);
-			} else if (fileData[j]['skin_color'] === skinColors[17]) {
+			} else if (fileData[j]['skin_color'] === skinColors[17] || fileData[j]['skin_color'] === skinColors[25]) {
 				arrSkinColor[16].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[18]) {
 				arrSkinColor[17].push(fileData[j]['name']);
@@ -131,8 +127,6 @@
 				arrSkinColor[22].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[24]) {
 				arrSkinColor[23].push(fileData[j]['name']);
-			} else if (fileData[j]['skin_color'] === skinColors[25]) {
-				arrSkinColor[24].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[26]) {
 				arrSkinColor[25].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[27]) {
@@ -141,18 +135,15 @@
 				arrSkinColor[27].push(fileData[j]['name']);
 			} else if (fileData[j]['skin_color'] === skinColors[29]) {
 				arrSkinColor[28].push(fileData[j]['name']);
-			} else if (fileData[j]['skin_color'] === skinColors[30]) {
+			} else {
 				arrSkinColor[29].push(fileData[j]['name']);
-			} else {	
-				arrSkinColor[30].push(fileData[j]['name']);
 			}
 		}
-
+    
         for (var k = 0; k < arrSkinColor.length; k++) {
 			var newObject = {name: skinColors[k], value: "" + arrSkinColor[k].length, character: "" + arrSkinColor[k]}
 			skinColorsToVis[k] = newObject;
 		}
-        console.log(skinColorsToVis);
 		return skinColorsToVis;
 	}	
 
@@ -169,9 +160,6 @@
 				hairColors.push(fileData[i]['hair_color']);
 			}
 		}	
-		
-        console.log(hairColors);
-        
 		for (var j = 0; j < fileLength; j++) {
 			if (fileData[j]['hair_color'] === hairColors[0]) {
 				arrHairColor[0].push(fileData[j]['name']);
@@ -197,7 +185,7 @@
 				arrHairColor[11].push(fileData[j]['name']);
 			}
 		}
-		
+        
 		for (var k = 0; k < arrHairColor.length; k++) {
 			var newObject = {name: hairColors[k], value: "" + arrHairColor[k].length, character: "" + arrHairColor[k]}
 			hairColorsToVis[k] = newObject;
@@ -223,7 +211,7 @@
 			if (eyeColors.indexOf(fileData[i]['eye_color']) === -1) {
 				eyeColors.push(fileData[i]['eye_color']);
 			}
-		}	
+		}
 		
 		for (var j = 0; j < fileLength; j++) {
 			if (fileData[j]['eye_color'] === eyeColors[0]) {
@@ -258,7 +246,7 @@
 				arrEyeColor[14].push(fileData[j]['name']);
 			}
 		}
-		
+        
 		for (var k = 0; k < arrEyeColor.length; k++) {
 			var newObject = {name: eyeColors[k], value: "" + arrEyeColor[k].length, character: "" + arrEyeColor[k]}
 			eyeColorsToVis[k] = newObject;
@@ -277,30 +265,43 @@
 	//Method-calls to initate data-arrays start --------------------------------------------------------------
 	fractionWeightToVis = getFractionWeight(fileData); 
 	genToVis = getGenderWeight(fileData);
-	haircolorToVis = getDifferentHairColors(fileData);
-	skincolorToVis = getDifferentSkinColors(fileData);
-	eyecolorToVis = getDifferentEyeColors(fileData);
+	hairColorsToVis = getDifferentHairColors(fileData);
+	skinColorsToVis = getDifferentSkinColors(fileData);
+	eyeColorsToVis = getDifferentEyeColors(fileData);
 	//Method-calls to initate data-arrays end --------------------------------------------------------------
 
-    var path, pie, arc, color, svg, tooltip, chartDiv, tooltipDiv;
+    var path, pie, arc, color, svg, tooltip;
     var width = 540, height = 500, radius = Math.min(width, height) / 2; 
 
-    function doDonut(data, startData) {
+    function changeColorSet(val) {
+        var colors = [];
+        if (val === "rad1") {
+                colors = ["#2c736b", "#b44848", "#f4f2d2"];
+            } else if (val === "rad2") {
+                colors = ["#7c98b3", "#ff99cc", "#f4f2d2"];
+            } else if (val === "rad3") {
+                colors = ["#FFFFCC", "#fffff9", "#ffffef", "#633a10", "#837042", "#000000", "#9f6e5d", "#835c4f", "#f4f0ee", "#b0b0b0", "#430c0a", "#ffffff"];
+            } else if (val === "rad4") {
+                colors = ["#2c736b", "#ced000", "#b44848", "#633a10", "#75869f", "#000000", "#ff7400", "#b2790c", "#ff4451", "#ffffff", "#c573ea", "#e1a851", "#c2ff00", "#f4f0f0", "#3a2005"];
+            } else {
+                colors = ["#ecc8ae", "#e1a851", "#9fc8c2", "#f4f0f0", "#ffffef", "#f08080", "#ffffff", "#7a871d", "#515e30", "#fbc88a", "#4f4f4f", "#3a2005", "#562c10", "#633a10", "#928c81", "#24270f", "#ff7400", "#75869f", "#8b5151", "#b44848", "#2c736b", "#595e3b", "#ced000", "#c3a383", "#dfee8f", "#658e94", "#ee6055", "#767a5e", "#d2adf2", "#c1a06d"];
+            }
+        return colors;
+    }
 
-		function getRandomColor() {
-			var colors = [];
-			for (var k = 0; k < 32; k++) {
-				var color = '#';
-				var letters = '0123456789ABCDEF';
-				for (var i = 0; i < 6; i++) {
-					color += letters[Math.floor(Math.random() * 16)];
-				}
-				colors.push(color);
-			}
-			return colors;
-		}
+    function getButtonId(nodeList) {
+        for (var i = 0; i < nodeList.length; i++) {
+            if (nodeList[i].checked === true) {
+                return nodeList[i].id;
+            }
+        }
+    }
+
+    function doDonut(data, startData) {
+        
+        var transitionGoing = true;
 		
-		color = getRandomColor();
+		color = ["#c90707", "#2c736b", "#f4f2d2"];
         
         arc = d3.arc()
             .outerRadius(radius - 10)
@@ -332,30 +333,56 @@
             .data(pie(startData))
             .enter()
             .append("path")
+            .style("opacity", 0.5)
+            .on("click", function(d){
+                selectedPerson = d.data.character;
+            })
+        
+            //Based on https://stackoverflow.com/questions/30066259/d3-js-changing-opacity-of-element-on-mouseover-if-condition-false
             .on("mouseover",function(d){
+                if(d3.select(this).style("opacity") != 0){
+                    path.transition()        
+                        .duration(200)      
+                        .style("opacity", 1)
+                        
+                }
+                d3.select(this).style("cursor", "pointer");
                 tooltip.text(d.data.name + ": " + d.data.value);
-                selectedPerson = d.data.name;
                 return tooltip.style("visibility", "visible");
             })
             .on("mouseout", function(){
+                if(d3.select(this).style("opacity") != 0){
+                    path.transition()        
+                        .duration(200)      
+                        .style("opacity", 0.5);
+                }
+                d3.select(this).style("cursor", "default");
                 return tooltip.style("visibility", "hidden");
             })
             
-        
         path.transition()
             .duration(500)
             .attr("fill", function(d, i) { 
-                   return color[i];
+                    return color[i];
             })
             .attr("d", arc)
-            .each(function(d) { 
-                this._current = d; });
+            .each(function(d) {
+                this._current = d;
+             });
     }
     doDonut(fileData, fractionWeightToVis);
 
     function change(data){
         path.data(pie(data));
-        path.transition().duration(750).attrTween("d", arcTween);
+        path.transition()
+            .duration(750)
+            .attrTween("d", arcTween)
+            .attr("fill", function (d, i) {
+                var nodeList = document.querySelectorAll('input[name="radData"]');
+                var id = getButtonId(nodeList);
+                var color = changeColorSet(id);
+                return color [i];
+        });
     }
 
     function arcTween(a) {
