@@ -1,0 +1,237 @@
+@font-face {
+    /* font-family: "Star Jedi"; */
+    /* src: url(./fonts/Starjedi/Starjedi.ttf); */
+    /* font-weight: 400; */
+    /* font-style: normal */
+	
+	font-family: "Star Jedi";
+    src: url(Starjedi.ttf);
+	
+}
+
+html {
+    height: 100%;
+    margin: 0
+}
+
+.menu {
+    display: block;
+    position: absolute;
+    width: 100px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 70px;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #1cdf76;
+    color: #009143;
+    line-height: 50px;
+    font-size: 5px;
+    text-align: center;
+    background: #FFF;
+	
+}
+
+content {
+    min-height: 50%;
+    padding: 10px;
+    margin: 73px 0 0;
+    padding: 17px 0 0 0;
+	
+    background: #1cdf76
+}
+
+.person-menu {
+    display: block;
+    float: left;
+    width: 300px;
+    height: 500px;
+    margin: 1em;
+    overflow: hidden;
+	margin-left: 310px;
+	margin-top: 160px
+}
+
+.person-search {
+    display: block;
+    width: 230px;
+    height: 25px;
+    padding: 5px 6px;
+    border-radius: 6px;
+    border-width: 0;
+    /* font: 20px/25px "Rokkitt", serif */
+}
+
+.person-search:focus {
+    outline-style: none;
+    outline-width: 0
+}
+
+.person-menu .person-list {
+    width: 250px;
+    height: 80%;
+    list-style-type: none;
+    margin: 1px 0;
+    padding: 0;
+    overflow-y: auto
+}
+
+.person-menu .person-list::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(204, 189, 223)
+}
+
+.person-menu .person-list::-webkit-scrollbar-thumb {
+    background: rgb(142, 96, 199)
+}
+
+.person-menu .person-list-entry {
+    position: relative;
+    width: 230px;
+	height: 40px;
+    clear: both;
+    margin: 8px 0;
+	background-color:white;
+    border-radius: 60px;
+	border-radius: 30px 0 30px 30px;
+	cursor: pointer
+}
+
+.person-menu .person-image {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    float: left;
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF
+}
+
+.person-menu .person-name {
+    display: block;
+    font-size: 16px;
+	height:40px;
+	font-family: "Star Jedi";
+    color: #333
+}
+
+.person-menu .person-description {
+    display: block;
+    font-size: 5px;
+    font-style: italic;
+    color: #777
+}
+
+
+.person-menu .person-list-entry:hover {
+    cursor: pointer;
+	background: rgb(154, 143, 167)
+}
+
+.person-gallery {
+    display: block;
+    float: left;
+    width: 800px;
+    height: 600px;
+}
+
+.person-gallery .person-list {
+    width: 800px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.person-gallery .person-list-entry {
+    display: block;
+    position: relative;
+    width: 774px;
+    height: 904px;
+    margin: 1em;
+    float: left;
+    overflow: hidden;
+}
+
+.person-gallery .person-image {
+    display: block;
+    position: relative;
+	margin-top:160px;
+    width: 500px;
+    height: 300px;
+    border-radius: 1%;
+    /* border-style: solid; */
+    /* border-width: 2px; */
+    border-color: #FFF;
+    z-index: 1;
+}
+
+.person-gallery .person-interface {
+    display: block;
+    position: relative;
+    width: 500px;
+    height: 100px;
+    margin-left: 0px;
+    border-radius: 0 0 11px 11px;
+    z-index: 2;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .5)
+}
+
+.person-gallery .person-info-box {
+    text-align: center;
+    height: 100px;
+    padding-top: .50em
+}
+
+.person-gallery .person-name {
+    display: block;
+    font-size: 1.7em;
+	font-family: 'Star Jedi', cursive;
+        font-size: 18px;
+}
+
+.person-gallery .person-description {
+    display: block;
+    font-size: 2.1em;
+	
+    font-style: italic
+}
+
+.person-gallery .person-info {
+    display: block;
+    position: relative;
+    width: 204px;
+    height: 50px;
+    padding: 0;
+    clear: both;
+    background: #FFF
+}
+
+
+
+.person-gallery .button {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    z-index: 4;
+	background-color: white;
+}
+
+.person-gallery .button:hover {
+    cursor: pointer;
+	background: rgb(255, 119, 119);
+	
+}

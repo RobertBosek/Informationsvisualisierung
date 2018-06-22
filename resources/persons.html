@@ -1,0 +1,2692 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<link rel='stylesheet' type='text/css' href='css/menu_style.css' />
+	<link rel='stylesheet' type='text/css' href='css/persons_style.css' />
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+	<title>Persons</title>
+</head>
+<body>
+	<div class="hor_menu"><ul><li><a href="contact.html">Contact</a></li>
+				    <li><a href="episode1.html">Episode 1</a></li>
+				    <li><a href="episode2">Episode 2</a></li>
+					<li><a href="episode3">Episode 3</a></li>
+					<li><a href="episode4">Episode 4</a></li>
+					<li><a href="episode5">Episode 5</a></li>
+					<li><a href="episode6">Episode 6</a></li>
+					<li><a href="episode7">Episode 7</a></li>
+					<li><a href="episode8">Episode 8</a></li></ul></div>
+	<div class="vert_menu"><ul class="group">
+		          <li><a href="../index.html">HOME</a></li>
+				  <li><a class="active" href="persons.html">PERSONENLISTE</a></li>
+				  <li><a href="planets.html">PLANETEN</a></li>
+				  <li><a href="species.html">SPEZIES</a></li>
+				  <li><a href="starships.html">RAUMSCHIFFE</a></li>
+				  <li><a href="vehicles.html">FAHRZEUGE</a></li></ul></div>
+	
+    <content>
+        <div class="person-menu">
+            <input type="text" class="person-search" />
+            <ul class="person-list">
+			
+            </ul>
+        </div>
+		
+        <div class="person-gallery">
+            <ul class="person-list">
+             
+            </ul>
+        </div>
+    </content>
+
+    <script type="text/template" id="person-list-entry">
+        <li class="person-list-entry" person-id="<%= id %>">
+            <img src="<%= "../data/images/people/" + id + ".jpg" %>" class="person-image" />
+                <span class="person-name"><%= name %></span>
+        </li>
+    </script>
+    <script type="text/template" id="person-entry">
+        <li class="person-list-entry" person-id="<%= id %>">
+            <img src="<%= "../data/images/people/" + id + ".jpg" %>" class="person-image" />
+            <div class="person-interface">
+                <div class="person-info-box">
+                    <span class="person-name"><%= name %></span>
+                    <span class="person-description"><%= description %></span>
+                        <span class="person-img-remove button"><i class="fa fa-close button closeWindow" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </script>
+    <script type="text/template" id="person-list">
+  
+  
+  
+   <!-- [  -->
+   <!-- { -->
+   <!-- "id":1, -->
+   <!-- "name":"Luke Skywalker", -->
+   <!-- "description": "172", -->
+   <!-- "D": "77", -->
+   <!-- "E":"blond", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "19BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "https://swapi.co/api/films/3/", -->
+   <!-- "N": "https://swapi.co/api/films/1/", -->
+   <!-- "O": "https://swapi.co/api/films/7/", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/14/", -->
+   <!-- "R": "https://swapi.co/api/vehicles/30/", -->
+   <!-- "S": "https://swapi.co/api/starships/12/", -->
+   <!-- "T": "https://swapi.co/api/starships/22/", -->
+   <!-- "U": "2014-12-09T13:50:51.644000Z", -->
+   <!-- "V": "2014-12-20T21:17:56.891000Z", -->
+   <!-- "W": "https://swapi.co/api/people/1/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":2, -->
+   <!-- "name": "C-3PO", -->
+   <!-- "description": "167", -->
+   <!-- "D": "75", -->
+   <!-- "E": "n/a", -->
+   <!-- "F": "gold", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "112BBY", -->
+   <!-- "I": "n/a", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/5/", -->
+   <!-- "M": "https://swapi.co/api/films/4/", -->
+   <!-- "N": "https://swapi.co/api/films/6/", -->
+   <!-- "O": "https://swapi.co/api/films/3/", -->
+   <!-- "P": "https://swapi.co/api/species/2/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:10:51.357000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.309000Z", -->
+   <!-- "W": "https://swapi.co/api/people/2/", -->
+   <!-- "X": "https://swapi.co/api/films/1/", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":3, -->
+   <!-- "name": "R2-D2", -->
+   <!-- "description": "96", -->
+   <!-- "D": "32", -->
+   <!-- "E": "n/a", -->
+   <!-- "F": "white, blue", -->
+   <!-- "G": "red", -->
+   <!-- "H": "33BBY", -->
+   <!-- "I": "n/a", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/5/", -->
+   <!-- "M": "https://swapi.co/api/films/4/", -->
+   <!-- "N": "https://swapi.co/api/films/6/", -->
+   <!-- "O": "https://swapi.co/api/films/3/", -->
+   <!-- "P": "https://swapi.co/api/species/2/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:11:50.376000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.311000Z", -->
+   <!-- "W": "https://swapi.co/api/people/3/", -->
+   <!-- "X": "https://swapi.co/api/films/1/", -->
+   <!-- "Y": "https://swapi.co/api/films/7/", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":4, -->
+   <!-- "name": "Darth Vader", -->
+   <!-- "description": "202", -->
+   <!-- "D": "136", -->
+   <!-- "E": "none", -->
+   <!-- "F": "white", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "41.9BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "https://swapi.co/api/films/3/", -->
+   <!-- "N": "https://swapi.co/api/films/1/", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/13/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:18:20.704000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.313000Z", -->
+   <!-- "W": "https://swapi.co/api/people/4/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":5, -->
+   <!-- "name": "Leia Organa", -->
+   <!-- "description": "150", -->
+   <!-- "D": "49", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "19BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/2/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "https://swapi.co/api/films/3/", -->
+   <!-- "N": "https://swapi.co/api/films/1/", -->
+   <!-- "O": "https://swapi.co/api/films/7/", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/30/", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:20:09.791000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.315000Z", -->
+   <!-- "W": "https://swapi.co/api/people/5/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":6, -->
+   <!-- "name": "Owen Lars", -->
+   <!-- "description": "178", -->
+   <!-- "D": "120", -->
+   <!-- "E": "brown, grey", -->
+   <!-- "F": "light", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "52BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "https://swapi.co/api/films/1/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:52:14.024000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.317000Z", -->
+   <!-- "W": "https://swapi.co/api/people/6/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+  <!-- { -->
+   <!-- "id":7, -->
+   <!-- "name": "Beru Whitesun lars", -->
+   <!-- "description": "165", -->
+   <!-- "D": "75", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "47BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "https://swapi.co/api/films/1/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:53:41.121000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.319000Z", -->
+   <!-- "W": "https://swapi.co/api/people/7/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":8, -->
+   <!-- "name": "R5-D4", -->
+   <!-- "description": "97", -->
+   <!-- "D": "32", -->
+   <!-- "E": "n/a", -->
+   <!-- "F": "white, red", -->
+   <!-- "G": "red", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "n/a", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/1/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/2/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:57:50.959000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.321000Z", -->
+   <!-- "W": "https://swapi.co/api/people/8/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":9, -->
+   <!-- "name": "Biggs Darklighter", -->
+   <!-- "description": "183", -->
+   <!-- "D": "84", -->
+   <!-- "E": "black", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "24BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/1/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/12/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T15:59:50.509000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.323000Z", -->
+   <!-- "W": "https://swapi.co/api/people/9/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":10, -->
+   <!-- "name": "Obi-Wan Kenobi", -->
+   <!-- "description": "182", -->
+   <!-- "D": "77", -->
+   <!-- "E": "auburn, white", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue-gray", -->
+   <!-- "H": "57BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/20/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/5/", -->
+   <!-- "M": "https://swapi.co/api/films/4/", -->
+   <!-- "N": "https://swapi.co/api/films/6/", -->
+   <!-- "O": "https://swapi.co/api/films/3/", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/38/", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/48/", -->
+   <!-- "T": "https://swapi.co/api/starships/59/", -->
+   <!-- "U": "2014-12-10T16:16:29.192000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.325000Z", -->
+   <!-- "W": "https://swapi.co/api/people/10/", -->
+   <!-- "X": "https://swapi.co/api/films/1/", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "https://swapi.co/api/starships/64/", -->
+   <!-- "AA": "https://swapi.co/api/starships/65/", -->
+   <!-- "AB": "https://swapi.co/api/starships/74/" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":11, -->
+   <!-- "name": "Anakin Skywalker", -->
+   <!-- "description": "188", -->
+   <!-- "D": "84", -->
+   <!-- "E": "blond", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "41.9BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/44/", -->
+   <!-- "R": "https://swapi.co/api/vehicles/46/", -->
+   <!-- "S": "https://swapi.co/api/starships/59/", -->
+   <!-- "T": "https://swapi.co/api/starships/65/", -->
+   <!-- "U": "2014-12-10T16:20:44.310000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.327000Z", -->
+   <!-- "W": "https://swapi.co/api/people/11/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "https://swapi.co/api/starships/39/", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":12, -->
+   <!-- "name": "Wilhuff Tarkin", -->
+   <!-- "description": "180", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "auburn, grey", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "64BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/21/", -->
+   <!-- "K": "https://swapi.co/api/films/6/", -->
+   <!-- "L": "https://swapi.co/api/films/1/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T16:26:56.138000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.330000Z", -->
+   <!-- "W": "https://swapi.co/api/people/12/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":13, -->
+   <!-- "name": "Chewbacca", -->
+   <!-- "description": "228", -->
+   <!-- "D": "112", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "unknown", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "200BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/14/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "https://swapi.co/api/films/3/", -->
+   <!-- "N": "https://swapi.co/api/films/1/", -->
+   <!-- "O": "https://swapi.co/api/films/7/", -->
+   <!-- "P": "https://swapi.co/api/species/3/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/19/", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/10/", -->
+   <!-- "T": "https://swapi.co/api/starships/22/", -->
+   <!-- "U": "2014-12-10T16:42:45.066000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.332000Z", -->
+   <!-- "W": "https://swapi.co/api/people/13/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+  <!-- { -->
+   <!-- "id":14, -->
+   <!-- "name": "Han Solo", -->
+   <!-- "description": "180", -->
+   <!-- "D": "80", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "29BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/22/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/3/", -->
+   <!-- "M": "https://swapi.co/api/films/1/", -->
+   <!-- "N": "https://swapi.co/api/films/7/", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/10/", -->
+   <!-- "T": "https://swapi.co/api/starships/22/", -->
+   <!-- "U": "2014-12-10T16:49:14.582000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.334000Z", -->
+   <!-- "W": "https://swapi.co/api/people/14/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":15, -->
+   <!-- "name": "Greedo", -->
+   <!-- "description": "173", -->
+   <!-- "D": "74", -->
+   <!-- "E": "n/a", -->
+   <!-- "F": "green", -->
+   <!-- "G": "black", -->
+   <!-- "H": "44BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/23/", -->
+   <!-- "K": "https://swapi.co/api/films/1/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/4/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T17:03:30.334000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.336000Z", -->
+   <!-- "W": "https://swapi.co/api/people/15/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":16, -->
+   <!-- "name": "Jabba Desilijic Tiure", -->
+   <!-- "description": "175", -->
+   <!-- "D": "1,358", -->
+   <!-- "E": "n/a", -->
+   <!-- "F": "green-tan, brown", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "600BBY", -->
+   <!-- "I": "hermaphrodite", -->
+   <!-- "J": "https://swapi.co/api/planets/24/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "https://swapi.co/api/films/3/", -->
+   <!-- "M": "https://swapi.co/api/films/1/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/5/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-10T17:11:31.638000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.338000Z", -->
+   <!-- "W": "https://swapi.co/api/people/16/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":18, -->
+   <!-- "name": "Wedge Antilles", -->
+   <!-- "description": "170", -->
+   <!-- "D": "77", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "hazel", -->
+   <!-- "H": "21BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/22/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/3/", -->
+   <!-- "M": "https://swapi.co/api/films/1/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/14/", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/12/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-12T11:08:06.469000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.341000Z", -->
+   <!-- "W": "https://swapi.co/api/people/18/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":19, -->
+   <!-- "name": "Jek Tono Porkins", -->
+   <!-- "description": "180", -->
+   <!-- "D": "110", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/26/", -->
+   <!-- "K": "https://swapi.co/api/films/1/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/12/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-12T11:16:56.569000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.343000Z", -->
+   <!-- "W": "https://swapi.co/api/people/19/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":20, -->
+   <!-- "name": "Yoda", -->
+   <!-- "description": "66", -->
+   <!-- "D": "17", -->
+   <!-- "E": "white", -->
+   <!-- "F": "green", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "896BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/5/", -->
+   <!-- "M": "https://swapi.co/api/films/4/", -->
+   <!-- "N": "https://swapi.co/api/films/6/", -->
+   <!-- "O": "https://swapi.co/api/films/3/", -->
+   <!-- "P": "https://swapi.co/api/species/6/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T12:26:01.042000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.345000Z", -->
+   <!-- "W": "https://swapi.co/api/people/20/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":21, -->
+   <!-- "name": "Palpatine", -->
+   <!-- "description": "170", -->
+   <!-- "D": "75", -->
+   <!-- "E": "grey", -->
+   <!-- "F": "pale", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "82BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/5/", -->
+   <!-- "M": "https://swapi.co/api/films/4/", -->
+   <!-- "N": "https://swapi.co/api/films/6/", -->
+   <!-- "O": "https://swapi.co/api/films/3/", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T12:48:05.971000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.347000Z", -->
+   <!-- "W": "https://swapi.co/api/people/21/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":22, -->
+   <!-- "name": "Boba Fett", -->
+   <!-- "description": "183", -->
+   <!-- "D": "78.2", -->
+   <!-- "E": "black", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "31.5BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/10/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/5/", -->
+   <!-- "M": "https://swapi.co/api/films/3/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/21/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T12:49:32.457000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.349000Z", -->
+   <!-- "W": "https://swapi.co/api/people/22/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":23, -->
+   <!-- "name": "IG-88", -->
+   <!-- "description": "200", -->
+   <!-- "D": "140", -->
+   <!-- "E": "none", -->
+   <!-- "F": "metal", -->
+   <!-- "G": "red", -->
+   <!-- "H": "15BBY", -->
+   <!-- "I": "none", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/2/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T12:51:10.076000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.351000Z", -->
+   <!-- "W": "https://swapi.co/api/people/23/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":24, -->
+   <!-- "name": "Bossk", -->
+   <!-- "description": "190", -->
+   <!-- "D": "113", -->
+   <!-- "E": "none", -->
+   <!-- "F": "green", -->
+   <!-- "G": "red", -->
+   <!-- "H": "53BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/29/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/7/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T12:53:49.297000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.355000Z", -->
+   <!-- "W": "https://swapi.co/api/people/24/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":25, -->
+   <!-- "name": "Lando Calrissian", -->
+   <!-- "description": "177", -->
+   <!-- "D": "79", -->
+   <!-- "E": "black", -->
+   <!-- "F": "dark", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "31BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/30/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "https://swapi.co/api/films/3/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/10/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T12:56:32.683000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.357000Z", -->
+   <!-- "W": "https://swapi.co/api/people/25/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":26, -->
+   <!-- "name": "Lobot", -->
+   <!-- "description": "175", -->
+   <!-- "D": "79", -->
+   <!-- "E": "none", -->
+   <!-- "F": "light", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "37BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/6/", -->
+   <!-- "K": "https://swapi.co/api/films/2/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-15T13:01:57.178000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.359000Z", -->
+   <!-- "W": "https://swapi.co/api/people/26/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":27, -->
+   <!-- "name": "Ackbar", -->
+   <!-- "description": "180", -->
+   <!-- "D": "83", -->
+   <!-- "E": "none", -->
+   <!-- "F": "brown mottle", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "41BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/31/", -->
+   <!-- "K": "https://swapi.co/api/films/3/", -->
+   <!-- "L": "https://swapi.co/api/films/7/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/8/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-18T11:07:50.584000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.362000Z", -->
+   <!-- "W": "https://swapi.co/api/people/27/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":28, -->
+   <!-- "name": "Mon Mothma", -->
+   <!-- "description": "150", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "auburn", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "48BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/32/", -->
+   <!-- "K": "https://swapi.co/api/films/3/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-18T11:12:38.895000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.364000Z", -->
+   <!-- "W": "https://swapi.co/api/people/28/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":29, -->
+   <!-- "name": "Arvel Crynyd", -->
+   <!-- "description": "unknown", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/3/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/28/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-18T11:16:33.020000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.367000Z", -->
+   <!-- "W": "https://swapi.co/api/people/29/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":30, -->
+   <!-- "name": "Wicket Systri Warrick", -->
+   <!-- "description": "88", -->
+   <!-- "D": "20", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "brown", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "8BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/7/", -->
+   <!-- "K": "https://swapi.co/api/films/3/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/9/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-18T11:21:58.954000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.369000Z", -->
+   <!-- "W": "https://swapi.co/api/people/30/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, { -->
+   <!-- "id":31, -->
+   <!-- "name": "Nien Nunb", -->
+   <!-- "description": "160", -->
+   <!-- "D": "68", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/33/", -->
+   <!-- "K": "https://swapi.co/api/films/3/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/10/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/10/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-18T11:26:18.541000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.371000Z", -->
+   <!-- "W": "https://swapi.co/api/people/31/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":32, -->
+   <!-- "name": "Qui-Gon Jinn", -->
+   <!-- "description": "193", -->
+   <!-- "D": "89", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "92BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/38/", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T16:54:53.618000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.375000Z", -->
+   <!-- "W": "https://swapi.co/api/people/32/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":33, -->
+   <!-- "name": "Nute Gunray", -->
+   <!-- "description": "191", -->
+   <!-- "D": "90", -->
+   <!-- "E": "none", -->
+   <!-- "F": "mottled green", -->
+   <!-- "G": "red", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/18/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/11/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:05:57.357000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.377000Z", -->
+   <!-- "W": "https://swapi.co/api/people/33/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":34, -->
+   <!-- "name": "Finis Valorum", -->
+   <!-- "description": "170", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "blond", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "91BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/9/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:21:45.915000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.379000Z", -->
+   <!-- "W": "https://swapi.co/api/people/34/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":35, -->
+   <!-- "name": "Jar Jar Binks", -->
+   <!-- "description": "196", -->
+   <!-- "D": "66", -->
+   <!-- "E": "none", -->
+   <!-- "F": "orange", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "52BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/12/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:29:32.489000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.383000Z", -->
+   <!-- "W": "https://swapi.co/api/people/36/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":36, -->
+   <!-- "name": "Roos Tarpals", -->
+   <!-- "description": "224", -->
+   <!-- "D": "82", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/12/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:32:56.741000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.385000Z", -->
+   <!-- "W": "https://swapi.co/api/people/37/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":37, -->
+   <!-- "name": "Rugor Nass", -->
+   <!-- "description": "206", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "green", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/12/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:33:38.909000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.388000Z", -->
+   <!-- "W": "https://swapi.co/api/people/38/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":38, -->
+   <!-- "name": "Ric Olié", -->
+   <!-- "description": "183", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/40/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:45:01.522000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.392000Z", -->
+   <!-- "W": "https://swapi.co/api/people/39/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":39, -->
+   <!-- "name": "Watto", -->
+   <!-- "description": "137", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "black", -->
+   <!-- "F": "blue, grey", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/34/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/13/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:48:54.647000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.395000Z", -->
+   <!-- "W": "https://swapi.co/api/people/40/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":40, -->
+   <!-- "name": "Sebulba", -->
+   <!-- "description": "112", -->
+   <!-- "D": "40", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey, red", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/35/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/14/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:53:02.586000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.397000Z", -->
+   <!-- "W": "https://swapi.co/api/people/41/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":41, -->
+   <!-- "name": "Quarsh Panaka", -->
+   <!-- "description": "183", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "black", -->
+   <!-- "F": "dark", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "62BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:55:43.348000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.399000Z", -->
+   <!-- "W": "https://swapi.co/api/people/42/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":42, -->
+   <!-- "name": "Shmi Skywalker", -->
+   <!-- "description": "163", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "black", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "72BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T17:57:41.191000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.401000Z", -->
+   <!-- "W": "https://swapi.co/api/people/43/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":43, -->
+   <!-- "name": "Darth Maul", -->
+   <!-- "description": "175", -->
+   <!-- "D": "80", -->
+   <!-- "E": "none", -->
+   <!-- "F": "red", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "54BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/36/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/22/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/42/", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/41/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-19T18:00:41.929000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.403000Z", -->
+   <!-- "W": "https://swapi.co/api/people/44/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":44, -->
+   <!-- "name": "Bib Fortuna", -->
+   <!-- "description": "180", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "pale", -->
+   <!-- "G": "pink", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/37/", -->
+   <!-- "K": "https://swapi.co/api/films/3/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/15/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T09:47:02.512000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.407000Z", -->
+   <!-- "W": "https://swapi.co/api/people/45/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":45, -->
+   <!-- "name": "Ayla Secura", -->
+   <!-- "description": "178", -->
+   <!-- "D": "55", -->
+   <!-- "E": "none", -->
+   <!-- "F": "blue", -->
+   <!-- "G": "hazel", -->
+   <!-- "H": "48BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/37/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/15/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T09:48:01.172000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.409000Z", -->
+   <!-- "W": "https://swapi.co/api/people/46/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":46, -->
+   <!-- "name": "Dud Bolt", -->
+   <!-- "description": "94", -->
+   <!-- "D": "45", -->
+   <!-- "E": "none", -->
+   <!-- "F": "blue, grey", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/39/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/17/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T09:57:31.858000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.414000Z", -->
+   <!-- "W": "https://swapi.co/api/people/48/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":47, -->
+   <!-- "name": "Gasgano", -->
+   <!-- "description": "122", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "white, blue", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/40/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/18/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:02:12.223000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.416000Z", -->
+   <!-- "W": "https://swapi.co/api/people/49/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":48, -->
+   <!-- "name": "Ben Quadinaros", -->
+   <!-- "description": "163", -->
+   <!-- "D": "65", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey, green, yellow", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/41/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/19/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:08:33.777000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.417000Z", -->
+   <!-- "W": "https://swapi.co/api/people/50/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":49, -->
+   <!-- "name": "Mace Windu", -->
+   <!-- "description": "188", -->
+   <!-- "D": "84", -->
+   <!-- "E": "none", -->
+   <!-- "F": "dark", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "72BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/42/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:12:30.846000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.420000Z", -->
+   <!-- "W": "https://swapi.co/api/people/51/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":50, -->
+   <!-- "name": "Ki-Adi-Mundi", -->
+   <!-- "description": "198", -->
+   <!-- "D": "82", -->
+   <!-- "E": "white", -->
+   <!-- "F": "pale", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "92BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/43/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/20/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:15:32.293000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.422000Z", -->
+   <!-- "W": "https://swapi.co/api/people/52/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- },{ -->
+   <!-- "id":51, -->
+   <!-- "name": "Kit Fisto", -->
+   <!-- "description": "196", -->
+   <!-- "D": "87", -->
+   <!-- "E": "none", -->
+   <!-- "F": "green", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/44/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/21/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:18:57.202000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.424000Z", -->
+   <!-- "W": "https://swapi.co/api/people/53/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":52, -->
+   <!-- "name": "Eeth Koth", -->
+   <!-- "description": "171", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "black", -->
+   <!-- "F": "brown", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/45/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/22/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:26:47.902000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.427000Z", -->
+   <!-- "W": "https://swapi.co/api/people/54/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":53, -->
+   <!-- "name": "Adi Gallia", -->
+   <!-- "description": "184", -->
+   <!-- "D": "50", -->
+   <!-- "E": "none", -->
+   <!-- "F": "dark", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/9/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/23/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:29:11.661000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.432000Z", -->
+   <!-- "W": "https://swapi.co/api/people/55/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":54, -->
+   <!-- "name": "Saesee Tiin", -->
+   <!-- "description": "188", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "pale", -->
+   <!-- "G": "orange", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/47/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/24/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:32:11.669000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.434000Z", -->
+   <!-- "W": "https://swapi.co/api/people/56/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":55, -->
+   <!-- "name": "Yarael Poof", -->
+   <!-- "description": "264", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "white", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/48/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/25/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:34:48.725000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.437000Z", -->
+   <!-- "W": "https://swapi.co/api/people/57/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":56, -->
+   <!-- "name": "Plo Koon", -->
+   <!-- "description": "188", -->
+   <!-- "D": "80", -->
+   <!-- "E": "none", -->
+   <!-- "F": "orange", -->
+   <!-- "G": "black", -->
+   <!-- "H": "22BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/49/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/26/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/48/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:49:19.859000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.439000Z", -->
+   <!-- "W": "https://swapi.co/api/people/58/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":57, -->
+   <!-- "name": "Mas Amedda", -->
+   <!-- "description": "196", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "blue", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/50/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/27/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T10:53:26.457000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.442000Z", -->
+   <!-- "W": "https://swapi.co/api/people/59/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":58, -->
+   <!-- "name": "Gregar Typho", -->
+   <!-- "description": "185", -->
+   <!-- "D": "85", -->
+   <!-- "E": "black", -->
+   <!-- "F": "dark", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/39/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T11:10:10.381000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.445000Z", -->
+   <!-- "W": "https://swapi.co/api/people/60/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":59, -->
+   <!-- "name": "Cordé", -->
+   <!-- "description": "157", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T11:11:39.630000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.449000Z", -->
+   <!-- "W": "https://swapi.co/api/people/61/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":60, -->
+   <!-- "name": "Cliegg Lars", -->
+   <!-- "description": "183", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "82BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/1/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T15:59:03.958000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.451000Z", -->
+   <!-- "W": "https://swapi.co/api/people/62/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":61, -->
+   <!-- "name": "Poggle the Lesser", -->
+   <!-- "description": "183", -->
+   <!-- "D": "80", -->
+   <!-- "E": "none", -->
+   <!-- "F": "green", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/11/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/28/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:40:43.977000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.453000Z", -->
+   <!-- "W": "https://swapi.co/api/people/63/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":62, -->
+   <!-- "name": "Luminara Unduli", -->
+   <!-- "description": "170", -->
+   <!-- "D": "56.2", -->
+   <!-- "E": "black", -->
+   <!-- "F": "yellow", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "58BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/51/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/29/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:45:53.668000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.455000Z", -->
+   <!-- "W": "https://swapi.co/api/people/64/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":63, -->
+   <!-- "name": "Barriss Offee", -->
+   <!-- "description": "166", -->
+   <!-- "D": "50", -->
+   <!-- "E": "black", -->
+   <!-- "F": "yellow", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "40BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/51/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/29/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:46:40.440000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.457000Z", -->
+   <!-- "W": "https://swapi.co/api/people/65/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":64, -->
+   <!-- "name": "Dormé", -->
+   <!-- "description": "165", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:49:14.640000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.460000Z", -->
+   <!-- "W": "https://swapi.co/api/people/66/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":65, -->
+   <!-- "name": "Dooku", -->
+   <!-- "description": "193", -->
+   <!-- "D": "80", -->
+   <!-- "E": "white", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "102BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/52/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/55/", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:52:14.726000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.462000Z", -->
+   <!-- "W": "https://swapi.co/api/people/67/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":66, -->
+   <!-- "name": "Bail Prestor Organa", -->
+   <!-- "description": "191", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "black", -->
+   <!-- "F": "tan", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "67BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/2/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:53:08.575000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.463000Z", -->
+   <!-- "W": "https://swapi.co/api/people/68/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":67, -->
+   <!-- "name": "Jango Fett", -->
+   <!-- "description": "183", -->
+   <!-- "D": "79", -->
+   <!-- "E": "black", -->
+   <!-- "F": "tan", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "66BBY", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/53/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:54:41.620000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.465000Z", -->
+   <!-- "W": "https://swapi.co/api/people/69/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":68, -->
+   <!-- "name": "Zam Wesell", -->
+   <!-- "description": "168", -->
+   <!-- "D": "55", -->
+   <!-- "E": "blonde", -->
+   <!-- "F": "fair, green, yellow", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/54/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/30/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/45/", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T16:57:44.471000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.468000Z", -->
+   <!-- "W": "https://swapi.co/api/people/70/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":69, -->
+   <!-- "name": "Dexter Jettster", -->
+   <!-- "description": "198", -->
+   <!-- "D": "102", -->
+   <!-- "E": "none", -->
+   <!-- "F": "brown", -->
+   <!-- "G": "yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/55/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/31/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:28:27.248000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.470000Z", -->
+   <!-- "W": "https://swapi.co/api/people/71/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":70, -->
+   <!-- "name": "Lama Su", -->
+   <!-- "description": "229", -->
+   <!-- "D": "88", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/10/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/32/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:30:50.416000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.473000Z", -->
+   <!-- "W": "https://swapi.co/api/people/72/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+  <!-- { -->
+   <!-- "id":71, -->
+   <!-- "name": "Taun We", -->
+   <!-- "description": "213", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/10/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/32/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:31:21.195000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.474000Z", -->
+   <!-- "W": "https://swapi.co/api/people/73/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":72, -->
+   <!-- "name": "Jocasta Nu", -->
+   <!-- "description": "167", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "white", -->
+   <!-- "F": "fair", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/9/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:32:51.996000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.476000Z", -->
+   <!-- "W": "https://swapi.co/api/people/74/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":73, -->
+   <!-- "name": "Ratts Tyerell", -->
+   <!-- "description": "79", -->
+   <!-- "D": "15", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey, blue", -->
+   <!-- "G": "unknown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/38/", -->
+   <!-- "K": "https://swapi.co/api/films/4/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/16/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T09:53:15.086000Z", -->
+   <!-- "V": "2016-06-30T12:52:19.604868Z", -->
+   <!-- "W": "https://swapi.co/api/people/47/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":74, -->
+   <!-- "name": "R4-P17", -->
+   <!-- "description": "96", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "silver, red", -->
+   <!-- "G": "red, blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:43:36.409000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.478000Z", -->
+   <!-- "W": "https://swapi.co/api/people/75/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":75, -->
+   <!-- "name": "Wat Tambor", -->
+   <!-- "description": "193", -->
+   <!-- "D": "48", -->
+   <!-- "E": "none", -->
+   <!-- "F": "green, grey", -->
+   <!-- "G": "unknown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/56/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/33/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:53:52.607000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.481000Z", -->
+   <!-- "W": "https://swapi.co/api/people/76/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":76, -->
+   <!-- "name": "San Hill", -->
+   <!-- "description": "191", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey", -->
+   <!-- "G": "gold", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/57/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/34/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T17:58:17.049000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.484000Z", -->
+   <!-- "W": "https://swapi.co/api/people/77/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":77, -->
+   <!-- "name": "Shaak Ti", -->
+   <!-- "description": "178", -->
+   <!-- "D": "57", -->
+   <!-- "E": "none", -->
+   <!-- "F": "red, blue, white", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/58/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/35/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T18:44:01.103000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.486000Z", -->
+   <!-- "W": "https://swapi.co/api/people/78/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":78, -->
+   <!-- "name": "Grievous", -->
+   <!-- "description": "216", -->
+   <!-- "D": "159", -->
+   <!-- "E": "none", -->
+   <!-- "F": "brown, white", -->
+   <!-- "G": "green, yellow", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/59/", -->
+   <!-- "K": "https://swapi.co/api/films/6/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/36/", -->
+   <!-- "Q": "https://swapi.co/api/vehicles/60/", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/74/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T19:43:53.348000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.488000Z", -->
+   <!-- "W": "https://swapi.co/api/people/79/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":79, -->
+   <!-- "name": "Tarfful", -->
+   <!-- "description": "234", -->
+   <!-- "D": "136", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "brown", -->
+   <!-- "G": "blue", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/14/", -->
+   <!-- "K": "https://swapi.co/api/films/6/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/3/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T19:46:34.209000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.491000Z", -->
+   <!-- "W": "https://swapi.co/api/people/80/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":80, -->
+   <!-- "name": "Raymus Antilles", -->
+   <!-- "description": "188", -->
+   <!-- "D": "79", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/2/", -->
+   <!-- "K": "https://swapi.co/api/films/6/", -->
+   <!-- "L": "https://swapi.co/api/films/1/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T19:49:35.583000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.493000Z", -->
+   <!-- "W": "https://swapi.co/api/people/81/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":81, -->
+   <!-- "name": "Sly Moore", -->
+   <!-- "description": "178", -->
+   <!-- "D": "48", -->
+   <!-- "E": "none", -->
+   <!-- "F": "pale", -->
+   <!-- "G": "white", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/60/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/6/", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T20:18:37.619000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.496000Z", -->
+   <!-- "W": "https://swapi.co/api/people/82/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":82, -->
+   <!-- "name": "Tion Medon", -->
+   <!-- "description": "206", -->
+   <!-- "D": "80", -->
+   <!-- "E": "none", -->
+   <!-- "F": "grey", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/12/", -->
+   <!-- "K": "https://swapi.co/api/films/6/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/37/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2014-12-20T20:35:04.260000Z", -->
+   <!-- "V": "2014-12-20T21:17:50.498000Z", -->
+   <!-- "W": "https://swapi.co/api/people/83/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":83, -->
+   <!-- "name": "Finn", -->
+   <!-- "description": "unknown", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "black", -->
+   <!-- "F": "dark", -->
+   <!-- "G": "dark", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/7/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2015-04-17T06:52:40.793621Z", -->
+   <!-- "V": "2015-04-17T06:52:40.793674Z", -->
+   <!-- "W": "https://swapi.co/api/people/84/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":84, -->
+   <!-- "name": "Rey", -->
+   <!-- "description": "unknown", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "hazel", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/7/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2015-04-17T06:54:01.495077Z", -->
+   <!-- "V": "2015-04-17T06:54:01.495128Z", -->
+   <!-- "W": "https://swapi.co/api/people/85/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":85, -->
+   <!-- "name": "Poe Dameron", -->
+   <!-- "description": "unknown", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "male", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/7/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/77/", -->
+   <!-- "T": "", -->
+   <!-- "U": "2015-04-17T06:55:21.622786Z", -->
+   <!-- "V": "2015-04-17T06:55:21.622835Z", -->
+   <!-- "W": "https://swapi.co/api/people/86/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":86, -->
+   <!-- "name": "BB8", -->
+   <!-- "description": "unknown", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "none", -->
+   <!-- "F": "none", -->
+   <!-- "G": "black", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "none", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/7/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/2/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2015-04-17T06:57:38.061346Z", -->
+   <!-- "V": "2015-04-17T06:57:38.061453Z", -->
+   <!-- "W": "https://swapi.co/api/people/87/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":87, -->
+   <!-- "name": "Captain Phasma", -->
+   <!-- "description": "unknown", -->
+   <!-- "D": "unknown", -->
+   <!-- "E": "unknown", -->
+   <!-- "F": "unknown", -->
+   <!-- "G": "unknown", -->
+   <!-- "H": "unknown", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/28/", -->
+   <!-- "K": "https://swapi.co/api/films/7/", -->
+   <!-- "L": "", -->
+   <!-- "M": "", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "", -->
+   <!-- "T": "", -->
+   <!-- "U": "2015-10-13T10:35:39.229823Z", -->
+   <!-- "V": "2015-10-13T10:35:39.229894Z", -->
+   <!-- "W": "https://swapi.co/api/people/88/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- }, -->
+ <!-- { -->
+   <!-- "id":88, -->
+   <!-- "name": "Padmé Amidala", -->
+   <!-- "description": "165", -->
+   <!-- "D": "45", -->
+   <!-- "E": "brown", -->
+   <!-- "F": "light", -->
+   <!-- "G": "brown", -->
+   <!-- "H": "46BBY", -->
+   <!-- "I": "female", -->
+   <!-- "J": "https://swapi.co/api/planets/8/", -->
+   <!-- "K": "https://swapi.co/api/films/5/", -->
+   <!-- "L": "https://swapi.co/api/films/4/", -->
+   <!-- "M": "https://swapi.co/api/films/6/", -->
+   <!-- "N": "", -->
+   <!-- "O": "", -->
+   <!-- "P": "https://swapi.co/api/species/1/", -->
+   <!-- "Q": "", -->
+   <!-- "R": "", -->
+   <!-- "S": "https://swapi.co/api/starships/49/", -->
+   <!-- "T": "https://swapi.co/api/starships/64/", -->
+   <!-- "U": "2014-12-19T17:28:26.926000Z", -->
+   <!-- "V": "2016-04-20T17:06:31.502555Z", -->
+   <!-- "W": "https://swapi.co/api/people/35/", -->
+   <!-- "X": "", -->
+   <!-- "Y": "", -->
+   <!-- "Z": "https://swapi.co/api/starships/39/", -->
+   <!-- "AA": "", -->
+   <!-- "AB": "" -->
+ <!-- } -->
+ <!-- ] -->
+	
+
+	</script>
+    <script src="vendors/underscore/underscore-min.js"></script>
+    <script src="js/PersonApp.js"></script>
+    <script src="js/PersonModel.js"></script>
+	<script src="js/PersonController.js"></script>
+    <script src="js/PersonView.js"></script>
+    <script src="js/PersonListView.js"></script>
+    <script>
+        PersonApp.init();
+    </script>
+	
+</body>
+</html>

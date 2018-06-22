@@ -1,0 +1,99 @@
+@font-face {
+    /* font-family: "Star Jedi"; */
+    /* src: url(./fonts/Starjedi/Starjedi.ttf); */
+    /* font-weight: 400; */
+    /* font-style: normal */
+	
+	font-family: "Star Jedi";
+    src: url(Starjedi.ttf);
+	
+}
+
+body {
+     background-image: url("http://media.moddb.com/images/mods/1/12/11431/auto/1358622674space00.jpg");
+	 background-repeat: no-repeat;
+}
+
+
+.vert_menu ul { 
+   list-style-type: none;
+    margin: 20px;
+	margin-top: 150px;
+    padding: 9px;
+    overflow: hidden;
+    background-color: rgb(23,12,50);
+	position: fixed;
+	background-image: url(" https://images.pexels.com/photos/957061/milky-way-starry-sky-night-sky-star-957061.jpeg?auto=compress&cs=tinysrgb&h=350 ");
+	background-size: 180% 190%;
+	
+	
+}
+
+.vert_menuu ul li { 
+display: inline; 
+}
+
+.vert_menu ul li a {
+	height: 40px;
+    display: inline-block;
+    color: white;
+    display: block;
+    padding-left: 15px;
+	padding: 10px;
+    text-decoration: none;
+	font-size: 16px;
+	font-family: 'Star Jedi', cursive;
+	text-align: center;
+	background-image: url(" https://image.freepik.com/vetores-gratis/abstrato-ceu-noturna-estrela-azul-galaxia-fundo_1035-11507.jpg ");
+	background-size: 100% 160%;
+	opacity: 0.68;
+}
+.vert_menu ul li a:hover {
+	 background-color: rgb(204,189,223);
+}	
+.vert_menu .active{
+	 /* background-color: rgb(204,189,223); */
+    /* color: black; */
+	 font-size: 18px;
+     background-image: url("https://cdn.pixabay.com/photo/2017/06/03/18/21/star-wars-2369316_960_720.jpg");
+	 background-size: 100% 160%;
+}
+
+.hor_menu ul { 
+
+    list-style-type: none;
+    margin: 20px;
+	margin-bottom: 50px;
+    padding: 9px;
+    overflow: hidden;
+    background-color: rgb(23,12,50);
+	opacity: 0.7;
+	position: fixed;
+   
+}
+
+.hor_menu ul li { 
+    float: left;
+	padding-right: 10px;
+}
+
+.hor_menu ul li a {
+	background-color: rgb(43,29,60);
+    display: inline-block;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-size: 16px;
+}
+.hor_menu ul li a:hover {
+	background-color: rgb(204,189,223);
+}	
+.hor_menu .active{
+	background-color: rgb(204,189,223);
+    color: black;
+	font-size: 18px;
+}
+
+
