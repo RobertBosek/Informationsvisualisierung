@@ -4,7 +4,7 @@ R2-D2,Rebel Alliance
 Darth Vader,Galactic Empire
 Leia Organa,Rebel Alliance
 Owen Lars,Neutral
-Beru Whitesun lars,Neutral
+Beru Whitesun larsNeutral
 R5-D4,Neutral
 Biggs Darklighter,Rebel Alliance
 Obi-Wan Kenobi,Rebel Alliance
@@ -40,7 +40,7 @@ Sebulba,Neutral
 Quarsh Panaka,Galactic Empire
 Shmi Skywalker,Rebel Alliance
 Darth Maul,Galactic Empire
-Bib Fortuna,Neutral
+Bib Fortuna,Neutral,
 Ayla Secura,Rebel Alliance
 Dud Bolt,Neutral
 Gasgano,Neutral
