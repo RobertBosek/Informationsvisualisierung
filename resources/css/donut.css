@@ -1,0 +1,21 @@
+#inputs {
+    font: 11px 'Arial';
+    color: white;
+    text-align: center;
+}
+#tooltipDiv {
+    color: white;
+    text-align: center;
+    font: 30px 'Arial';
+}
+.chartDiv {
+    fill: black;
+    text-align: center;
+    font: 30px 'Arial';
+    height: 100%;
+}
+#hover {
+    cursor: pointer;
+}
+        
+        
