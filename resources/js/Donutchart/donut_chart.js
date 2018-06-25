@@ -5,7 +5,7 @@
     var d3 = d3 || {};
     var fileData;
     var eyeColorsToVis = [], genToVis = [], fractionWeightToVis = [], hairColorsToVis = [], skinColorsToVis = [];
-    var onChangee
+    var onChangee    
 
     function doDonut() {
 
@@ -18,18 +18,28 @@
             function getFractionWeight(fileData) {
                 
                 var arrFraction = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
-                var fractionNames = ["Rebel Alliance", "Galactic Empire", "Neutral"];
+                var fractionNames = ['Rebel Alliance', 'Galactic Empire', 'Neutral'];
                 
+                var request = new XMLHttpRequest();
+                request.open("GET", "data/database/people_fractions.csv", false);
+                request.send(null);
+                
+                var csvData = new Array();
+                var jsonObject = request.responseText.split(/\r?\n|\r/);
+                for (var h = 0; h < jsonObject.length; h++) {
+                    csvData.push(jsonObject[h].split(','));
+                }
+
                 for (var i = 0; i < fileLength; i++){
-                    if (fileData[i]["fraction"] === fractionNames[0]) {	
-                        arrFraction[0].push(fileData[i]["name"]);
-                    } else if (fileData[i]["fraction"] === fractionNames[1]) {
-                        arrFraction[1].push(fileData[i]["name"]);
+                    if (csvData[i][1] === fractionNames[0]) {	
+                        arrFraction[0].push(fileData[i]['name']);
+                    } else if (csvData[i][1] === fractionNames[1]) {
+                        arrFraction[1].push(fileData[i]['name']);
                     } else { 
-                        arrFraction[2].push(fileData[i]["name"]);
+                        arrFraction[2].push(fileData[i]['name']);
                     }
                 }
-               
+                
 
                 for (var j = 0; j < fractionNames.length; j++) {
                     var newObject = {name: fractionNames[j], value: "" + arrFraction[j].length, character: "" + arrFraction[j]};
@@ -51,12 +61,12 @@
                 var gender = ["male", "female", "genderless"];
 
                 for (var i = 0; i < fileLength; i++) {
-                    if (fileData[i]["gender"] === "male") {	
-                        arrGender[0].push(fileData[i]["name"]);
-                    } else if (fileData[i]["gender"] === "female") {
-                        arrGender[1].push(fileData[i]["name"]);
+                    if (fileData[i]['gender'] === 'male') {	
+                        arrGender[0].push(fileData[i]['name']);
+                    } else if (fileData[i]['gender'] === 'female') {
+                        arrGender[1].push(fileData[i]['name']);
                     } else {
-                        arrGender[2].push(fileData[i]["name"]);
+                        arrGender[2].push(fileData[i]['name']);
                     }
                 }
                 for (var k = 0; k < arrGender.length; k++) {
@@ -79,72 +89,72 @@
                 var skinColors = [];
                 var arrSkinColor = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
-                skinColors[0] = fileData[0]["skin_color"];
+                skinColors[0] = fileData[0]['skin_color'];
                 for (var i = 1; i < fileLength; i++) {
-                    if (skinColors.indexOf(fileData[i]["skin_color"]) === -1) {
-                        skinColors.push(fileData[i]["skin_color"]);
+                    if (skinColors.indexOf(fileData[i]['skin_color']) === -1) {
+                        skinColors.push(fileData[i]['skin_color']);
                     }
                 }
 
                 for (var j = 0; j < fileLength; j++) {
-                    if (fileData[j]["skin_color"] === skinColors[0]) {
-                        arrSkinColor[0].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[1]) {
-                        arrSkinColor[1].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[2]) {
-                        arrSkinColor[2].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[3]) {
-                        arrSkinColor[3].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[4]) {
-                        arrSkinColor[4].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[5] || fileData[j]["skin_color"] === skinColors[30] ) {
-                        arrSkinColor[5].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[6]) {
-                        arrSkinColor[6].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[7]) {
-                        arrSkinColor[7].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[8]) {
-                        arrSkinColor[8].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[9]) {
-                        arrSkinColor[9].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[10]) {
-                        arrSkinColor[10].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[11]) {
-                        arrSkinColor[11].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[12]) {
-                        arrSkinColor[12].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[14]) {
-                        arrSkinColor[13].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[15]) {
-                        arrSkinColor[14].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[16]) {
-                        arrSkinColor[15].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[17] || fileData[j]["skin_color"] === skinColors[25]) {
-                        arrSkinColor[16].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[18]) {
-                        arrSkinColor[17].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[19]) {
-                        arrSkinColor[18].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[20]) {
-                        arrSkinColor[19].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[21]) {
-                        arrSkinColor[20].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[22]) {
-                        arrSkinColor[21].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[23]) {
-                        arrSkinColor[22].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[24]) {
-                        arrSkinColor[23].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[26]) {
-                        arrSkinColor[25].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[27]) {
-                        arrSkinColor[26].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[28]) {
-                        arrSkinColor[27].push(fileData[j]["name"]);
-                    } else if (fileData[j]["skin_color"] === skinColors[29]) {
-                        arrSkinColor[28].push(fileData[j]["name"]);
+                    if (fileData[j]['skin_color'] === skinColors[0]) {
+                        arrSkinColor[0].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[1]) {
+                        arrSkinColor[1].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[2]) {
+                        arrSkinColor[2].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[3]) {
+                        arrSkinColor[3].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[4]) {
+                        arrSkinColor[4].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[5] || fileData[j]['skin_color'] === skinColors[30] ) {
+                        arrSkinColor[5].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[6]) {
+                        arrSkinColor[6].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[7]) {
+                        arrSkinColor[7].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[8]) {
+                        arrSkinColor[8].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[9]) {
+                        arrSkinColor[9].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[10]) {
+                        arrSkinColor[10].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[11]) {
+                        arrSkinColor[11].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[12]) {
+                        arrSkinColor[12].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[14]) {
+                        arrSkinColor[13].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[15]) {
+                        arrSkinColor[14].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[16]) {
+                        arrSkinColor[15].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[17] || fileData[j]['skin_color'] === skinColors[25]) {
+                        arrSkinColor[16].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[18]) {
+                        arrSkinColor[17].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[19]) {
+                        arrSkinColor[18].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[20]) {
+                        arrSkinColor[19].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[21]) {
+                        arrSkinColor[20].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[22]) {
+                        arrSkinColor[21].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[23]) {
+                        arrSkinColor[22].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[24]) {
+                        arrSkinColor[23].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[26]) {
+                        arrSkinColor[25].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[27]) {
+                        arrSkinColor[26].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[28]) {
+                        arrSkinColor[27].push(fileData[j]['name']);
+                    } else if (fileData[j]['skin_color'] === skinColors[29]) {
+                        arrSkinColor[28].push(fileData[j]['name']);
                     } else {
-                        arrSkinColor[29].push(fileData[j]["name"]);
+                        arrSkinColor[29].push(fileData[j]['name']);
                     }
                 }
 
@@ -162,35 +172,35 @@
                 var hairColors = [];
                 var arrHairColor = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 
-                hairColors[0] = fileData[0]["hair_color"];
+                hairColors[0] = fileData[0]['hair_color'];
                 for (var i = 1; i < fileLength; i++) {
-                    if (hairColors.indexOf(fileData[i]["hair_color"]) === -1) {
-                        hairColors.push(fileData[i]["hair_color"]);
+                    if (hairColors.indexOf(fileData[i]['hair_color']) === -1) {
+                        hairColors.push(fileData[i]['hair_color']);
                     }
                 }	
                 for (var j = 0; j < fileLength; j++) {
-                    if (fileData[j]["hair_color"] === hairColors[0]) {
-                        arrHairColor[0].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[1] || fileData[j]["hair_color"] === hairColors[2] || fileData[j]["hair_color"] === hairColors[12]) {
-                        arrHairColor[2].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[3]) {
-                        arrHairColor[3].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[4]) {
-                        arrHairColor[4].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[5]) {
-                        arrHairColor[5].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[6]) {
-                        arrHairColor[6].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[7]) {
-                        arrHairColor[7].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[8]) {
-                        arrHairColor[8].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[9]) {
-                        arrHairColor[9].push(fileData[j]["name"]);
-                    } else if (fileData[j]["hair_color"] === hairColors[10]) {
-                        arrHairColor[10].push(fileData[j]["name"]);
+                    if (fileData[j]['hair_color'] === hairColors[0]) {
+                        arrHairColor[0].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[1] || fileData[j]['hair_color'] === hairColors[2] || fileData[j]['hair_color'] === hairColors[12]) {
+                        arrHairColor[2].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[3]) {
+                        arrHairColor[3].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[4]) {
+                        arrHairColor[4].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[5]) {
+                        arrHairColor[5].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[6]) {
+                        arrHairColor[6].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[7]) {
+                        arrHairColor[7].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[8]) {
+                        arrHairColor[8].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[9]) {
+                        arrHairColor[9].push(fileData[j]['name']);
+                    } else if (fileData[j]['hair_color'] === hairColors[10]) {
+                        arrHairColor[10].push(fileData[j]['name']);
                     } else {
-                        arrHairColor[11].push(fileData[j]["name"]);
+                        arrHairColor[11].push(fileData[j]['name']);
                     }
                 }
 
@@ -214,44 +224,44 @@
                 var eyeColors = [];
                 var arrEyeColor = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
-                eyeColors[0] = fileData[0]["eye_color"];
+                eyeColors[0] = fileData[0]['eye_color'];
                 for (var i = 1; i < fileLength; i++) {
-                    if (eyeColors.indexOf(fileData[i]["eye_color"]) === -1) {
-                        eyeColors.push(fileData[i]["eye_color"]);
+                    if (eyeColors.indexOf(fileData[i]['eye_color']) === -1) {
+                        eyeColors.push(fileData[i]['eye_color']);
                     }
                 }
 
                 for (var j = 0; j < fileLength; j++) {
-                    if (fileData[j]["eye_color"] === eyeColors[0]) {
-                        arrEyeColor[0].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[1]) {
-                        arrEyeColor[1].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[2]) {
-                        arrEyeColor[2].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[3]) {
-                        arrEyeColor[3].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[4]) {
-                        arrEyeColor[4].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[5]) {
-                        arrEyeColor[5].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[6]) {
-                        arrEyeColor[6].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[7]) {
-                        arrEyeColor[7].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[8]) {
-                        arrEyeColor[8].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[9]) {
-                        arrEyeColor[9].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[10]) {
-                        arrEyeColor[10].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[11]) {
-                        arrEyeColor[11].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[12]) {
-                        arrEyeColor[12].push(fileData[j]["name"]);
-                    } else if (fileData[j]["eye_color"] === eyeColors[13]) {
-                        arrEyeColor[13].push(fileData[j]["name"]);
+                    if (fileData[j]['eye_color'] === eyeColors[0]) {
+                        arrEyeColor[0].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[1]) {
+                        arrEyeColor[1].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[2]) {
+                        arrEyeColor[2].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[3]) {
+                        arrEyeColor[3].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[4]) {
+                        arrEyeColor[4].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[5]) {
+                        arrEyeColor[5].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[6]) {
+                        arrEyeColor[6].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[7]) {
+                        arrEyeColor[7].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[8]) {
+                        arrEyeColor[8].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[9]) {
+                        arrEyeColor[9].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[10]) {
+                        arrEyeColor[10].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[11]) {
+                        arrEyeColor[11].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[12]) {
+                        arrEyeColor[12].push(fileData[j]['name']);
+                    } else if (fileData[j]['eye_color'] === eyeColors[13]) {
+                        arrEyeColor[13].push(fileData[j]['name']);
                     } else { 
-                        arrEyeColor[14].push(fileData[j]["name"]);
+                        arrEyeColor[14].push(fileData[j]['name']);
                     }
                 }
 
@@ -386,7 +396,7 @@
                     .duration(750)
                     .attrTween("d", arcTween)
                     .attr("fill", function (d, i) {
-                        var nodeList = document.querySelectorAll("input[name='radData']");
+                        var nodeList = document.querySelectorAll('input[name="radData"]');
                         var id = getButtonId(nodeList);
                         var color = changeColorSet(id);
                         return color [i];
