@@ -7,12 +7,14 @@
         <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
         <link rel="stylesheet" type="text/css" href="resources/css/donut.css">
 		
+		
+		<!---People CSS, Font--------------------------------------------------------------------------------------------------------------->
 		<!-- Searchapp CSS -->
 		<link rel="stylesheet" type="text/css" href="resources/css/people.css">
 		<!-- Searchapp Fonts -->
 		<link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
-		
+		<!-------------------------------------------------------------------------------------------------------------------------------->
 		
 		
     </head>
@@ -28,8 +30,7 @@
         </nav>
 		
 		
-		<!-- People HTML -->
-	
+		<!-- People HTML -------------------------------------------------------------------------------------------------------------->
 		<content>
 			<div class="person-menu">
 				<input type="text" class="person-search" />
@@ -51,20 +52,21 @@
 					<span class="person-name"><%= name %></span>
 			</li>
 		</script>
+		
 		<script type="text/template" id="person-entry">
 			<li class="person-list-entry" person-id="<%= url %>">
-				<img src="<%= "data/images/people/full/" + url + ".jpg" %>" class="person-image" />
+				<img src="<%= "data/images/people/full/" + url + ".jpg" %>" class="person-image" style="width:100%"/>
+				<button class="btn-close">X</button>
+				
 				<div class="person-interface">
 					<div class="person-info-box">
 						<span class="person-name"><%= name %></span>
-					
-							<span class="person-img-remove button"><i class="fa fa-close button closeWindow" aria-hidden="true"></i></span>
 						</div>
 					</div>
 				</div>
 			</li>
 		</script>
-	<!-- ------------------------------------->
+	<!-------------------------------------------------------------------------------------------------------------------------------->
 	
 	
 	
@@ -104,6 +106,8 @@
         <script type="text/javascript" src="resources/js/Donutchart/donut_chart.js"></script>
 		
 		
+		
+		<!-------People JS----------------------------------------------------------------------------------------------------------------->
 		<!-- Searchapp Underscore -->
 		<script src="vendors/underscore/underscore-min.js"></script>
 		<!-- Searchapp JS-Files -->
@@ -115,6 +119,7 @@
 		<script>
         PersonApp.init();
 		</script>
-		
+		<!-------------------------------------------------------------------------------------------------------------------------------->
+
     </body>
 </html>

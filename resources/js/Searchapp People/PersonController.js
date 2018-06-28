@@ -13,7 +13,8 @@ PersonApp.PersonController = function() {
 	personID,
 	listEntry,
 	personImgGallery,
-	closeWindowBtn;
+	closeWindowBtn,
+	selectedEntry;
 	
   function searchInputChanged(event) {
     _.each(searchInputEventListener, function(callback) {
@@ -22,10 +23,9 @@ PersonApp.PersonController = function() {
   }
 
   function clickedPersonEntryListener(event) {
-    if (!event.target.parentElement.classList.contains("person-list-entry")) {
+	if (!event.target.parentElement.classList.contains("person-list-entry")) {
       return;
     }
-	
     listEntry = findParentClass(event.target, "person-list-entry");
 	personID = listEntry.getAttribute("person-id");
     _.each(addCallbacks, function(callback) {
@@ -34,48 +34,54 @@ PersonApp.PersonController = function() {
   }
   
    function mouseoutEvent() {
-	   
 	   personImgGallery = document.querySelector(".person-gallery .person-list");
 	   personImgGallery.innerHTML="";
-    // if (!event.target.parentElement.classList.contains("person-list-entry")) {
-      // return;
-    // }
   }
   
-  var selectedEntry;
   function mouseoverEvent(event) {
+	 if (!event.target.parentElement.classList.contains("person-list-entry")) {
+      return;
+    }
 	
+	//when the mouse is over an list entry, then remove the event listener for 
+	//then the mouse out should be innactive (removed listener) and 
+	//the element should not be clicked before
 	document.querySelector('.person-menu .person-list').removeEventListener("mouseout", mouseoutEvent);
 	document.querySelector('.person-menu .person-list').removeEventListener("mouseover", clickedPersonEntryListener);
 	selectedEntry = event.target.parentElement;
 	
-	//get the id of the current selected entry
+	//currSelectedEntryID is the list entry on which the mouse is over
 	var currSelectedEntryID = selectedEntry.getAttribute("person-id");
 	
-	//compare if the id of the current selected entry is equal to the id of the
-	//entry that is already selected
 	if (personID===currSelectedEntryID){
 		selectedEntry.style.backgroundColor = "rgb(154, 143, 167)"; 	
 	}
   }
+  
    function removedPersonImg(event) {
-	
+	   closeWindowBtn = findParentClass(event.target, "person-list-entry");
+	   if(event.target.className === "btn-close"){
+		 
+		var menuListEntries = document.querySelector('.person-menu .person-list').childNodes;
+		   for (var i = 1; i < menuListEntries.length; i++) {
+			   var entryIdAttr = menuListEntries[i].getAttribute("person-id");
+			   
+			   //checks which id from the list entries is the selected entry
+			   if(entryIdAttr === personID){
+				    menuListEntries[i].style.backgroundColor="white";
+			   }
+	   }
+	   closeWindowBtn.parentNode.removeChild(closeWindowBtn);
+	   }else{
+		   return;
+	   }
 	personImgGallery = document.querySelector(".person-menu .person-list");
-	personList = document.querySelector(".person-menu .person-list");
-
-    var y = personList.getElementsByTagName("li");
-    var i;
-    for (i = 0; i < y.length; i++) {
-        y[i].style.backgroundColor = "rgb(255, 255, 255)";
-    }
-	
-    closeWindowBtn = findParentClass(event.target, "person-list-entry");
-    closeWindowBtn.parentNode.removeChild(closeWindowBtn);
-	
-	personList.addEventListener("mouseover", clickedPersonEntryListener);
-
 	personImgGallery.addEventListener("mouseout", mouseoutEvent);
+	personList = document.querySelector(".person-menu .person-list");
+	personList.addEventListener("mouseover", clickedPersonEntryListener);
   }
+  
+  //finds the parent class of the current target
   function findParentClass(child, targetClass) {
     var parent = child.parentElement;
     while (!parent.classList.contains(targetClass)) {
@@ -88,22 +94,28 @@ PersonApp.PersonController = function() {
   }
  
   function init() {
+	  
+	//initialise the events
+	//events for: search input; when a list entry is clicked; when the mouse over a list entry is;
+	//		 when the mouse out of a list entry is; when a image is removed (by click on the "X" button on the 
+	//		 right top corner of the image
 	searchInput = document.querySelector(".person-search");
     personList = document.querySelector(".person-menu .person-list");
 	personImgGallery = document.querySelector(".person-menu .person-list");
 	
     personListEntry = document.querySelector(".person-menu .person-list");
-	closeWindowBtn = 	document.querySelector(".person-gallery .person-list");
+	closeWindowBtn = document.querySelector(".person-gallery .person-list");
+	
     searchInput.addEventListener("input", searchInputChanged);
     personList.addEventListener("mouseover", clickedPersonEntryListener);
 	
-	
 	personImgGallery.addEventListener("mouseout", mouseoutEvent);
+	
+	//the event when an entry is clicked is the same as the event when the mouse over this entry is
     personListEntry.addEventListener("click", mouseoverEvent);
 	closeWindowBtn.addEventListener("click", removedPersonImg);
     return that;
   }
-  
   
   function setChangedSearchInputListener(callback) {
     searchInputEventListener.push(callback);

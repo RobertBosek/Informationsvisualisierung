@@ -12,23 +12,25 @@ PersonApp.PersonModel = function(options) {
    xmlhttp.onreadystatechange = function() {
     if (this.status == 200) { 
          jsonData = JSON.parse(this.responseText);
-		
-	for(var i = 0; i<jsonData.length; i++){
-		var jsontoInt=jsonData[i]["url"];
-		var lastCharJsonValueID=jsontoInt.charAt(jsontoInt.length-2);
-		var preLastCharJsonValueID=jsontoInt.charAt(jsontoInt.length-3);
-		var str = parseInt(preLastCharJsonValueID + lastCharJsonValueID);
-	
-		if(isNaN(str)){
-				jsontoInt = jsontoInt.slice(jsontoInt.length-2,jsontoInt.length-1);
-		}else{
-				jsontoInt = jsontoInt.slice(jsontoInt.length-3,jsontoInt.length-1);
-		}
-		
-		jsontoInt = parseInt(jsontoInt);
-		jsonData[i]["url"] = jsontoInt;
-	}
 		 
+	for(var i = 0; i<jsonData.length; i++){
+		
+		//get the values from the json file, values key is "url"
+		var jsonUrlEl = jsonData[i]["url"];
+		
+		//the last number or the last 2 numbers of the jsonUrlEl is the id of the element
+		var lastCharJsonValueID = jsonUrlEl.charAt(jsonUrlEl.length-2);
+		var preLastCharJsonValueID = jsonUrlEl.charAt(jsonUrlEl.length-3);
+		
+		var str = parseInt(preLastCharJsonValueID + lastCharJsonValueID);
+		if(isNaN(str)){
+				jsonUrlEl = jsonUrlEl.slice(jsonUrlEl.length-2,jsonUrlEl.length-1);
+		}else{
+				jsonUrlEl = jsonUrlEl.slice(jsonUrlEl.length-3,jsonUrlEl.length-1);
+		}
+		jsonUrlEl = parseInt(jsonUrlEl);
+		jsonData[i]["url"] = jsonUrlEl;
+	}
 		 
 	personList = _.sortBy(jsonData, function(person){
 		return person.name;
