@@ -32,7 +32,7 @@ body {
 
 .main-padding {
   padding-left: 20px;
-  padding-top: 20px;
+  padding-top: 400px;
 }
 
 .sub-padding {
@@ -90,7 +90,8 @@ margin-top: 50px;
   margin: 5px;
   padding: 10px;
   background-color: #303030;
-  word-wrap: break-word; word-break: break-all;
+  word-wrap: break-word; 
+  word-break: break-all;
 }
 
 .edit-buttons{
