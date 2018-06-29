@@ -31,7 +31,6 @@ var PersonApp = (function() {
     function initPersonModel() {
         personModel = (new PersonApp.PersonModel({
         })).init();
-		
     }
 
     function initPersonController() {

@@ -13,7 +13,6 @@ PersonApp.PersonView = function() {
  
 
   function addEntryPersonImg(person) {
-	  
     var nodeEntry, existingNode;
 	existingNode = personList.querySelector("[person-id='" + person.url + "']");
     if (existingNode !== null) {

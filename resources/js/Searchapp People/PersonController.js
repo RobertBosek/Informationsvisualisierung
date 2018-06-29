@@ -4,9 +4,9 @@ PersonApp.PersonController = function() {
 	
   "use strict";
   var that = {},
-    removedEventListener = [],
-    addCallbacks = [],
-    searchInputEventListener = [],
+    removedEventListener = [], //stores the events when the close button of an image is clicked
+    addCallbacks = [], //stores the events for added person to the list
+    searchInputEventListener = [], //stores the events for the search input
     personList,
     searchInput,
     personListEntry,
@@ -16,12 +16,14 @@ PersonApp.PersonController = function() {
 	closeWindowBtn,
 	selectedEntry;
 	
+  //listener for changed search input
   function searchInputChanged(event) {
     _.each(searchInputEventListener, function(callback) {
       callback(event.target.value);
     });
   }
 
+  //listener for clicked person from the menu
   function clickedPersonEntryListener(event) {
 	if (!event.target.parentElement.classList.contains("person-list-entry")) {
       return;
@@ -43,8 +45,8 @@ PersonApp.PersonController = function() {
       return;
     }
 	
-	//when the mouse is over an list entry, then remove the event listener for 
-	//then the mouse out should be innactive (removed listener) and 
+	//when the mouse is over some list entry
+	//then the "mouse out"-event should be innactive (removed listener) and 
 	//the element should not be clicked before
 	document.querySelector('.person-menu .person-list').removeEventListener("mouseout", mouseoutEvent);
 	document.querySelector('.person-menu .person-list').removeEventListener("mouseover", clickedPersonEntryListener);
@@ -52,20 +54,20 @@ PersonApp.PersonController = function() {
 	
 	//currSelectedEntryID is the list entry on which the mouse is over
 	var currSelectedEntryID = selectedEntry.getAttribute("person-id");
-	
 	if (personID===currSelectedEntryID){
 		selectedEntry.style.backgroundColor = "rgb(154, 143, 167)"; 	
 	}
   }
   
+  //listener for the close button, when the close button is clicked
+  //the image from the gallery of the right side of the menu should be
+  //removed
    function removedPersonImg(event) {
 	   closeWindowBtn = findParentClass(event.target, "person-list-entry");
 	   if(event.target.className === "btn-close"){
-		 
 		var menuListEntries = document.querySelector('.person-menu .person-list').childNodes;
 		   for (var i = 1; i < menuListEntries.length; i++) {
 			   var entryIdAttr = menuListEntries[i].getAttribute("person-id");
-			   
 			   //checks which id from the list entries is the selected entry
 			   if(entryIdAttr === personID){
 				    menuListEntries[i].style.backgroundColor="white";
@@ -81,7 +83,7 @@ PersonApp.PersonController = function() {
 	personList.addEventListener("mouseover", clickedPersonEntryListener);
   }
   
-  //finds the parent class of the current target
+  //finds the parent class of the current target class
   function findParentClass(child, targetClass) {
     var parent = child.parentElement;
     while (!parent.classList.contains(targetClass)) {
@@ -95,23 +97,23 @@ PersonApp.PersonController = function() {
  
   function init() {
 	  
-	//initialise the events
-	//events for: search input; when a list entry is clicked; when the mouse over a list entry is;
-	//		 when the mouse out of a list entry is; when a image is removed (by click on the "X" button on the 
-	//		 right top corner of the image
 	searchInput = document.querySelector(".person-search");
     personList = document.querySelector(".person-menu .person-list");
 	personImgGallery = document.querySelector(".person-menu .person-list");
-	
     personListEntry = document.querySelector(".person-menu .person-list");
 	closeWindowBtn = document.querySelector(".person-gallery .person-list");
 	
+	//initialise the events
+	//events for: (1) search input; (2) when a list entry is clicked; (3) when the mouse over a list entry is;
+	//		 (4) when the mouse out of a list entry is; (5) when an image is removed (by click on the "X" button on the 
+	//		 right top corner of the image
+	
     searchInput.addEventListener("input", searchInputChanged);
     personList.addEventListener("mouseover", clickedPersonEntryListener);
-	
 	personImgGallery.addEventListener("mouseout", mouseoutEvent);
 	
-	//the event when an entry is clicked is the same as the event when the mouse over this entry is
+	//the event when an entry is clicked is the same as the event when the mouse 
+	//over this entry is (the color is also the same)
     personListEntry.addEventListener("click", mouseoverEvent);
 	closeWindowBtn.addEventListener("click", removedPersonImg);
     return that;

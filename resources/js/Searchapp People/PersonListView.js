@@ -5,6 +5,7 @@ PersonApp.PersonListView = function() {
     personList;
 
 
+	//initialise PersonListView and create entry template
   function init() {
 	var entryEl = document.querySelector("#person-list-entry").innerHTML;
 	createEntryTemplate = _.template(entryEl);
