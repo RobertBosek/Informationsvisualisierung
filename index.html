@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Star Wars Universe</title>
         <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
     </head>
     <body>
       <div id="wrapper">
@@ -20,21 +21,18 @@
           <div>
             <h1>Episodes</h1>
             <div id="film-div" class="horizontal">
-              <img src="" class="films">
             </div>
           </div>
           <div>
             <h1>Planets</h1>
             <div id="planet-div" class="horizontal">
-              <div class="planet-container">
-                <img src="" class="planets">
-              </div>
+<!--              <div class="planet-container"> -->
+<!--              </div> -->
             </div>
           </div>
           <div>
             <h1>Starships</h1>
             <div id="starship-div">
-              <img id="template">
             </div>
           </div>
           <div>
@@ -48,7 +46,6 @@
             </div>
           </div>
         </div>
-        <script type"text/javascript" src="data/database/films.json"></script>
         <script type"text/javascript" src="data/database/people.json"></script>
         <script type"text/javascript" src="data/database/planets.json"></script>
         <script type"text/javascript" src="data/database/species.json"></script>
@@ -59,5 +56,9 @@
         <script src="resources/js/Universe/UniverseView.js"></script>
         <script src="resources/js/Universe/UniverseModel.js"></script>
         <script src="resources/js/Universe/UniverseAdministration.js"></script>
+        <script src="resources/js/Universe/film.js"></script>
+        <script src="resources/js/Universe/planet.js"></script>
+        <script src="resources/js/Universe/character.js"></script>
+        <script src="resources/js/Universe/starship.js"></script>
     </body>
 </html>

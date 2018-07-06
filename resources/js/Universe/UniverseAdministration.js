@@ -22,30 +22,25 @@ UniverseAdministration = (function() {
     peopleDOM = document.getElementById("people-div");
   }
 
-  function initModel() {
-    universeModel = new UniverseAdministration.UniverseModel(films_data, planets_data, starships_data, vehicles_data, people_data);
-    for (let i in starships_data) {
-      let ppl = starships_data[i];
-      console.log(ppl["name"] + ": " + ppl["url"]);
-    }
-  }
-
   function initView() {
-    universeView = new UniverseAdministration.UniverseView(filmsDOM, planetsDOM, starshipsDOM, vehiclesDOM, peopleDOM);
     universeView.update(universeModel.getCurrentFilms(), universeModel.getCurrentPlanets());
   }
 
-  function initController() {
+  function setListeners() {
+    universeModel.setOnDataReadyListener(universeView.update);
+  }
+
+  function initModules() {
+    universeModel = new UniverseAdministration.UniverseModel();
+    universeView = new UniverseAdministration.UniverseView();
     universeController = new UniverseAdministration.UniverseController(universeModel, universeView);
   }
 
-
-
   function init(){
-    initController();
-    getDomElements();
-    initModel();
-    initView();
+  //  getDomElements();
+    initModules();
+    setListeners();
+    universeModel.getData();
   }
 
   init();

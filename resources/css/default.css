@@ -1,6 +1,7 @@
-body {
+/*body {
   background: url("../../data/images/background/bg_hp.jpg") no-repeat center center fixed;
 }
+*/
 .horizontal{
   display:flex;
   flex-direction:row;
@@ -21,7 +22,8 @@ body {
 .planet-container > img {
   width:100%;
 }
-.planets{
+
+.icon{
   cursor:pointer;
 }
 
