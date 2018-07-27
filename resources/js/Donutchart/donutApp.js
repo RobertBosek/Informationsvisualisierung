@@ -314,7 +314,7 @@
                     presentendPeople = null,
                     transitionDuration = 200;
 
-                color = ["#c90707", "#2c736b", "#f4f2d2"];
+                color = ["#2c736b", "#b44848", "#f4f2d2"];
 
                 arc = d3.arc()
                     .outerRadius(radius - 10)
