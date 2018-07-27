@@ -14,6 +14,7 @@ Chewbacca,Rebel Alliance
 Han Solo,Rebel Alliance
 Greedo,Neutral
 Jabba Desilijic Tiure,Neutral
+
 Wedge Antilles,Rebel Alliance
 Jek Tono Porkins,Rebel Alliance
 Yoda,Rebel Alliance
@@ -31,6 +32,7 @@ Nien Nunb,Rebel Alliance
 Qui-Gon Jinn,Rebel Alliance
 Nute Gunray,Galactic Empire
 Finis Valorum,Rebel Alliance
+Padmé Amidala,Rebel Alliance
 Jar Jar Binks,Rebel Alliance
 Roos Tarpals,Rebel Alliance
 Rugor Nass,Neutral
@@ -42,6 +44,7 @@ Shmi Skywalker,Rebel Alliance
 Darth Maul,Galactic Empire
 Bib Fortuna,Neutral,
 Ayla Secura,Rebel Alliance
+Ratts Tyerell,Neutral
 Dud Bolt,Neutral
 Gasgano,Neutral
 Ben Quadinaros,Neutral
@@ -69,7 +72,6 @@ Dexter Jettster,Neutral
 Lama Su,Neutral
 Taun We,Neutral
 Jocasta Nu,Rebel Alliance
-Ratts Tyerell,Neutral
 R4-P17,Rebel Alliance
 Wat Tambor,Rebel Alliance
 San Hill,Neutral
@@ -84,4 +86,3 @@ Rey,Rebel Alliance
 Poe Dameron,Rebel Alliance
 BB8,Rebel Alliance
 Captain Phasma,Galactic Empire
-Padmé Amidala,Rebel Alliance
