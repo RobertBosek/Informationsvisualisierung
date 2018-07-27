@@ -31,11 +31,11 @@
 
                 for (var i = 0; i < fileLength; i++){
                     if (csvData[i][1] === fractionNames[0]) {	
-                        arrFraction[0].push(i);
+                        arrFraction[0].push(i + 1);
                     } else if (csvData[i][1] === fractionNames[1]) {
-                        arrFraction[1].push(i);
+                        arrFraction[1].push(i + 1);
                     } else { 
-                        arrFraction[2].push(i);
+                        arrFraction[2].push(i + 1);
                     }
                 }
                 
@@ -96,63 +96,63 @@
 
                 for (var j = 0; j < fileLength; j++) {
                     if (fileData[j]["skin_color"] === skinColors[0]) {
-                        arrSkinColor[0].push(j);
+                        arrSkinColor[0].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[1]) {
-                        arrSkinColor[1].push(j);
+                        arrSkinColor[1].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[2]) {
-                        arrSkinColor[2].push(j);
+                        arrSkinColor[2].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[3]) {
-                        arrSkinColor[3].push(j);
+                        arrSkinColor[3].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[4]) {
-                        arrSkinColor[4].push(j);
+                        arrSkinColor[4].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[5] || fileData[j]["skin_color"] === skinColors[30] ) {
-                        arrSkinColor[5].push(j);
+                        arrSkinColor[5].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[6]) {
-                        arrSkinColor[6].push(j);
+                        arrSkinColor[6].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[7]) {
-                        arrSkinColor[7].push(j);
+                        arrSkinColor[7].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[8]) {
-                        arrSkinColor[8].push(j);
+                        arrSkinColor[8].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[9]) {
-                        arrSkinColor[9].push(j);
+                        arrSkinColor[9].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[10]) {
-                        arrSkinColor[10].push(j);
+                        arrSkinColor[10].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[11]) {
-                        arrSkinColor[11].push(j);
+                        arrSkinColor[11].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[12]) {
-                        arrSkinColor[12].push(j);
+                        arrSkinColor[12].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[14]) {
-                        arrSkinColor[13].push(j);
+                        arrSkinColor[13].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[15]) {
-                        arrSkinColor[14].push(j);
+                        arrSkinColor[14].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[16]) {
-                        arrSkinColor[15].push(j);
+                        arrSkinColor[15].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[17] || fileData[j]["skin_color"] === skinColors[25]) {
-                        arrSkinColor[16].push(j);
+                        arrSkinColor[16].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[18]) {
-                        arrSkinColor[17].push(j);
+                        arrSkinColor[17].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[19]) {
-                        arrSkinColor[18].push(j);
+                        arrSkinColor[18].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[20]) {
-                        arrSkinColor[19].push(j);
+                        arrSkinColor[19].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[21]) {
-                        arrSkinColor[20].push(j);
+                        arrSkinColor[20].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[22]) {
-                        arrSkinColor[21].push(j);
+                        arrSkinColor[21].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[23]) {
-                        arrSkinColor[22].push(j);
+                        arrSkinColor[22].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[24]) {
-                        arrSkinColor[23].push(j);
+                        arrSkinColor[23].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[26]) {
-                        arrSkinColor[25].push(j);
+                        arrSkinColor[25].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[27]) {
-                        arrSkinColor[26].push(j);
+                        arrSkinColor[26].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[28]) {
-                        arrSkinColor[27].push(j);
+                        arrSkinColor[27].push(j + 1);
                     } else if (fileData[j]["skin_color"] === skinColors[29]) {
-                        arrSkinColor[28].push(j);
+                        arrSkinColor[28].push(j + 1);
                     } else {
-                        arrSkinColor[29].push(j);
+                        arrSkinColor[29].push(j + 1);
                     }
                 }
 
@@ -177,27 +177,27 @@
                 }	
                 for (var j = 0; j < fileLength; j++) {
                     if (fileData[j]["hair_color"] === hairColors[0]) {
-                        arrHairColor[0].push(j);
+                        arrHairColor[0].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[1] || fileData[j]["hair_color"] === hairColors[2] || fileData[j]["hair_color"] === hairColors[12]) {
-                        arrHairColor[2].push(j);
+                        arrHairColor[2].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[3]) {
-                        arrHairColor[3].push(j);
+                        arrHairColor[3].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[4]) {
-                        arrHairColor[4].push(j);
+                        arrHairColor[4].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[5]) {
-                        arrHairColor[5].push(j);
+                        arrHairColor[5].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[6]) {
-                        arrHairColor[6].push(j);
+                        arrHairColor[6].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[7]) {
-                        arrHairColor[7].push(j);
+                        arrHairColor[7].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[8]) {
-                        arrHairColor[8].push(j);
+                        arrHairColor[8].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[9]) {
-                        arrHairColor[9].push(j);
+                        arrHairColor[9].push(j + 1);
                     } else if (fileData[j]["hair_color"] === hairColors[10]) {
-                        arrHairColor[10].push(j);
+                        arrHairColor[10].push(j + 1);
                     } else {
-                        arrHairColor[11].push(j);
+                        arrHairColor[11].push(j + 1);
                     }
                 }
 
@@ -229,35 +229,35 @@
 
                 for (var j = 0; j < fileLength; j++) {
                     if (fileData[j]["eye_color"] === eyeColors[0]) {
-                        arrEyeColor[0].push(j);
+                        arrEyeColor[0].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[1]) {
-                        arrEyeColor[1].push(j);
+                        arrEyeColor[1].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[2]) {
-                        arrEyeColor[2].push(j);
+                        arrEyeColor[2].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[3]) {
-                        arrEyeColor[3].push(j);
+                        arrEyeColor[3].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[4]) {
-                        arrEyeColor[4].push(j);
+                        arrEyeColor[4].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[5]) {
-                        arrEyeColor[5].push(j);
+                        arrEyeColor[5].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[6]) {
-                        arrEyeColor[6].push(j);
+                        arrEyeColor[6].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[7]) {
-                        arrEyeColor[7].push(j);
+                        arrEyeColor[7].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[8]) {
-                        arrEyeColor[8].push(j);
+                        arrEyeColor[8].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[9]) {
-                        arrEyeColor[9].push(j);
+                        arrEyeColor[9].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[10]) {
-                        arrEyeColor[10].push(j);
+                        arrEyeColor[10].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[11]) {
-                        arrEyeColor[11].push(j);
+                        arrEyeColor[11].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[12]) {
-                        arrEyeColor[12].push(j);
+                        arrEyeColor[12].push(j + 1);
                     } else if (fileData[j]["eye_color"] === eyeColors[13]) {
-                        arrEyeColor[13].push(j);
+                        arrEyeColor[13].push(j + 1);
                     } else { 
-                        arrEyeColor[14].push(j);
+                        arrEyeColor[14].push(j + 1);
                     }
                 }
 
@@ -340,7 +340,7 @@
                     .attr("id", "tooltipDiv")
                     .style("visibility", "hidden");
 
-                var presentendPeople = null;
+                var presentendPeople = [];
 
                 path = svg.selectAll("path")
                     .data(pie(startData))
