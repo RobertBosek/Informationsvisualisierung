@@ -3,6 +3,7 @@
 
 UniverseAdministration.planet = function() {
   "use strict";
+  const RELATIVE_PLANET_SIZE = 10000;
 
   var that = {},
   id,
@@ -34,7 +35,15 @@ UniverseAdministration.planet = function() {
     return id;
   }
 
+  function getSize(b) {
+    if(b){
+      return RELATIVE_PLANET_SIZE;
+    }
+    return diameter/2;
+  }
+
   that.init = init;
   that.getId = getId;
+  that.getSize = getSize;
   return that;
 };

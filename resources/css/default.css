@@ -2,6 +2,11 @@
   background: url("../../data/images/background/bg_hp.jpg") no-repeat center center fixed;
 }
 */
+
+.body-divider {
+  display: grid;
+}
+
 .horizontal{
   display:flex;
   flex-direction:row;
@@ -9,27 +14,30 @@
 }
 
 .films{
-  width: 14%;
-  height: 14%;
+  width: 12%;
+  height: 12%;
   cursor:pointer;
-}
-
-.planet-container {
-  width: 6%;
-  position: relative;
-}
-
-.planet-container > img {
-  width:100%;
+  margin: auto;
 }
 
 .icon{
-  cursor:pointer;
+  margin: 0.5%;
+  width: 8%;
+  position: relative;
 }
 
-.starships{
-  width: 8%;
-  cursor:pointer;
+.centered{
+  display: block;
+  margin: auto auto;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.universe-screen{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
 
 .main-padding {
@@ -43,153 +51,6 @@
   margin-bottom: 20px;
   max-width: 500px;
   background-color: #303030;
-}
-
-.detail-container {
-  width: 100%;
-}
-
-.detail-container > table {
-  table-layout: fixed;
-  width: 100%;
-}
-
-.tr-selected{
-  background-color: green;
-}
-
-/*AddItem-Tab*/
-
-.add-button-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.redBorder{
-  border: 1px solid red;
-}
-
-.invisible{
-  visibility: hidden;
-}
-
-#add-information{
-margin-top: 50px;
-
-}
-
-#added-items{
-  list-style-type: none;
-    margin-top: 30px;
-    margin-left: 20px;
-    padding: 0;
-}
-
-.item-form{
-  cursor: pointer;
-  max-width: 300px;
-  margin: 5px;
-  padding: 10px;
-  background-color: #303030;
-  word-wrap: break-word; word-break: break-all;
-}
-
-.edit-buttons{
-  margin-left: 50px;
-}
-
-#edit-button{
-  margin-top: 3px;
-}
-
-#order-button{
-    padding: 8px 30px;
-    position: relative;
-    top: 0px;
-}
-
-#known-items{
-    padding-top: 10px !important;
-}
-
-/*Overview-Tab*/
-
-.list-group-item{
-  cursor: pointer;
-  background-color: #303030;
-  color: white;
-}
-
-.list-group-item.list-group-item-action.active{
-  background-color: #191919;
-}
-
-td, th{
-    font-size: 16px;
-    border: 1px solid #dddddd;
-    padding: 10px;
-}
-
-.overview-items{
-    margin-top: 10px;
-}
-
-/*ShoppingList-Tab*/
-
-.wrapper {
-    display: grid;
-    grid-template-columns: 400px;
-    grid-gap: 20px;
-    color: #444;
-    padding: 40px;
-    padding-top: 25px;
-}
-
-.box {
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-    cursor: pointer;
-}
-
-.shoppingamount{
-    padding: 10px 30px;
-    position: relative;
-    left: 40px;
-    top: 10px;
-
-}
-
-.shoppingorder{
-    padding: 10px 30px !important;
-    position: relative;
-    left: 40px !important;
-    top: 10px !important;
-}
-
-/*Statistics-Tab*/
-
-.plot{
-    padding: 50px;
-    position: relative;
-    top: -145px;
-    left: 185px;
-}
-
-.modebar{
-    display: none !important;
-}
-
-.drag{
-    cursor: default !important;
-}
-
-.statistic-table {
-    margin-top: 90px;
-    margin-left: 25px;
 }
 
 /* Die visuelle Gestaltung der folgenden Komponenten orientiert sich an:
@@ -698,30 +559,6 @@ body {
 @media (min-width:768px) {
 
   /* Wrappers */
-
-  #wrapper {
-	padding-left: 225px;
-  }
-
-  /* Side Nav */
-
-  .side-nav {
-	margin-left: -225px;
-	left: 225px;
-	width: 225px;
-	position: fixed;
-	top: 50px;
-	height: 100%;
-	border-radius: 0;
-	border: none;
-	background-color: #222222;
-	overflow-y: auto;
-  }
-
-  .side-nav>li>a {
-	width: 225px;
-  }
-
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
 	background-color: #080808;
@@ -735,5 +572,5 @@ body {
 }
 
 .selected {
-    border-left:7px solid #2A9FD6;
+    border-bottom:7px solid #2A9FD6;
 }

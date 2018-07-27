@@ -33,8 +33,10 @@ UniverseAdministration.UniverseModel = function() {
   function setOnDataReadyListener(callback) {
     onDataReadyCallback = callback;
   }
-/*
+
   function connectData() {
+    _connectFilms();
+/*
     var planetList = film.getPlanetIds();
     for (let i = 0, i <= planetList.length; i++) {
       let planetId = planetList[i];
@@ -42,11 +44,24 @@ UniverseAdministration.UniverseModel = function() {
       film.addPlanet(planet);
       planet.addFilm
     }
+  */
   }
-*/
+
+  function _connectFilms(){
+    for (let i in films){
+      let film = films[i];
+      let filmPlanets = film.getPlanetIds();
+      for (let j in filmPlanets){
+        let planetId = filmPlanets[j];
+        let planet = planetsById[planetId];
+        film.addPlanet(planet)
+      }
+    }
+  }
+
   function checkDataLoaded() {
     if (filmsLoaded && planetsLoaded && charactersLoaded && starshipsLoaded && vehiclesLoaded) {
-      //connectData();
+//      connectData();
       onDataReadyCallback(filmsList, planetsList, charactersList, starshipsList, vehiclesList);
     }
   }
