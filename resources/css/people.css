@@ -1,0 +1,206 @@
+body {
+  background: url("../../data/images/background/searchApp_bg_main.jpg") 
+  /* no-repeat center center fixed; */
+}
+
+
+@font-face {
+	font-family: "Star Jedi";
+    src: url(Starjedi.ttf);
+}
+
+html {
+    height: 100%;
+    margin: 0
+}
+
+.person-menu {
+    display: block;
+    float: left;
+    width: 300px;
+    height: 500px;
+    margin: 1em;
+    overflow: hidden;
+	margin-left: 100px;
+	margin-top: 100px
+}
+
+.person-search {
+    display: block;
+    width: 230px;
+    height: 25px;
+    padding: 5px 6px;
+    border-radius: 6px;
+    border-width: 0;
+}
+
+.person-search:focus {
+    outline-style: none;
+    outline-width: 0
+}
+
+.person-menu .person-list {
+    width: 260px;
+    height: 80%;
+    list-style-type: none;
+    margin: 1px 0;
+    padding: 0;
+    overflow-y: auto
+}
+
+.person-menu .person-list::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(204, 189, 223)
+}
+
+.person-menu .person-list::-webkit-scrollbar-thumb {
+    background: rgb(142, 96, 199)
+}
+
+.person-menu .person-list-entry {
+    position: relative;
+    width: 230px;
+	height: 40px;
+    clear: both;
+    margin: 8px 0;
+	background-color:white;
+    border-radius: 60px;
+	border-radius: 50px 0 30px 30px;
+	cursor: pointer
+}
+
+.person-menu .person-image {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    float: left;
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF
+}
+
+.person-menu .person-name {
+    display: block;
+    font-size: 18px;
+	height:40px;
+	font-family: "Star Jedi";
+    color: #333
+}
+
+.person-menu .person-list-entry:hover {
+    cursor: pointer;
+	background: rgb(154, 143, 167)
+}
+
+.person-gallery {
+    display: block;
+    float: left;
+    width: 800px;
+    height: 600px;
+}
+
+.person-gallery .person-list {
+    width: 800px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.person-gallery .person-list-entry {
+    display: block;
+    position: relative;
+    height: 904px;
+    margin: 1em;
+    float: left;
+}
+
+.person-gallery .person-image {
+	margin-top: 100px;
+    width: 500px;
+    height: 300px;
+    border-radius: 1%;
+    border-color: #FFF;
+    z-index: 1;
+}
+
+.person-interface {
+    display: block;
+    position: relative;
+    margin-left: 0px;
+    border-radius: 0 0 11px 11px;
+    z-index: 2;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .5)
+}
+
+.bg_img{
+	position: relative;
+	width: 750px;
+    height: 400px;
+	margin-top: 110px;
+	margin-left: -500px;
+}
+
+.person-gallery .person-name-box {
+    text-align: center;
+    padding-top: .50em
+}
+
+.person-gallery .person-name {
+    display: block;
+	font-family: 'Star Jedi', cursive;
+    font-size: 25px;
+	color: black;
+}
+
+.person-gallery  {
+    position: relative;
+    max-width: 400px;
+}
+
+.person-gallery .btn-close {
+    position: absolute;
+    top: 430px;
+    left: 68%;
+    transform: translate(180%, -750%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* ----------- */
+
+.person-info-box{
+    position: absolute;
+    margin-left: 550px;
+	width:270px;
+    background: rgba(255, 255, 255, .5);
+	margin-top:-280px;
+	text-align: left;
+	color: black;
+	padding-left:30px;
+}
+
+.dot {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  
+}
+
+
+/* ------ */
+
+.person-gallery .btn-close:hover {
+    cursor: pointer;
+	background: rgba(255, 119, 119, .6);
+	
+}
