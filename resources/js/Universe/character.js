@@ -52,6 +52,49 @@ UniverseAdministration.character = function() {
   function getId(){
     return id;
   }
+    
+    function getName(){
+        return name;
+    }
+    
+    function getSize(){
+        return size;
+    }
+    
+     function getBirthYear(){
+        return birth_year;
+    }
+    
+    
+     function getGender(){
+        return gender;
+    }
+
+     function getMass(){
+        return mass;
+    }
+
+    function getSkinColor(){
+        return skin_color;
+    }
+
+    function getHairColor(){
+        return hair_color;
+    }
+    
+    function getEyeColor(){
+        return eye_color;
+    }
+    
+    
+    that.getName = getName;
+    that.getSize = getSize;
+    that.getBirthYear = getBirthYear;
+    that.getGender = getGender;
+    that.getMass = getMass;
+    that.getSkinColor = getSkinColor;
+    that.getHairColor = getHairColor;
+    that.getEyeColor = getEyeColor;
 
   that.init = init;
   that.getId = getId;

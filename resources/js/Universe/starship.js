@@ -37,7 +37,62 @@ UniverseAdministration.starship = function() {
   function getId(){
     return id;
   }
+    
+       function getName(){
+    return name;
+  }
+   
+  function getModel(){
+    return model;
+  }
+  
+  function getManufacturer(){
+      return manufacturer;
+  }
+    
+  function getStarshipClass(){
+      return starship_class;
+  }
+    
+  function getConsumables(){
+      return consumables;
+  }
+    
+  function getCargoCapacity(){
+      return cargo_capacity;
+  }
+    
+ function getLength(){
+     return length;
+ }
+    
+function getMaxAtmospheringSpeed(){
+    return max_atmosphering_speed;
+}
+    
+function getMGLT(){
+    return MGLT;
+}
 
+function getHyperdriveRating(){
+    return hyperdrive_rating;
+}
+    
+function getCost(){
+    return cost;
+}
+    
+  that.getMGLT = getMGLT;
+  that.getHyperdriveRating = getHyperdriveRating;
+  that.getCost = getCost;    
+  that.getMaxAtmospheringSpeed = getMaxAtmospheringSpeed; 
+  that.getLength = getLength;    
+  that.getCargoCapacity = getCargoCapacity; 
+  that.getConsumables = getConsumables;
+  that.getStarshipClass = getStarshipClass;
+  that.getManufacturer = getManufacturer;  
+  that.getModel = getModel;
+  that.getName = getName;
   that.init = init;
   that.getId = getId;
   return that;

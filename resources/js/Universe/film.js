@@ -49,6 +49,28 @@ UniverseAdministration.film = function() {
   function getId(){
     return id;
   }
+    
+      function getTitle(){
+    return title;
+  }
+    
+    
+  function getDirector(){
+    return director;
+  }
+    
+    function getProducer(){
+    return producer;
+  }
+    
+    function getReleaseDate(){
+    return release_date;
+  }
+    
+  that.getReleaseDate = getReleaseDate;
+  that.getProducer = getProducer;
+  that.getDirector = getDirector;
+  that.getTitle = getTitle;
 
   that.init = init;
   that.getId = getId;

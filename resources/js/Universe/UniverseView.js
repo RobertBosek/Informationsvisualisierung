@@ -114,25 +114,51 @@ UniverseAdministration.UniverseView = function() {
     .on('click', _handleVehicleClick)
   }
 
-  function _handleVehicleClick(element, index, domElementArray) {
-    console.log(element, index, domElementArray);
-    infoList = document.querySelector(".info-section");  
-    var element = document.querySelector(".info").innerHTML;
-    createTemplate = _.template(element);
+  function _handleVehicleClick(el, index, domElementArray) {
+      var vehicles_id = element.getId();
+      var name = element.getName();
+      var model = element.getModel();
+      var manufacturer = element.getManufacturer();
+      var vehicleClass = element.getVehicleClass();
+      var consumables = element.getConsumables();
+      var cargoCapacity = element.getCargoCapacity();
+      var length = element.getLength();
+      var maxAtmospheringSpeed = element.getMaxAtmospheringSpeed();
+      var cost = element.getCost();
+      
+      
+    var vehicle = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost};
     
+    infoList = document.querySelector(".info-section .info");
+    var el = document.querySelector("#vehicles").innerHTML;
+    createTemplate = _.template(el);
     var nodeInfo, existingNode;
-	existingNode = infoList.querySelector("[episode_id='" + episode_id + "']");
+	existingNode = infoList.querySelector("[vehicles_id='" + vehicles_id + "']");
     if (existingNode !== null) {
       return;
     }
+    infoList.innerHTML = "";
      nodeInfo = document.createElement("li");
-     nodeInfo.innerHTML = createEntryTemplate(index);
-     infoList.appendChild(nodeEntry.children[0]);
-    return that;
+     nodeInfo.innerHTML = createTemplate(vehicle);
+     infoList.appendChild(nodeInfo.children[0]);
   }
 
   function _handleStarshipClick(element, index, domElementArray) {
-    console.log(element, index, domElementArray);
+          var starship_id = element.getId();
+      var name = element.getName();
+      var model = element.getModel();
+      var manufacturer = element.getManufacturer();
+      var vehicleClass = element.getStarshipClass();
+      var consumables = element.getConsumables();
+      var cargoCapacity = element.getCargoCapacity();
+      var length = element.getLength();
+      var maxAtmospheringSpeed = element.getMaxAtmospheringSpeed();
+      var cost = element.getCost();
+      var hyperdriveRating = getHyperdriveRating();
+      var mglt = getMGLT();
+      
+      
+    var vehicle = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost,"hyperdriveRating":hyperdrive_rating,"mglt":MGLT};
   }
 
   function _handlePeopleClick(element, index, domElementArray) {
