@@ -8,7 +8,9 @@ UniverseAdministration.UniverseView = function() {
 
   const DEFAULT_PATH = "./data/images/",
   MAX_DIA_PLANET = 19720;
-  var that = {};
+  var that = {},
+  infoList,
+  createTemplate;
 
   function _updateFilms(films) {
     var parentSelection = d3.select("#film-div");
@@ -114,6 +116,19 @@ UniverseAdministration.UniverseView = function() {
 
   function _handleVehicleClick(element, index, domElementArray) {
     console.log(element, index, domElementArray);
+    infoList = document.querySelector(".info-section");  
+    var element = document.querySelector(".info").innerHTML;
+    createTemplate = _.template(element);
+    
+    var nodeInfo, existingNode;
+	existingNode = infoList.querySelector("[episode_id='" + episode_id + "']");
+    if (existingNode !== null) {
+      return;
+    }
+     nodeInfo = document.createElement("li");
+     nodeInfo.innerHTML = createEntryTemplate(index);
+     infoList.appendChild(nodeEntry.children[0]);
+    return that;
   }
 
   function _handleStarshipClick(element, index, domElementArray) {
