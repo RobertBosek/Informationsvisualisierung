@@ -51,7 +51,6 @@ UniverseAdministration.vehicle = function() {
     characters.push(obj);
   }
 
-<<<<<<< HEAD
   function getFilms(str){
     if (str == 'obj'){
       return films;
@@ -77,53 +76,57 @@ UniverseAdministration.vehicle = function() {
   function getState(){
     return state;
   }
-=======
+
+
+
+
      function getName(){
     return name;
   }
-    
+
   function getModel(){
     return model;
   }
-  
+
   function getManufacturer(){
       return manufacturer;
   }
-    
+
   function getVehicleClass(){
       return vehicle_class;
   }
-    
+
   function getConsumables(){
       return consumables;
   }
-    
+
   function getCargoCapacity(){
       return cargo_capacity;
   }
-    
+
  function getLength(){
      return length;
  }
-    
+
 function getMaxAtmospheringSpeed(){
     return max_atmosphering_speed;
 }
-    
+
 function getCost(){
     return cost;
 }
-    
-  that.getCost = getCost;    
-  that.getMaxAtmospheringSpeed = getMaxAtmospheringSpeed; 
-  that.getLength = getLength;    
-  that.getCargoCapacity = getCargoCapacity; 
+
+  that.getCost = getCost;
+  that.getMaxAtmospheringSpeed = getMaxAtmospheringSpeed;
+  that.getLength = getLength;
+  that.getCargoCapacity = getCargoCapacity;
   that.getConsumables = getConsumables;
   that.getVehicleClass = getVehicleClass;
-  that.getManufacturer = getManufacturer;  
+  that.getManufacturer = getManufacturer;
   that.getModel = getModel;
   that.getName = getName;
->>>>>>> 28d08b591804ec057a240e677d32b56e5518c7a0
+
+
 
   that.init = init;
   that.getId = getId;
