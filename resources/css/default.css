@@ -2,9 +2,26 @@
   background: url("../../data/images/background/bg_hp.jpg") no-repeat center center fixed;
 }
 */
-
+/*from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+*/
 h1{
   font-size: 150%;
+}
+
+.inactive{
+  opacity: 0.3;
 }
 
 .body-divider {
@@ -20,19 +37,21 @@ h1{
 .films{
   width: 12%;
   height: 12%;
-  cursor:pointer;
   margin: auto;
 }
 
 .icon{
   margin: 0.5%;
-  width: 8%;
+  width: 6vw;
+  height: 6vw;
   position: relative;
 }
 
-.centered{
-  display: block;
-  margin: auto auto;
+.icon img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pointer{

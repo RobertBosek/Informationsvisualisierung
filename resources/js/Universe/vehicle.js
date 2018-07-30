@@ -5,6 +5,7 @@ UniverseAdministration.vehicle = function() {
   "use strict";
 
   var that = {},
+    state = true,
     id,
     name,
     model,
@@ -15,7 +16,7 @@ UniverseAdministration.vehicle = function() {
     length,
     max_atmosphering_speed,
     cost,
-    
+
     films = [],
     planets = [],
     characters= [];
@@ -50,10 +51,41 @@ UniverseAdministration.vehicle = function() {
     characters.push(obj);
   }
 
+  function getFilms(str){
+    if (str == 'obj'){
+      return films;
+    }
+  }
+
+  function getPlanets(str){
+    if (str == 'obj'){
+      return starships;
+    }
+  }
+
+  function getPeople(str){
+    if (str == 'obj'){
+      return characters;
+    }
+  }
+
+  function setState(b) {
+    state = b;
+  }
+
+  function getState(){
+    return state;
+  }
+
   that.init = init;
   that.getId = getId;
   that.addFilm = addFilm;
   that.addPlanet = addPlanet;
   that.addCharacter = addCharacter;
+  that.getFilms = getFilms;
+  that.getPlanets = getPlanets;
+  that.getPeople = getPeople;
+  that.setState = setState;
+  that.getState = getState;
   return that;
 };

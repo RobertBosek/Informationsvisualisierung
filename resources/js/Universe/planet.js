@@ -6,6 +6,7 @@ UniverseAdministration.planet = function() {
   const RELATIVE_PLANET_SIZE = 10000;
 
   var that = {},
+  state = true,
   id,
   name,
   climate,
@@ -57,6 +58,38 @@ UniverseAdministration.planet = function() {
 
   function addCharacter(obj){
     characters.push(obj);
+  }
+
+  function getFilms(str){
+    if (str == 'obj'){
+      return films;
+    }
+  }
+
+  function getStarships(str){
+    if (str == 'obj'){
+      return starships;
+    }
+  }
+
+  function getVehicles(str){
+    if (str == 'obj'){
+      return vehicles;
+    }
+  }
+
+  function getPeople(str){
+    if (str == 'obj'){
+      return characters;
+    }
+  }
+
+  function setState(b) {
+    state = b;
+  }
+
+  function getState(){
+    return state;
   }
 
 
@@ -117,5 +150,11 @@ that.getName = getName;
   that.addStarship = addStarship;
   that.addVehicles = addVehicles;
   that.addCharacter = addCharacter;
+  that.getFilms = getFilms;
+  that.getStarships = getStarships;
+  that.getVehicles = getVehicles;
+  that.getPeople = getPeople;
+  that.setState = setState;
+  that.getState = getState;
   return that;
 };

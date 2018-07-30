@@ -5,6 +5,7 @@ UniverseAdministration.character = function() {
   "use strict";
 
   var that = {},
+  state = true,
   id,
   name,
   birth_year,
@@ -59,16 +60,34 @@ UniverseAdministration.character = function() {
     return id;
   }
 
-  function getPlanets(){
-    return planetIds;
+  function getFilms(str){
+    if (str == 'obj'){
+      return films;
+    }
   }
 
-  function getStarships(){
-    return starshipIds;
+  function getPlanets(str){
+    if (str == 'ids'){
+      return planetIds;
+    } else if (str == 'obj'){
+      return planets;
+    }
   }
 
-  function getVehicles(){
-    return vehicleIds;
+  function getStarships(str){
+    if (str == 'ids'){
+      return starshipIds;
+    } else if (str == 'obj'){
+      return starships;
+    }
+  }
+
+  function getVehicles(str){
+    if (str == 'ids'){
+      return vehicleIds;
+    } else if (str == 'obj'){
+      return vehicles;
+    }
   }
 
   function addFilm(obj){
@@ -85,6 +104,14 @@ UniverseAdministration.character = function() {
 
   function addVehicle(obj){
     vehicles.push(obj);
+  }
+
+  function setState(b) {
+    state = b;
+  }
+
+  function getState(){
+    return state;
   }
 
 
@@ -133,6 +160,7 @@ UniverseAdministration.character = function() {
 
   that.init = init;
   that.getId = getId;
+  that.getFilms = getFilms;
   that.getPlanets = getPlanets;
   that.getStarships = getStarships;
   that.getVehicles = getVehicles;
@@ -140,5 +168,7 @@ UniverseAdministration.character = function() {
   that.addPlanet = addPlanet;
   that.addStarship = addStarship;
   that.addVehicle = addVehicle;
+  that.setState = setState;
+  that.getState = getState;
   return that;
 };

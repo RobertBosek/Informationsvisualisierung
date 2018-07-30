@@ -5,6 +5,7 @@ UniverseAdministration.film = function() {
   "use strict";
 
   var that = {},
+  state = true,
   order,
   title,
   director,
@@ -56,20 +57,36 @@ UniverseAdministration.film = function() {
     return id;
   }
 
-  function getPlanets(){
-    return planetIds;
+  function getPlanets(str){
+    if (str == 'ids'){
+      return planetIds;
+    } else if (str == 'obj'){
+      return planets;
+    }
   }
 
-  function getStarships(){
-    return starshipIds;
+  function getStarships(str){
+    if (str == 'ids'){
+      return starshipIds;
+    } else if (str == 'obj'){
+      return starships;
+    }
   }
 
-  function getVehicles(){
-    return vehicleIds;
+  function getVehicles(str){
+    if (str == 'ids'){
+      return vehicleIds;
+    } else if (str == 'obj'){
+      return vehicles;
+    }
   }
 
-  function getPeople(){
-    return characterIds;
+  function getPeople(str){
+    if (str == 'ids'){
+      return characterIds;
+    } else if (str == 'obj'){
+      return characters;
+    }
   }
 
   function addPlanet(obj){
@@ -86,6 +103,14 @@ UniverseAdministration.film = function() {
 
   function addCharacter(obj){
     characters.push(obj);
+  }
+
+  function setState(b) {
+    state = b;
+  }
+
+  function getState(){
+    return state;
   }
 
   function getTemplateData() {
@@ -141,6 +166,8 @@ UniverseAdministration.film = function() {
   that.addStarship = addStarship;
   that.addVehicle = addVehicle;
   that.addCharacter = addCharacter;
+  that.setState = setState;
+  that.getState = getState;
   that.getTemplateData = getTemplateData;
   return that;
 };

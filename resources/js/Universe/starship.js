@@ -5,6 +5,7 @@ UniverseAdministration.starship = function() {
   "use strict";
 
   var that = {},
+  state = true,
   id,
   name,
   model,
@@ -51,6 +52,32 @@ UniverseAdministration.starship = function() {
 
   function addCharacter(obj){
     characters.push(obj);
+  }
+
+  function getFilms(str){
+    if (str == 'obj'){
+      return films;
+    }
+  }
+
+  function getPlanets(str){
+    if (str == 'obj'){
+      return starships;
+    }
+  }
+
+  function getPeople(str){
+    if (str == 'obj'){
+      return characters;
+    }
+  }
+
+  function setState(b) {
+    state = b;
+  }
+
+  function getState(){
+    return state;
   }
 
 
@@ -120,5 +147,10 @@ function getCost(){
   that.addFilm = addFilm;
   that.addPlanet = addPlanet;
   that.addCharacter = addCharacter;
+  that.getFilms = getFilms;
+  that.getPlanets = getPlanets;
+  that.getPeople = getPeople;
+  that.setState = setState;
+  that.getState = getState;
   return that;
 };
