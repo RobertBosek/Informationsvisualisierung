@@ -12,8 +12,8 @@ var PersonApp = (function() {
 		personIdJson,
 		personList,
 		person;
-   
-   
+
+
     function getSearchInput(input) {
         if (input === "") {
             personList = personModel.getPersonList();
@@ -25,13 +25,13 @@ var PersonApp = (function() {
             personListView.addListEntry(personList[i]);
         }
     }
-	
+
     function addedPersonToList(personID) {
 		personIdJson = parseInt(personID);
         person = personModel.addPersonToList(personIdJson);
         personView.addEntryPersonImg(person);
     }
-  
+
     function initPersonModel() {
         personModel = (new PersonApp.PersonModel({
         })).init();
@@ -47,7 +47,7 @@ var PersonApp = (function() {
         personController.setChangedSearchInputListener(getSearchInput);
         personController.setAddedPersonListener(addedPersonToList);
 	}
-   
+
     function initPersonView() {
         personView = (new PersonApp.PersonView({
         })).init();
@@ -61,15 +61,15 @@ var PersonApp = (function() {
             personListView.addListEntry(personList[j]);
         }
     }
-	
+
 	function init() {
         initPersonModel();
         initPersonController();
         initPersonView();
         initPersonListView();
-		initPiechart(d3);
+		    initPiechart();
     }
-	
+
 	 function updatePersonList(newPersons) {
 		personListView.clearView();
 		personModel.parseDataSetList(newPersons);
@@ -78,22 +78,22 @@ var PersonApp = (function() {
             personListView.addListEntry(persons[j]);
         }
 	}
-	
+
 //Radiobuttons based on: http://ninjapixel.io/StackOverflow/doughnutTransition.html
 //Pie-Chart based on: https://bl.ocks.org/mbostock/3887193
 	function initPiechart() {
-			var	fileData, 
+			var	fileData,
 				eyeColorsToVis = [], genToVis = [], fractionWeightToVis = [], hairColorsToVis = [], skinColorsToVis = [],
-				onChangee;   
+				onChangee;
 
 			function doDonut() {
 
 				d3.json("data/database/people.json", function (data) {
 					fileData = data;
 					var fileLength = fileData.length;
-					
+
 					////Method to extract the people Object IDs
-					
+
 					function extractIDsFromObjects(fileData) {
 						var ids = [];
 						for (var i = 0; i < fileData.length; i++) {
@@ -117,34 +117,34 @@ var PersonApp = (function() {
 
 					var peopleObjectIDs = extractIDsFromObjects(fileData);
 					console.log(peopleObjectIDs);
-					
+
 					////METHOD TO SORT THE JSON-DATA BY FRACTIONS INTO A NEW FRACTIONARRAY ----------
 					function getFractionWeight(fileData) {
-						
+
 						var arrFraction = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]],
 							fractionNames = ["Rebel Alliance", "Galactic Empire", "Neutral"],
 							request = new XMLHttpRequest();
-						
+
 						request.open("GET", "data/database/people_fractions.csv", false);
 						request.send(null);
-						
+
 						var csvData = new Array(),
 							jsonObject = request.responseText.split(/\r?\n|\r/);
-						
+
 						for (var h = 0; h < jsonObject.length; h++) {
 							csvData.push(jsonObject[h].split(","));
 						}
 
 						for (var i = 0; i < fileLength; i++){
-							if (csvData[i][1] === fractionNames[0]) {	
+							if (csvData[i][1] === fractionNames[0]) {
 								arrFraction[0].push(fileData[i]["url"]);
 							} else if (csvData[i][1] === fractionNames[1]) {
 								arrFraction[1].push(fileData[i]["url"]);
-							} else { 
+							} else {
 								arrFraction[2].push(fileData[i]["url"]);
 							}
 						}
-						
+
 
 						for (var j = 0; j < fractionNames.length; j++) {
 							var newObject = {name: fractionNames[j], value: "" + arrFraction[j].length, character: "" + arrFraction[j]};
@@ -156,7 +156,7 @@ var PersonApp = (function() {
 							fractionWeightToVis[k] = defaultObject;
 						}
 						return fractionWeightToVis;
-							
+
 					}
 
 					////METHOD TO SORT THE JSON-DATA BY GENDER INTO A NEW GENDERARRAY ----------
@@ -166,7 +166,7 @@ var PersonApp = (function() {
 							gender = ["male", "female", "genderless"];
 
 						for (var i = 0; i < fileLength; i++) {
-							if (fileData[i]["gender"] === "male") {	
+							if (fileData[i]["gender"] === "male") {
 								arrGender[0].push(fileData[i]["url"]);
 							} else if (fileData[i]["gender"] === "female") {
 								arrGender[1].push(fileData[i]["url"]);
@@ -267,7 +267,7 @@ var PersonApp = (function() {
 							skinColorsToVis[k] = newObject;
 						}
 						return skinColorsToVis;
-					}	
+					}
 
 					////METHOD TO SORT THE JSON-DATA BY HAIR-COLOR INTO A NEW HAIRCOLORARRAY ----------
 					function getDifferentHairColors(fileData) {
@@ -280,7 +280,7 @@ var PersonApp = (function() {
 							if (hairColors.indexOf(fileData[i]["hair_color"]) === -1) {
 								hairColors.push(fileData[i]["hair_color"]);
 							}
-						}	
+						}
 						for (var j = 0; j < fileLength; j++) {
 							if (fileData[j]["hair_color"] === hairColors[0]) {
 								arrHairColor[0].push(fileData[j]["url"]);
@@ -318,7 +318,7 @@ var PersonApp = (function() {
 						}
 
 						return hairColorsToVis;
-					}	
+					}
 
 					//METHOD TO SORT THE JSON-DATA BY EYE-COLOR INTO A NEW EYECOLORARRAY ----------
 					function getDifferentEyeColors(fileData) {
@@ -362,7 +362,7 @@ var PersonApp = (function() {
 								arrEyeColor[12].push(fileData[j]["url"]);
 							} else if (fileData[j]["eye_color"] === eyeColors[13]) {
 								arrEyeColor[13].push(fileData[j]["url"]);
-							} else { 
+							} else {
 								arrEyeColor[14].push(fileData[j]["url"]);
 							}
 						}
@@ -381,14 +381,14 @@ var PersonApp = (function() {
 					}
 
 					//METHOD CALLS TO INITIATE THE DIFFERENT DATA ARRAYS ----------
-					fractionWeightToVis = getFractionWeight(fileData); 
+					fractionWeightToVis = getFractionWeight(fileData);
 					genToVis = getGenderWeight(fileData);
 					hairColorsToVis = getDifferentHairColors(fileData);
 					skinColorsToVis = getDifferentSkinColors(fileData);
 					eyeColorsToVis = getDifferentEyeColors(fileData);
 
 					var path, pie, arc, color, svg, tooltip,
-						width = 540, height = 500, radius = Math.min(width, height) / 2; 
+						width = 540, height = 500, radius = Math.min(width, height) / 2;
 
 					function changeColorSet(val) {
 						var colors = [];
@@ -413,18 +413,18 @@ var PersonApp = (function() {
 							}
 						}
 					}
-					
+
 					function returnPeopleObjectsInClickedSegment(peopleObjectIDs, presentedPeople) {
 						var peopleObjectsInClickedSegment = [];
-						
+
 						var checker = [];
-						
+
 						presentedPeople = presentedPeople.split(",");
 
 						for (var i = 0; i < peopleObjectIDs.length; i++) {
 							for (var k = 0; k < presentedPeople.length; k++) {
 								if (peopleObjectIDs[i] === parseInt(presentedPeople[k])) {
-									peopleObjectsInClickedSegment.push(fileData[i]);  
+									peopleObjectsInClickedSegment.push(fileData[i]);
 									checker.push(parseInt(presentedPeople[k]));
 								}
 							}
@@ -458,7 +458,7 @@ var PersonApp = (function() {
 							.append("g")
 							.attr("class", "hover")
 							.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-						
+
 						tooltip = d3.select(".chartDiv")
 							.append("div")
 							.attr("id", "tooltipDiv")
@@ -474,7 +474,7 @@ var PersonApp = (function() {
 								returnPeopleObjectsInClickedSegment(peopleObjectIDs,presentedPeople);
 							})
 
-							
+
 							.on("mouseover",function(d){
 								d3.select(this).style("cursor", "pointer");
 								tooltip.text(d.data.name + ": " + d.data.value);
@@ -487,7 +487,7 @@ var PersonApp = (function() {
 
 						path.transition()
 							.duration(500)
-							.attr("fill", function(d, i) { 
+							.attr("fill", function(d, i) {
 									return color[i];
 							})
 							.attr("d", arc)
@@ -509,7 +509,7 @@ var PersonApp = (function() {
 								return color [i];
 							});
 					}
-					
+
 					onChangee = onChange;
 
 					function arcTween(a) {

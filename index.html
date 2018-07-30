@@ -19,7 +19,7 @@
         <div class="main-padding universe-screen">
           <div class="info-section">
               <ul class="info">
-                  
+
               </ul>
           </div>
           <div class="main-content">
@@ -49,19 +49,17 @@
             </div>
           </div>
         </div>
-                <script type="text/template" id="episoden">
-        <li class="episode" episode_id="<%= episode_id %">
-			  <div class="episode_description">
-			  <span class="episode_title" <%= title %></span>
-			  <span class="episode_director" <%= director %></span>
-			  <span class="episode_producer" <%= producer %></span>
-			  <span class="episode_release_date" <%= release_date %></span>
-			  <span class="episode_created" <%= created %></span>
-			  <span class="episode_edited" <%= edited %></span>
-			  </div>
-			  </li>
-        </li>
+        <script type="text/template" id="episode-template">
+  			  <div class="episode_description">
+            <img src="<%= "data/images/films/" + id + ".jpg" %>" class="film-image" />
+    			  <span class="episode_title"><%= title %></span>
+    			  <span class="episode_director"><%= director %></span>
+    			  <span class="episode_producer"><%= producer %></span>
+    			  <span class="episode_release_date"><%= release_date %></span>
+            <span><%= release_date %></span>
+			    </div>
         </script>
+
         <script  type="text/template" id="planets">
 			  <li class="planets" planets_id="<%= id %">
 			  <div class="planets_description">
@@ -74,8 +72,9 @@
 			  <span class="planets_terrain" <%= terrain %></span>
 			  <span class="planets_surface_water" <%= surface_water %></span>
 			  <span class="planets_population" <%= population %></span>
+        </li>
 			  </div>
-        </script>    
+        </script>
         <script  type="text/template" id="vehicles">
 			  <li class="vehicles" vehicles_id="<%= vehicles_id %">
 			  <div class="vehicles_description">
@@ -133,12 +132,7 @@
 			  <span class="people_gender" <%= gender %></span>
 			  </div>
         </script>
-        <script type"text/javascript" src="data/database/people.json"></script>
-        <script type"text/javascript" src="data/database/planets.json"></script>
-        <script type"text/javascript" src="data/database/species.json"></script>
-        <script type"text/javascript" src="data/database/starships.json"></script>
-        <script type"text/javascript" src="data/database/vehicles.json"></script>
-        <srcript src="underscore.js"></srcript>
+<!--        <script src="vendors/underscore/underscore-min.js"></script> -->
         <script src="resources/js/Universe/UniverseController.js"></script>
         <script src="resources/js/Universe/UniverseView.js"></script>
         <script src="resources/js/Universe/UniverseModel.js"></script>
@@ -147,5 +141,6 @@
         <script src="resources/js/Universe/planet.js"></script>
         <script src="resources/js/Universe/character.js"></script>
         <script src="resources/js/Universe/starship.js"></script>
+        <script src="resources/js/Universe/vehicle.js"></script>
     </body>
 </html>

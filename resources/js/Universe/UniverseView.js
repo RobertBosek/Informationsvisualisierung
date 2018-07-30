@@ -6,9 +6,13 @@ var UniverseAdministration = UniverseAdministration || {};
 UniverseAdministration.UniverseView = function() {
   "use strict";
 
-  const DEFAULT_PATH = "./data/images/",
-  MAX_DIA_PLANET = 19720;
+  const DEFAULT_PATH = "./data/images/";
   var that = {},
+    filmSelection,
+    planetSelection,
+    starshipSelection,
+    vehicleSelection,
+    characterSelection,
   infoList,
   createTemplate;
 
@@ -38,17 +42,16 @@ UniverseAdministration.UniverseView = function() {
     .append("img")
     .attr("style", function(element, index) {
       if (isNaN(element.getSize())) {
-        return "width: 50%;";
-      } else if (element.getSize() === 0) {
         return "width: 40%;";
+      } else if (element.getSize() === 0) {
+        return "width: 25%;";
       }
-       else if(element.getSize() > element.getSize(true)) {
+       else if(element.getSize() > element.RELATIVE_PLANET_SIZE) {
         return "width: 100%";
       } else{
-        let p = element.getSize()/element.getSize(true)*100/2+50;
+        let p = element.getSize()/element.RELATIVE_PLANET_SIZE*100/2+50;
         return "width: " + p + "%;";
       }
-
     })
     /*function(element){
       if(!element.isActive){
@@ -65,7 +68,7 @@ UniverseAdministration.UniverseView = function() {
 
   function _updateCharacters(characters) {
     var parentSelection = d3.select("#people-div");
-    var characterSelection = parentSelection.selectAll(".people").data(characters);
+    characterSelection = parentSelection.selectAll(".icon").data(characters);
     var enterSelection = characterSelection.enter();
     enterSelection.append("img")
     .attr("class", "icon pointer") /*function(element){
@@ -82,7 +85,7 @@ UniverseAdministration.UniverseView = function() {
 
   function _updateStarships(starships) {
     var parentSelection = d3.select("#starship-div");
-    var starshipSelection = parentSelection.selectAll(".starship").data(starships);
+    starshipSelection = parentSelection.selectAll(".icon").data(starships);
     var enterSelection = starshipSelection.enter();
     enterSelection.append("img")
     .attr("class", "icon pointer") /*function(element){
@@ -99,7 +102,7 @@ UniverseAdministration.UniverseView = function() {
 
   function _updateVehicles(vehicles) {
     var parentSelection = d3.select("#vehicle-div");
-    var vehicleSelection = parentSelection.selectAll(".vehicle").data(vehicles);
+    vehicleSelection = parentSelection.selectAll(".icon").data(vehicles);
     var enterSelection = vehicleSelection.enter();
     enterSelection.append("img")
     .attr("class", "icon pointer") /*function(element){
@@ -114,7 +117,7 @@ UniverseAdministration.UniverseView = function() {
     .on('click', _handleVehicleClick)
   }
 
-  function _handleVehicleClick(el, index, domElementArray) {
+  function _handleVehicleClick(element, index, domElementArray) {
       var vehicles_id = element.getId();
       var name = element.getName();
       var model = element.getModel();
@@ -125,22 +128,22 @@ UniverseAdministration.UniverseView = function() {
       var length = element.getLength();
       var maxAtmospheringSpeed = element.getMaxAtmospheringSpeed();
       var cost = element.getCost();
-      
-      
-    var vehicle = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost};
-    
-    infoList = document.querySelector(".info-section .info");
-    var el = document.querySelector("#vehicles").innerHTML;
-    createTemplate = _.template(el);
-    var nodeInfo, existingNode;
-	existingNode = infoList.querySelector("[vehicles_id='" + vehicles_id + "']");
-    if (existingNode !== null) {
-      return;
-    }
-    infoList.innerHTML = "";
-     nodeInfo = document.createElement("li");
-     nodeInfo.innerHTML = createTemplate(vehicle);
-     infoList.appendChild(nodeInfo.children[0]);
+
+
+      var vehicle = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost};
+
+      infoList = document.querySelector(".info-section .info");
+      var el = document.querySelector("#vehicles").innerHTML;
+      createTemplate = _.template(el);
+      var nodeInfo, existingNode;
+      existingNode = infoList.querySelector("[vehicles_id='" + vehicles_id + "']");
+      if (existingNode !== null) {
+        return;
+      }
+      infoList.innerHTML = "";
+      nodeInfo = document.createElement("li");
+      nodeInfo.innerHTML = createTemplate(vehicle);
+      infoList.appendChild(nodeInfo.children[0]);
   }
 
   function _handleStarshipClick(element, index, domElementArray) {
@@ -156,8 +159,8 @@ UniverseAdministration.UniverseView = function() {
       var cost = element.getCost();
       var hyperdriveRating = getHyperdriveRating();
       var mglt = getMGLT();
-      
-      
+
+
     var vehicle = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost,"hyperdriveRating":hyperdrive_rating,"mglt":MGLT};
   }
 
@@ -170,7 +173,7 @@ UniverseAdministration.UniverseView = function() {
   }
 
   function _handleFilmClick(element, index, domElementArray){
-    console.log(element, index, domElementArray);
+    characterSelection
   }
 
   function update(films, planets, characters, starships, vehicles) {

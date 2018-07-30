@@ -3,6 +3,10 @@
 }
 */
 
+h1{
+  font-size: 150%;
+}
+
 .body-divider {
   display: grid;
 }
@@ -58,7 +62,7 @@
 
 .universe-screen{
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 2fr 7fr;
 }
 
 .main-padding {

@@ -16,7 +16,10 @@ UniverseAdministration.starship = function() {
   max_atmosphering_speed,
   MGLT,
   hyperdrive_rating,
-  cost;
+  cost,
+  films = [],
+  planets = [],
+  characters= [];
 
   function init(data){
     let tid = data.url.split("/");
@@ -37,39 +40,56 @@ UniverseAdministration.starship = function() {
   function getId(){
     return id;
   }
-    
+
+  function addFilm(obj){
+    films.push(obj);
+  }
+
+  function addPlanet(obj){
+    planets.push(obj);
+  }
+
+  function addCharacter(obj){
+    characters.push(obj);
+  }
+
+
+
+
+
+
        function getName(){
     return name;
   }
-   
+
   function getModel(){
     return model;
   }
-  
+
   function getManufacturer(){
       return manufacturer;
   }
-    
+
   function getStarshipClass(){
       return starship_class;
   }
-    
+
   function getConsumables(){
       return consumables;
   }
-    
+
   function getCargoCapacity(){
       return cargo_capacity;
   }
-    
+
  function getLength(){
      return length;
  }
-    
+
 function getMaxAtmospheringSpeed(){
     return max_atmosphering_speed;
 }
-    
+
 function getMGLT(){
     return MGLT;
 }
@@ -77,23 +97,28 @@ function getMGLT(){
 function getHyperdriveRating(){
     return hyperdrive_rating;
 }
-    
+
 function getCost(){
     return cost;
 }
-    
+
   that.getMGLT = getMGLT;
   that.getHyperdriveRating = getHyperdriveRating;
-  that.getCost = getCost;    
-  that.getMaxAtmospheringSpeed = getMaxAtmospheringSpeed; 
-  that.getLength = getLength;    
-  that.getCargoCapacity = getCargoCapacity; 
+  that.getCost = getCost;
+  that.getMaxAtmospheringSpeed = getMaxAtmospheringSpeed;
+  that.getLength = getLength;
+  that.getCargoCapacity = getCargoCapacity;
   that.getConsumables = getConsumables;
   that.getStarshipClass = getStarshipClass;
-  that.getManufacturer = getManufacturer;  
+  that.getManufacturer = getManufacturer;
   that.getModel = getModel;
   that.getName = getName;
+
+
   that.init = init;
   that.getId = getId;
+  that.addFilm = addFilm;
+  that.addPlanet = addPlanet;
+  that.addCharacter = addCharacter;
   return that;
 };

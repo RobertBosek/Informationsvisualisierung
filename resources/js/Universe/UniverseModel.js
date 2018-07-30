@@ -36,32 +36,77 @@ UniverseAdministration.UniverseModel = function() {
 
   function connectData() {
     _connectFilms();
-/*
-    var planetList = film.getPlanetIds();
-    for (let i = 0, i <= planetList.length; i++) {
-      let planetId = planetList[i];
-      let planet = planetsById[planetId]
-      film.addPlanet(planet);
-      planet.addFilm
+    _connectPeople();
+  }
+
+  function _connectPeople(){
+    var j;
+    for (let i = 0; i < charactersList.length; i++){
+      let currentCharacter = charactersList[i];
+
+      let currentCharactersPlanets = currentCharacter.getPlanets();
+      for (j = 0; j < currentCharactersPlanets.length; j++){
+        let planetId = currentCharactersPlanets[j];
+        let currentPlanet = planetsById[planetId];
+        currentCharacter.addPlanet(currentPlanet);
+        currentPlanet.addCharacter(currentCharacter);
+      }
+      let currentCharactersStarships = currentCharacter.getStarships();
+      for (j = 0; j < currentCharactersStarships.length; j++){
+        let starshipId = currentCharactersStarships[j];
+        let currentStarship = starshipsById[starshipId];
+        currentCharacter.addStarship(currentStarship);
+        currentStarship.addCharacter(currentCharacter);
+      }
+      let currentCharactersVehicles = currentCharacter.getVehicles();
+      for (j = 0; j < currentCharactersVehicles.length; j++) {
+        let vehicleId = currentCharactersVehicles[j];
+        let currentVehicle = vehiclesById[vehicleId];
+        currentCharacter.addVehicle(currentVehicle);
+        currentVehicle.addCharacter(currentCharacter);
+      }
     }
-  */
   }
 
   function _connectFilms(){
-    for (let i in films){
-      let film = films[i];
-      let filmPlanets = film.getPlanetIds();
-      for (let j in filmPlanets){
-        let planetId = filmPlanets[j];
-        let planet = planetsById[planetId];
-        film.addPlanet(planet)
+    var j;
+    for (let i = 0; i < filmsList.length; i++){
+      let currentFilm = filmsList[i];
+      let currentFilmsPlanets = currentFilm.getPlanets();
+      for (j = 0; j < currentFilmsPlanets.length; j++){
+
+        let planetId = currentFilmsPlanets[j]
+        let currentPlanet = planetsById[planetId];
+        currentFilm.addPlanet(currentPlanet);
+        currentPlanet.addFilm(currentFilm);
+      }
+      let currentFilmsStarships = currentFilm.getStarships();
+      for (j = 0; j < currentFilmsStarships.length; j++){
+        let starshipId = currentFilmsStarships[j]
+        let currentStarship = starshipsById[starshipId];
+        currentFilm.addStarship(currentStarship);
+        currentStarship.addFilm(currentFilm);
+      }
+      let currentFilmsVehicles = currentFilm.getVehicles();
+      for (j = 0; j < currentFilmsVehicles.length; j++){
+        let vehicleId = currentFilmsVehicles[j];
+        let currentVehicle = vehiclesById[vehicleId];
+        currentFilm.addVehicle(currentVehicle);
+        currentVehicle.addFilm(currentFilm);
+      }
+      let currentFilmsCharacters = currentFilm.getPeople();
+      for (j = 0; j < currentFilmsCharacters.length; j++){
+        let characterId = currentFilmsCharacters[j]
+        let currentCharacter = charactersById[characterId];
+        currentFilm.addCharacter(currentCharacter);
+        currentCharacter.addFilm(currentFilm);
       }
     }
   }
 
   function checkDataLoaded() {
     if (filmsLoaded && planetsLoaded && charactersLoaded && starshipsLoaded && vehiclesLoaded) {
-//      connectData();
+      connectData();
       onDataReadyCallback(filmsList, planetsList, charactersList, starshipsList, vehiclesList);
     }
   }
@@ -98,8 +143,8 @@ UniverseAdministration.UniverseModel = function() {
     vehiclesLoaded = false;
     vehiclesById = {};
     vehiclesList = [];
-    for (let i=0; i < data.length; i++) {
-      let currentVehicle = new UniverseAdministration.starship();
+    for (let i = 0; i < data.length; i++) {
+      let currentVehicle = new UniverseAdministration.vehicle();
       currentVehicle.init(data[i]);
       vehiclesById[currentVehicle.getId()] = currentVehicle;
       vehiclesList.push(currentVehicle);
