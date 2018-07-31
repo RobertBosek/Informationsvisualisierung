@@ -70,7 +70,7 @@ html {
 
 .person-menu .person-name {
     display: block;
-    font-size: 20px;
+    font-size: 18px;
 	height:40px;
 	font-family: "Star Jedi";
     color: #333
@@ -95,7 +95,7 @@ html {
     position: relative;
     float: left;
     width: 40%;
-	margin-top: -2%;
+	margin-top: 5%;
 }
 
 .person-gallery .person-list {
@@ -112,7 +112,8 @@ html {
     height: 30%;
     float: left;
 }
-.person-image {
+
+.person-gallery .person-list-entry .person-image {
 	margin-top: -45%;
     width: 85%;
     height: 35%;
@@ -166,10 +167,10 @@ html {
 	width: 60%;
     background: rgba(255, 255, 255, .5);
 	margin-top: -45%;
+    
 	text-align: left;
 	color: black;
 	padding-left: 15%;
-	font-size: 18px;
 }
 
 .dot {
@@ -184,7 +185,15 @@ html {
 	background: rgba(255, 119, 119, .5);
 }
 
-.logo_bg{
+.person-list-entry .logo_bg{
+	position: relative;
+	margin-top: 20%;
+	margin-left: 25%;
+	height: 30%;
+	width: 70%
+}
+
+.person-image .logo_bg{
 	position: relative;
 	margin-top: 40%;
 	margin-left: 25%;
