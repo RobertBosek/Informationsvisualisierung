@@ -245,97 +245,48 @@ UniverseAdministration.UniverseModel = function() {
 
   function activeItemChanged(type, id){
     setAllInactive();
+    var clickedItem;
     if (type == 'film') {
-      let clickedItem = filmsById[id]
-      clickedItem.setState(true);
-      let i;
-      let connectedPlanets = clickedItem.getPlanets('obj');
-      for (i = 0; i < connectedPlanets.length; i++) {
-        connectedPlanets[i].setState(true);
-      }
-      let connectedStarships = clickedItem.getStarships('obj');
-      for (i = 0; i < connectedStarships.length; i++) {
-        connectedStarships[i].setState(true);
-      }
-      let connectedVehicles = clickedItem.getVehicles('obj');
-      for (i = 0; i < connectedVehicles.length; i++) {
-        connectedVehicles[i].setState(true);
-      }
-      let connectedCharacters = clickedItem.getPeople('obj');
-      for (i = 0; i < connectedCharacters.length; i++) {
-        connectedCharacters[i].setState(true);
-      }
+      clickedItem = filmsById[id]
     } else if (type == 'planet') {
-      let clickedItem = planetsById[id]
-      clickedItem.setState(true);
-      let i;
-      let connectedFilms = clickedItem.getFilms('obj');
-      for (i = 0; i < connectedFilms.length; i++) {
-        connectedFilms[i].setState(true);
-      }
-      let connectedStarships = clickedItem.getStarships('obj');
-      for (i = 0; i < connectedStarships.length; i++) {
-        connectedStarships[i].setState(true);
-      }
-      let connectedVehicles = clickedItem.getVehicles('obj');
-      for (i = 0; i < connectedVehicles.length; i++) {
-        connectedVehicles[i].setState(true);
-      }
-      let connectedCharacters = clickedItem.getPeople('obj');
-      for (i = 0; i < connectedCharacters.length; i++) {
-        connectedCharacters[i].setState(true);
-      }
+      clickedItem = planetsById[id]
     } else if (type == 'starship') {
-      let clickedItem = starshipsById[id];
-      clickedItem.setState(true);
-      let i;
-      let connectedFilms = clickedItem.getFilms('obj');
-      for (i = 0; i < connectedFilms.length; i++) {
-        connectedFilms[i].setState(true);
-      }
-      let connectedPlanets = clickedItem.getPlanets('obj');
-      for (i = 0; i < connectedPlanets.length; i++) {
-        connectedPlanets[i].setState(true);
-      }
-      let connectedCharacters = clickedItem.getPeople('obj');
-      for (i = 0; i < connectedCharacters.length; i++) {
-        connectedCharacters[i].setState(true);
-      }
+      clickedItem = starshipsById[id];
     } else if (type == 'vehicle') {
-      let clickedItem = vehiclesById[id];
-      clickedItem.setState(true);
-      let i;
-      let connectedFilms = clickedItem.getFilms('obj');
-      for (i = 0; i < connectedFilms.length; i++) {
-        connectedFilms[i].setState(true);
-      }
-      let connectedPlanets = clickedItem.getPlanets('obj');
-      for (i = 0; i < connectedPlanets.length; i++) {
-        connectedPlanets[i].setState(true);
-      }
-      let connectedCharacters = clickedItem.getPeople('obj');
-      for (i = 0; i < connectedCharacters.length; i++) {
-        connectedCharacters[i].setState(true);
-      }
+      clickedItem = vehiclesById[id];
     } else if (type == 'character') {
-      let clickedItem = charactersById[id];
-      clickedItem.setState(true);
-      let i;
+      clickedItem = charactersById[id];
+    }
+    clickedItem.setState(true);
+    let i;
+    if (type != 'film'){
       let connectedFilms = clickedItem.getFilms('obj');
       for (i = 0; i < connectedFilms.length; i++) {
         connectedFilms[i].setState(true);
       }
+    }
+    if (type != 'planet'){
       let connectedPlanets = clickedItem.getPlanets('obj');
       for (i = 0; i < connectedPlanets.length; i++) {
         connectedPlanets[i].setState(true);
       }
+    }
+    if (type != 'starship' && type != 'vehicle'){
       let connectedStarships = clickedItem.getStarships('obj');
       for (i = 0; i < connectedStarships.length; i++) {
         connectedStarships[i].setState(true);
       }
+    }
+    if (type != 'vehicle' && type != 'starship'){
       let connectedVehicles = clickedItem.getVehicles('obj');
       for (i = 0; i < connectedVehicles.length; i++) {
         connectedVehicles[i].setState(true);
+      }
+    }
+    if (type != 'character') {
+      let connectedCharacters = clickedItem.getPeople('obj');
+      for (i = 0; i < connectedCharacters.length; i++) {
+        connectedCharacters[i].setState(true);
       }
     }
     onDataReadyCallback(filmsList, planetsList, charactersList, starshipsList, vehiclesList);

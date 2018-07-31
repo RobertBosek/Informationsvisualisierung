@@ -115,7 +115,6 @@ UniverseAdministration.film = function() {
 
   function getTemplateData() {
     return {
-      "id": id,
       "title": title,
       "director": director,
       "producer": producer,
@@ -123,37 +122,6 @@ UniverseAdministration.film = function() {
       "opening_crawl": opening_crawl
     }
   }
-
-
-
-
-
-
-
-
-  function getTitle(){
-    return title;
-  }
-
-
-  function getDirector(){
-    return director;
-  }
-
-    function getProducer(){
-    return producer;
-  }
-
-    function getReleaseDate(){
-    return release_date;
-  }
-
-  that.getReleaseDate = getReleaseDate;
-  that.getProducer = getProducer;
-  that.getDirector = getDirector;
-  that.getTitle = getTitle;
-
-
 
   that.init = init;
   that.getId = getId;

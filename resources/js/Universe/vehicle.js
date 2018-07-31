@@ -59,7 +59,7 @@ UniverseAdministration.vehicle = function() {
 
   function getPlanets(str){
     if (str == 'obj'){
-      return starships;
+      return planets;
     }
   }
 
@@ -77,55 +77,20 @@ UniverseAdministration.vehicle = function() {
     return state;
   }
 
-
-
-
-     function getName(){
-    return name;
+  function getTemplateData() {
+    return {
+      "id": id,
+      "name": name,
+      "model": model,
+      "manufacturer": manufacturer,
+      "vehicle_class": vehicle_class,
+      "consumables": consumables,
+      "cargo_capacity": cargo_capacity,
+      "length": length,
+      "max_atmosphering_speed": max_atmosphering_speed,
+      "cost_in_credits": cost
+    }
   }
-
-  function getModel(){
-    return model;
-  }
-
-  function getManufacturer(){
-      return manufacturer;
-  }
-
-  function getVehicleClass(){
-      return vehicle_class;
-  }
-
-  function getConsumables(){
-      return consumables;
-  }
-
-  function getCargoCapacity(){
-      return cargo_capacity;
-  }
-
- function getLength(){
-     return length;
- }
-
-function getMaxAtmospheringSpeed(){
-    return max_atmosphering_speed;
-}
-
-function getCost(){
-    return cost;
-}
-
-  that.getCost = getCost;
-  that.getMaxAtmospheringSpeed = getMaxAtmospheringSpeed;
-  that.getLength = getLength;
-  that.getCargoCapacity = getCargoCapacity;
-  that.getConsumables = getConsumables;
-  that.getVehicleClass = getVehicleClass;
-  that.getManufacturer = getManufacturer;
-  that.getModel = getModel;
-  that.getName = getName;
-
 
 
   that.init = init;
@@ -138,5 +103,6 @@ function getCost(){
   that.getPeople = getPeople;
   that.setState = setState;
   that.getState = getState;
+  that.getTemplateData = getTemplateData;
   return that;
 };

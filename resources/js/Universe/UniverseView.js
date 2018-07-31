@@ -13,12 +13,16 @@ UniverseAdministration.UniverseView = function() {
     onStarshipClickListener,
     onVehicleClickListener,
     onCharacterClickListener,
-    infoList = document.querySelector(".info-section .info");
-/*
-  var tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-*/
+    filmTemplate = document.querySelector("#episode-template").innerHTML,
+    planetTemplate = document.querySelector("#planets-template").innerHTML,
+    starshipTemplate = document.querySelector("#starships-template").innerHTML,
+    vehicleTemplate = document.querySelector("#vehicles-template").innerHTML,
+    characterTemplate = document.querySelector("#people-template").innerHTML,
+    details = document.querySelector(".info-section .info"),
+    tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
   function setOnItemClickListeners(lArray){
     onFilmClickListener = lArray["filmClickListener"];
     onPlanetClickListener = lArray["planetClickListener"];
@@ -28,6 +32,23 @@ UniverseAdministration.UniverseView = function() {
   }
 
   function _updateFilms(films) {
+/*
+    var chartDiv = document.querySelector("#film-chart");
+    chartDiv.innerHTML = "";
+    let counter = 0;
+    for (let i=0; i < films.length; i++) {
+      if (films[i].getState()) {
+        counter += 1;
+      }
+    }
+    var childDiv = document.createElement("div");
+    childDiv.setAttribute("style", function() {
+      let percentage = counter/films.length*100
+      return "width: " + percentage + "%;";
+    })
+    childDiv.innerHTML = counter;
+    chartDiv.appendChild(childDiv);
+*/
     var parentSelection = d3.select("#film-div");
     var filmSelection = parentSelection.selectAll(".films").data(films);
     var enterSelection = filmSelection.enter();
@@ -47,12 +68,11 @@ UniverseAdministration.UniverseView = function() {
       return DEFAULT_PATH + "films/" + element.getId() + ".jpg";
     })
     .on('click', _handleFilmClick)
-/*
     .on("mouseover", function(element) {
             tooltip.transition()
                 .duration(100)
                 .style("opacity", .9);
-            tooltip.html(element.getId())
+            tooltip.html(_insertData(element.getTemplateData(), _.template(filmTemplate)).innerHTML)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -61,7 +81,6 @@ UniverseAdministration.UniverseView = function() {
                 .duration(500)
                 .style("opacity", 0);
         });
-*/
   }
 
   function _updatePlanets(planets) {
@@ -99,6 +118,19 @@ UniverseAdministration.UniverseView = function() {
             return "pointer inactive";
         }})
     .on('click', _handlePlanetClick)
+    .on("mouseover", function(element) {
+            tooltip.transition()
+                .duration(100)
+                .style("opacity", .9);
+            tooltip.html(_insertData(element.getTemplateData(), _.template(planetTemplate)).innerHTML)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
   }
 
   function _updateCharacters(characters) {
@@ -122,6 +154,20 @@ UniverseAdministration.UniverseView = function() {
       return DEFAULT_PATH + "people/icons/" + element.getId() + ".png";
     })
     .on('click', _handlePeopleClick)
+
+    .on("mouseover", function(element) {
+            tooltip.transition()
+                .duration(100)
+                .style("opacity", .9);
+            tooltip.html(_insertData(element.getTemplateData(), _.template(characterTemplate)).innerHTML)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
   }
 
   function _updateStarships(starships) {
@@ -143,6 +189,19 @@ UniverseAdministration.UniverseView = function() {
       return DEFAULT_PATH + "spaceships/icons/" + element.getId() + ".png";
     })
     .on('click', _handleStarshipClick)
+    .on("mouseover", function(element) {
+            tooltip.transition()
+                .duration(100)
+                .style("opacity", .9);
+            tooltip.html(_insertData(element.getTemplateData(), _.template(starshipTemplate)).innerHTML)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
   }
 
   function _updateVehicles(vehicles) {
@@ -165,126 +224,61 @@ UniverseAdministration.UniverseView = function() {
       return DEFAULT_PATH + "vehicles/icons/" + element.getId() + ".png";
     })
     .on('click', _handleVehicleClick)
-  }
-
-
-  function showVehicleData(element){
-    console.log(element);
-    var vehicles_id = element.getId();
-    var name = element.getName();
-    var model = element.getModel();
-    var manufacturer = element.getManufacturer();
-    var vehicleClass = element.getVehicleClass();
-    var consumables = element.getConsumables();
-    var cargoCapacity = element.getCargoCapacity();
-    var length = element.getLength();
-    var maxAtmospheringSpeed = element.getMaxAtmospheringSpeed();
-    var cost = element.getCost();
-
-
-    var vehicle = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost};
-    console.log(vehicle);
-
-    infoList = document.querySelector(".info-section .info");
-    var el = document.querySelector("#vehicles").innerHTML;
-    createTemplate = _.template(el);
-    var nodeInfo, existingNode;
-    existingNode = infoList.querySelector("[vehicles_id='" + vehicles_id + "']");
-    if (existingNode !== null) {
-      return;
-    }
-    infoList.innerHTML = "";
-    nodeInfo = document.createElement("li");
-    nodeInfo.innerHTML = createTemplate(vehicle);
-    infoList.appendChild(nodeInfo.children[0]);
+    .on("mouseover", function(element) {
+            tooltip.transition()
+                .duration(100)
+                .style("opacity", .9);
+            tooltip.html(_insertData(element.getTemplateData(), _.template(vehicleTemplate)).innerHTML)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
   }
 
   function _handleVehicleClick(element, index, domElementArray) {
-    showVehicleData(element);
+    let info = _insertData(element.getTemplateData(), _.template(vehicleTemplate));
+    details.innerHTML = "";
+    details.appendChild(info);
     onVehicleClickListener(element.getId());
   }
 
-  function showStarshipData(element){
-    console.log(element);
-    var starship_id = element.getId();
-    var name = element.getName();
-    var model = element.getModel();
-    var manufacturer = element.getManufacturer();
-    var vehicleClass = element.getStarshipClass();
-    var consumables = element.getConsumables();
-    var cargoCapacity = element.getCargoCapacity();
-    var length = element.getLength();
-    var maxAtmospheringSpeed = element.getMaxAtmospheringSpeed();
-    var cost = element.getCost();
-    var hyperdriveRating = element.getHyperdriveRating();
-    var mglt = element.getMGLT();
-    var starship = {"name":name,"model":model,"manufacturer":manufacturer, "vehicle_class":vehicleClass,"consumables":consumables,"cargo_capacity":cargoCapacity,"length":length,"max_atmosphering_speed":maxAtmospheringSpeed,"cost_in_credits":cost,"hyperdriveRating":hyperdrive_rating,"mglt":MGLT};
-      console.log(starship);
-  }
-
   function _handleStarshipClick(element, index, domElementArray) {
-    showStarshipData(element);
+    let info = _insertData(element.getTemplateData(), _.template(starshipTemplate));
+    details.innerHTML = "";
+    details.appendChild(info);
     onStarshipClickListener(element.getId());
   }
 
-  function showCharacterData(element){
-    console.log(element);
-    var people_id = element.getId();
-     var name = element.getName();
-     var size = element.getSize();
-     var birthYear = element.getBirthYear();
-     var gender = element.getGender();
-     var mass = element.getMass();
-     var skinColor = element.getSkinColor();
-     var hairColor = element.getHairColor();
-     var eyeColor = element.getEyeColor();
-
-     var people = {"name":name,"size":height,"birthYear":birth_year, "gender":gender,"mass":mass,"skinColor":skin_color,"hairColor":hair_color,"eyeColor":eye_color};
-     console.log(people);
-  }
-
   function _handlePeopleClick(element, index, domElementArray) {
-    showCharacterData(element);
+    let info = _insertData(element.getTemplateData(), _.template(characterTemplate));
+    details.innerHTML = "";
+    details.appendChild(info);
     onCharacterClickListener(element.getId());
   }
 
-  function showPlanetData(element){
-    console.log(element);
-    var planet_id = element.getId();
-      var name = element.getName();
-      var climate = element.getClimate();
-      var diameter = element.getDiameter();
-      var gravity = element.getGravity();
-      var orbitalPeriod = element.getOrbitalPeriod();
-      var population = element.getPopulation();
-      var rotationPeriod = element.getRotationPeriod();
-      var surfaceWater = element.getSurfaceWater();
-      var terrain = element.getTerrain();
-
-      var planet = {"name":name,"climate":climate,"diameter":diameter, "gravity":gravity,"orbitalPeriod":orbital_period,"population":population,"rotationPeriod":rotation_period,"surfaceWater":surface_water,"terrain":terrain};
-      console.log(planet);
-  }
-
   function _handlePlanetClick(element, index, domElementArray) {
-    showPlanetData(element);
+    let info = _insertData(element.getTemplateData(), _.template(planetTemplate));
+    details.innerHTML = "";
+    details.appendChild(info);
     onPlanetClickListener(element.getId());
   }
 
-  function showFilmData(element){
-    console.log(element);
-    var episoden_id = element.getId();
-      var title = element.getTitle();
-      var director = element.getDirector();
-      var producer = element.getProducer();
-      var releaseDate = element.getReleaseDate();
-
-      var episoden = {"title":title,"director":director,"producer":producer, "releaseDate":release_date};
-      console.log(episoden);
+  function _handleFilmClick(element, index, domElementArray){
+    let info = _insertData(element.getTemplateData(), _.template(filmTemplate));
+    details.innerHTML = "";
+    details.appendChild(info);
+    onFilmClickListener(element.getId());
   }
 
-  function _handleFilmClick(element, index, domElementArray){
-    showFilmData(element);
-    onFilmClickListener(element.getId());
+  function _insertData(obj, createTemplate) {
+    var nodeInfo = document.createElement("div");
+    nodeInfo.innerHTML = createTemplate(obj);
+    console.log(nodeInfo.children[0]);
+    return nodeInfo.children[0];
   }
 
   function update(films, planets, characters, starships, vehicles) {

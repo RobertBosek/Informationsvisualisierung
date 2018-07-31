@@ -2,23 +2,36 @@
   background: url("../../data/images/background/bg_hp.jpg") no-repeat center center fixed;
 }
 */
-/*from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
+/*from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369*/
 div.tooltip {
     position: absolute;
     text-align: center;
-    width: 60px;
-    height: 28px;
+    width: 500px;
+    height: 500px;
     padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
+    font: 26px sans-serif;
+    background: #222222;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
 }
-*/
+
 h1{
   font-size: 150%;
 }
+
+
+
+.chart div {
+/*  font: 10px sans-serif; */
+  background-color: green;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: black;
+}
+
+
 
 .inactive{
   opacity: 0.3;
@@ -61,7 +74,6 @@ h1{
 .info-section{
     display: block;
     float: left;
-    font-size: 1.7em;
     list-style-type: none;
     position: relative;
     margin: 0;
@@ -70,8 +82,7 @@ h1{
 .info-section .info {
     display: block;
     position: relative;
-    width: 204px;
-    height: 204px;
+    width: 80%;
     margin: 1em;
     float: left;
     overflow: hidden;

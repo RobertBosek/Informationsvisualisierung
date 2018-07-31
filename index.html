@@ -18,120 +18,259 @@
         </nav>
         <div class="main-padding universe-screen">
           <div class="info-section">
-              <ul class="info">
+              <div class="info">
 
-              </ul>
+              </div>
           </div>
           <div class="main-content">
             <div>
               <h1>Episodes</h1>
               <div id="film-div" class="horizontal">
               </div>
+              <div id="film-chart" class="chart">
+              </div>
             </div>
             <div>
               <h1>Planets</h1>
               <div id="planet-div" class="horizontal">
+              </div>
+              <div id="planet-chart" class="chart">
               </div>
             </div>
             <div>
               <h1>Starships</h1>
               <div id="starship-div">
               </div>
+              <div id="planet-chart" class="chart">
+              </div>
             </div>
             <div>
               <h1>Vehicles</h1>
               <div id="vehicle-div">
+              </div>
+              <div id="planet-chart" class="chart">
               </div>
             </div>
             <div>
               <h1>People</h1>
               <div id="people-div">
               </div>
+              <div id="planet-chart" class="chart">
+              </div>
             </div>
           </div>
         </div>
         <script type="text/template" id="episode-template">
-  			  <div class="episode_description">
-            <img src="<%= "data/images/films/" + id + ".jpg" %>" class="film-image" />
-    			  <span class="episode_title"><%= title %></span>
-    			  <span class="episode_director"><%= director %></span>
-    			  <span class="episode_producer"><%= producer %></span>
-    			  <span class="episode_release_date"><%= release_date %></span>
-            <span><%= opening_crawl %></span>
-			    </div>
+          <table>
+            <tr>
+              <th>Title:</th>
+              <th><%= title %></th>
+            </tr>
+            <tr>
+              <th>Director:</th>
+              <th><%= director %></th>
+            </tr>
+            <tr>
+              <th>Producer:</th>
+              <th><%= producer %></th>
+            </tr>
+            <tr>
+              <th>Release Date:</th>
+              <th><%= release_date %></th>
+            </tr>
+            <tr>
+              <th>Opening Crawl:</th>
+            </tr>
+            <tr>
+              <th colspan="2"><%= opening_crawl %></th>
+            </tr>
+          </table>
         </script>
-
-        <script  type="text/template" id="planets">
-			  <li class="planets" planets_id="<%= id %">
-			  <div class="planets_description">
-			  <span class="planets_name" <%= name %></span>
-			  <span class="planets_rotation_period" <%= rotation_period %></span>
-			  <span class="planets_orbital_period" <%= orbital_period %></span>
-			  <span class="planets_diameter" <%= diameter %></span>
-			  <span class="planets_climate" <%= climate %></span>
-			  <span class="planets_gravity" <%= gravity %></span>
-			  <span class="planets_terrain" <%= terrain %></span>
-			  <span class="planets_surface_water" <%= surface_water %></span>
-			  <span class="planets_population" <%= population %></span>
-        </li>
-			  </div>
+        <script  type="text/template" id="planets-template">
+          <div>
+            <table>
+              <tr>
+                <th>Name:</th>
+                <th><%= name %></th>
+              </tr>
+              <tr>
+                <th>Population:</th>
+                <th><%= population %></th>
+              </tr>
+              <tr>
+                <th>Climate:</th>
+                <th><%= climate %></th>
+              </tr>
+              <tr>
+                <th>Diameter:</th>
+                <th><%= diameter %></th>
+              </tr>
+              <tr>
+                <th>Gravity:</th>
+                <th><%= gravity %></th>
+              </tr>
+              <tr>
+                <th>Orbital period:</th>
+                <th><%= orbital_period %></th>
+              </tr>
+              <tr>
+                <th>Rotation period:</th>
+                <th><%= rotation_period %></th>
+              </tr>
+              <tr>
+                <th>Survace water:</th>
+                <th><%= surface_water %></th>
+              </tr>
+              <tr>
+                <th>Terrain:</th>
+                <th><%= terrain %></th>
+              </tr>
+            </table>
+          </div>
         </script>
-        <script  type="text/template" id="vehicles">
-			  <li class="vehicles" vehicles_id="<%= vehicles_id %">
-			  <div class="vehicles_description">
-			  <span class="vehicles_name" <%= name %></span>
-			  <span class="vehicles_model" <%= model %></span>
-			  <span class="vehicles_manufacturer" <%= manufacturer %></span>
-			  <span class="vehicles_cost_in_credits" <%= cost_in_credits %></span>
-			  <span class="vehicles_length" <%= length %></span>
-			  <span class="vehicles_max_atmosphering_speed" <%= max_atmosphering_speed %></span>
-			  <span class="vehicles_cargo_capacity" <%= cargo_capacity %></span>
-			  <span class="vehicles_consumables" <%= consumables %></span>
-			  <span class="vehicles_vehicle_class" <%= vehicle_class %></span>
-			  </div>
+        <script  type="text/template" id="starships-template">
+          <div>
+            <img src="<%= "data/images/spaceships/full/" + id + ".jpg" %>" class="starships-image" />
+            <table>
+              <tr>
+                <th>Name:</th>
+                <th><%= name %></th>
+              </tr>
+              <tr>
+                <th>Model:</th>
+                <th><%= model %></th>
+              </tr>
+              <tr>
+                <th>Manufacturer:</th>
+                <th><%= manufacturer %></th>
+              </tr>
+              <tr>
+                <th>Starship Class:</th>
+                <th><%= starship_class %></th>
+              </tr>
+              <tr>
+                <th>Consumables:</th>
+                <th><%= consumables %></th>
+              </tr>
+              <tr>
+                <th>Cargo capacity:</th>
+                <th><%= cargo_capacity %></th>
+              </tr>
+              <tr>
+                <th>Length:</th>
+                <th><%= length %></th>
+              </tr>
+              <tr>
+                <th>Atmosphering speed:</th>
+                <th><%= max_atmosphering_speed %></th>
+              </tr>
+              <tr>
+                <th>Hyperdrive Rating:</th>
+                <th><%= hyperdrive_rating %></th>
+              </tr>
+              <tr>
+                <th>MGLT:</th>
+                <th><%= MGLT %></th>
+              </tr>
+              <tr>
+                <th>Cost(credits):</th>
+                <th><%= cost_in_credits %></th>
+              </tr>
+            </table>
+          </div>
         </script>
-        <script  type="text/template" id="starships">
-			  <li class="starships" starships_id="<%= id %">
-			  <div class="starships_description">
-			  <span class="starships_name" <%= name %></span>
-			  <span class="starships_model" <%= model %></span>
-			  <span class="starships_manufacturer" <%= manufacturer %></span>
-			  <span class="starships_cost_in_credits" <%= cost_in_credits %></span>
-			  <span class="starships_length" <%= length %></span>
-			  <span class="starships_max_atmosphering_speed" <%= max_atmosphering_speed %></span>
-			  <span class="starships_cargo_capacity" <%= cargo_capacity %></span>
-			  <span class="starships_consumables" <%= consumables %></span>
-			  <span class="starships_hyperdrive_rating" <%= hyperdrive_rating %></span>
-			  <span class="starships_MGLT" <%= MGLT %></span>
-			  </div>
+        <script  type="text/template" id="vehicles-template">
+          <div>
+            <img "<%= "data/images/vehicles/full/" + id + ".jpg" %>" class="vehicles-image" />
+            <table>
+              <tr>
+                <th>Name:</th>
+                <th><%= name %></th>
+              </tr>
+              <tr>
+                <th>Model:</th>
+                <th><%= model %></th>
+              </tr>
+              <tr>
+                <th>Manufacturer:</th>
+                <th><%= manufacturer %></th>
+              </tr>
+              <tr>
+                <th>Vehicle Class:</th>
+                <th><%= vehicle_class %></th>
+              </tr>
+              <tr>
+                <th>Consumables:</th>
+                <th><%= consumables %></th>
+              </tr>
+              <tr>
+                <th>Cargo capacity:</th>
+                <th><%= cargo_capacity %></th>
+              </tr>
+              <tr>
+                <th>Length:</th>
+                <th><%= length %></th>
+              </tr>
+              <tr>
+                <th>Atmosphering speed:</th>
+                <th><%= max_atmosphering_speed %></th>
+              </tr>
+              <tr>
+                <th>Cost(credits):</th>
+                <th><%= cost_in_credits %></th>
+              </tr>
+            </table>
+  			  </div>
         </script>
-        <script  type="text/template" id="species">
-			  <li class="species" species_id="<%= id %">
-			  <div class="species_description">
-			  <span class="species_name" <%= name %></span>
-			  <span class="species_classification" <%= classification %></span>
-			  <span class="species_designation" <%= designation %></span>
-			  <span class="species_average_height" <%= average_height %></span>
-			  <span class="species_skin_colors" <%= skin_colors %></span>
-			  <span class="species_hair_colors" <%= hair_colors %></span>
-			  <span class="species_eye_colors" <%= eye_colors %></span>
-			  <span class="species_average_lifespan" <%= average_lifespan %></span>
-			  <span class="species_language" <%= language %></span>
-			  </div>
-        </script>
-        <script  type="text/template" id="people">
-			  <li class="people" people_id="<%= id %">
-			  <img src="<%= imagePath %>" class="people-image" />
-			  <div class="people_description">
-			  <span class="people_name" <%= name %></span>
-			  <span class="people_height" <%= height %></span>
-			  <span class="people_mass" <%= mass %></span>
-			  <span class="people_hair_color" <%= hair_color %></span>
-			  <span class="people_skin_color" <%= skin_color %></span>
-			  <span class="people_eye_color" <%= eye_color %></span>
-			  <span class="people_birth_year" <%= birth_year %></span>
-			  <span class="people_gender" <%= gender %></span>
-			  </div>
+        <script  type="text/template" id="people-template">
+          <div>
+            <img src="<%=" data/images/people/full/" + id + ".jpg" %>" class="people-image" />
+            <table>
+              <tr>
+                <th>Name:</th>
+                <th><%= name %></th>
+              </tr>
+              <tr>
+                <th>Birth year:</th>
+                <th><%= birth_year %></th>
+              </tr>
+              <tr>
+                <th>Gender:</th>
+                <th><%= gender %></th>
+              </tr>
+              <tr>
+                <th>Mass:</th>
+                <th><%= mass %></th>
+              </tr>
+              <tr>
+                <th>Height:</th>
+                <th><%= height %></th>
+              </tr>
+              <tr>
+                <th>Skin color:</th>
+                <th><%= skin_color %></th>
+              </tr>
+              <tr>
+                <th>Hair color:</th>
+                <th><%= hair_color %></th>
+              </tr>
+              <tr>
+                <th>Eye color:</th>
+                <th><%= eye_color %></th>
+              </tr>
+            </table>
+  			  </div>
+  			  <div class="people_description">
+            <img src="<%=" data/images/people/full/" + id + ".jpg" %>" class="people-image" />
+    			  <span class="people_name"><%= name %></span>
+    			  <span class="people_birth_year"><%= birth_year %></span>
+    			  <span class="people_gender"><%= gender %></span>
+    			  <span class="people_mass"><%= mass %></span>
+    			  <span class="people_height"><%= height %></span>
+    			  <span class="people_skin_color"><%= skin_color %></span>
+    			  <span class="people_hair_color"><%= hair_color %></span>
+    			  <span class="people_eye_color"><%= eye_color %></span>
+  			  </div>
         </script>
 
         <script src="vendors/underscore/underscore-min.js"></script>

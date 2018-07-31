@@ -114,49 +114,19 @@ UniverseAdministration.character = function() {
     return state;
   }
 
-
-    function getName(){
-        return name;
+  function getTemplateData() {
+    return {
+      "id" : id,
+      "name" : name,
+      "birth_year" : birth_year,
+      "gender" : gender,
+      "mass" : mass,
+      "height" : size,
+      "skin_color" : skin_color,
+      "hair_color" : hair_color,
+      "eye_color" : eye_color
     }
-
-    function getSize(){
-        return size;
-    }
-
-     function getBirthYear(){
-        return birth_year;
-    }
-
-
-     function getGender(){
-        return gender;
-    }
-
-     function getMass(){
-        return mass;
-    }
-
-    function getSkinColor(){
-        return skin_color;
-    }
-
-    function getHairColor(){
-        return hair_color;
-    }
-
-    function getEyeColor(){
-        return eye_color;
-    }
-
-
-    that.getName = getName;
-    that.getSize = getSize;
-    that.getBirthYear = getBirthYear;
-    that.getGender = getGender;
-    that.getMass = getMass;
-    that.getSkinColor = getSkinColor;
-    that.getHairColor = getHairColor;
-    that.getEyeColor = getEyeColor;
+  }
 
   that.init = init;
   that.getId = getId;
@@ -170,5 +140,6 @@ UniverseAdministration.character = function() {
   that.addVehicle = addVehicle;
   that.setState = setState;
   that.getState = getState;
+  that.getTemplateData = getTemplateData;
   return that;
 };
