@@ -15,20 +15,19 @@ html {
 .person-menu {
     display: block;
     float: left;
-    height: 500px;
+    height: 600px;
     margin: 1em;
     overflow: hidden;
-	margin-left: 5%;
-	margin-top: 6%;
 }
 
 .person-search {
     display: block;
-    width: 90%;
-    height: 25px;
+    width: 94%;
+    height: 6%;
     padding: 5px 6px;
     border-radius: 6px;
     border-width: 0;
+	margin-top: 20%;
 }
 
 .person-search:focus {
@@ -38,7 +37,7 @@ html {
 
 .person-menu .person-list {
     height: 80%;
-    width: 260px;
+    width: 290px;
     list-style-type: none;
     padding: 0;
     overflow-y: auto
@@ -109,18 +108,17 @@ html {
     display: block;
     position: relative;
     height: 904px;
-    margin: 2em;
     float: left;
 }
 
 .person-gallery .person-image {
-	margin-top: 26%;
-    width: 98%;
+	margin-top: -38%;
+    width: 85%;
     height: 35%;
     border-radius: 1%;
     border-color: #FFF;
     z-index: 1;
-	margin-left: 12%;
+	margin-left: 23%;
 }
 
 .person-interface {
@@ -148,8 +146,8 @@ html {
 
 .person-gallery .btn-close {
     position: relative;
-    top: -35.5%;
-    left: 100.5%;
+    top: -35.6%;
+    left: 98.8%;
     background-color: #555;
     color: white;
     font-size: 16px;
@@ -163,13 +161,13 @@ html {
 .person-info-box{
     position: relative;
     margin-left: 130%;
-	width: 50%;
+	width: 60%;
     background: rgba(255, 255, 255, .5);
 	margin-top: -45%;
     
 	text-align: left;
 	color: black;
-	padding-left: 5%;
+	padding-left: 15%;
 }
 
 .dot {
@@ -182,4 +180,11 @@ html {
 .person-gallery .btn-close:hover {
     cursor: pointer;
 	background: rgba(255, 119, 119, .5);
+}
+
+.logo_bg{
+	position: relative;
+	margin-top: 30%;
+	margin-left: 25%;
+	height: 30%;
 }

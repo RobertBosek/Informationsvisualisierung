@@ -22,46 +22,21 @@
 				<li><a href="people-piechart.html">People-Piechart</a></li>
 			  </ul>
 			</nav>
-			
+		
 		<!-- Searchapp HTML -------------------------------------------------------------------------------------------------------------->
 		<content>
-			<div class="person-menu">
 			
+			<div class="person-menu">
 				<input type="text" class="person-search" />
 				<ul class="person-list">
 				</ul>
 			</div>
+		 
 			<div class="person-gallery">
-			
-				<!-- Slideshow on the background -->
-				<div class="slideshow-container">
-					<div class="slide fade">
-					  <img src="data/images/people/slideshow_bg/1.png" style="width:77%">
-					</div>
-
-					<div class="slide fade">
-					  <img src="data/images/people/slideshow_bg/2.jpg" style="width:77%">
-					</div>
-
-					<div class="slide fade">
-					  <img src="data/images/people/slideshow_bg/3.jpg" style="width:77%">
-					</div>
-					<div class="slide fade">
-					  <img src="data/images/people/slideshow_bg/4.jpg" style="width:77%">
-					</div>
-					</div>
-					<div>
-					  <span class="flag"></span> 
-					  <span class="flag"></span> 
-					  <span class="flag"></span> 
-					  <span class="flag"></span> 
-					</div>
-					
+			<img class="logo_bg" src="data/images/background/logo.png">
 				<ul class="person-list">
 				</ul>
-				
 			</div>
-			
 		</content>
 
 		<script type="text/template" id="person-list-entry">
@@ -106,10 +81,6 @@
 		<script src="resources/js/Searchapp People/PersonListView.js"></script>
 		<script src="resources/js/Searchapp People/PersonModel.js"></script>
 		<script src="resources/js/Searchapp People/PersonView.js"></script>
-		
-		<!-- JS for the slideshow on the background -->
-		<!-- Slideshow based on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow -->
-        <script src="resources/js/Searchapp People/Slideshow.js"></script>
 		
 		<script>
         PersonApp.init();
