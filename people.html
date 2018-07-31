@@ -5,17 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Star Wars Universe</title>
         <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
-        <link rel="stylesheet" type="text/css" href="resources/css/donut.css">
 		
-		
-		<!---People CSS, Font--------------------------------------------------------------------------------------------------------------->
 		<!-- Searchapp CSS -->
 		<link rel="stylesheet" type="text/css" href="resources/css/people.css">
-		<!-- Searchapp Fonts -->
-		<link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/peopleApp_slideshow.css">
 		<!-------------------------------------------------------------------------------------------------------------------------------->
-		
-		
+
 		</head>
 		<body>
 		  <div id="wrapper">
@@ -24,22 +19,49 @@
 			  <ul class="nav navbar-nav side-nav">
 				<li><a href="index.html">Universe</a></li>
 				<li class="selected"><a href="people.html">People</a></li>
+				<li><a href="people-piechart.html">People-Piechart</a></li>
 			  </ul>
 			</nav>
-		
-		
-		<!-- People HTML -------------------------------------------------------------------------------------------------------------->
+			
+		<!-- Searchapp HTML -------------------------------------------------------------------------------------------------------------->
 		<content>
-			<img class="bg_img" src="data/images/background/searchApp_bg.jpg"/>
 			<div class="person-menu">
+			
 				<input type="text" class="person-search" />
 				<ul class="person-list">
 				</ul>
 			</div>
 			<div class="person-gallery">
-				<ul class="person-list">	
+			
+				<!-- Slideshow on the background -->
+				<div class="slideshow-container">
+					<div class="slide fade">
+					  <img src="data/images/slideshow_bg/1.png" style="width:77%">
+					</div>
+
+					<div class="slide fade">
+					  <img src="data/images/slideshow_bg/2.jpg" style="width:77%">
+					</div>
+
+					<div class="slide fade">
+					  <img src="data/images/slideshow_bg/3.jpg" style="width:77%">
+					</div>
+					<div class="slide fade">
+					  <img src="data/images/slideshow_bg/4.jpg" style="width:77%">
+					</div>
+					</div>
+					<div>
+					  <span class="flag"></span> 
+					  <span class="flag"></span> 
+					  <span class="flag"></span> 
+					  <span class="flag"></span> 
+					</div>
+					
+				<ul class="person-list">
 				</ul>
+				
 			</div>
+			
 		</content>
 
 		<script type="text/template" id="person-list-entry">
@@ -60,17 +82,13 @@
 					<span class="person-info-gender"><br>Gender: <%= gender %> 
 					<img src="<%= "data/images/people/gender/" + gender + ".png" %>" class="person-image-gender"/>
 					</span>
-					
 					<span class="person-info-height"><br>Height: <%= height %></span>
-					
 					<span class="person-info-skin-color"><br>Skin color: <%= skin_color %>
 							<img src="<%= "data/images/people/color circles/" + skin_color + ".png" %>" class="dot"/>
 					</span>
-					
 					<span class="person-info-hair-color"><br>Hair color: <%= hair_color %>
 							<img src="<%= "data/images/people/color circles/" + hair_color + ".png" %>" class="dot"/>
 					</span>
-					
 					<span class="person-info-eye-color"><br>Eye color: <%= eye_color %>
 							<img src="<%= "data/images/people/color circles/" + eye_color + ".png" %>" class="dot"/>
 					</span>
@@ -80,35 +98,6 @@
 		</script>
 	<!-------------------------------------------------------------------------------------------------------------------------------->
 	
-	
-	
-        <div class="main-padding">
-          <div id='inputs'>  
-            <input type="radio" name="radData" id="rad1" value="fractionWeightToVis" checked="checked" onclick='change(fractionWeightToVis);' />
-            <label for="rad1">Fraction</label>
-
-            <input type="radio" name="radData" id="rad2" value="genToVis" onclick='change(genToVis);' />
-            <label for="rad2">Gender</label>
-
-            <input type="radio" name="radData" id="rad3" value="hairColorsToVis" onclick='change(hairColorsToVis);' />
-            <label for="rad2">Haircolor</label>
-
-            <input type="radio" name="radData" id="rad4" value="eyeColorsToVis" onclick='change(eyeColorsToVis);' />
-            <label for="rad2">Eyecolor</label>
-
-            <input type="radio" name="radData" id="rad5" value="skincolorsToVis" onclick='change(skinColorsToVis);' />
-            <label for="rad2">Skincolor</label>
-            </div>
-           <div class='chartDiv'></div>
-        </div>
-		
-
-        <script src="resources/lib/d3/d3.js"></script>
-        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-		
-		
-		
-		<!-------People JS----------------------------------------------------------------------------------------------------------------->
 		<!-- Searchapp Underscore -->
 		<script src="vendors/underscore/underscore-min.js"></script>
 		<!-- Searchapp JS-Files -->
@@ -117,10 +106,13 @@
 		<script src="resources/js/Searchapp People/PersonListView.js"></script>
 		<script src="resources/js/Searchapp People/PersonModel.js"></script>
 		<script src="resources/js/Searchapp People/PersonView.js"></script>
+		
+		<!-- JS for the slideshow on the background -->
+		<!-- Slideshow based on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow -->
+        <script src="resources/js/Searchapp People/Slideshow.js"></script>
+		
 		<script>
         PersonApp.init();
 		</script>
-		<!-------------------------------------------------------------------------------------------------------------------------------->
-
     </body>
 </html>

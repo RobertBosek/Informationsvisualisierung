@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Star Wars Universe</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/donut.css">		
+		
+		</head>
+		<body>
+		  <div id="wrapper">
+			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			  <a class="navbar-brand" href="index.html">StarWars Universe - a visualizing project</a>
+			  <ul class="nav navbar-nav side-nav">
+				<li><a href="index.html">Universe</a></li>
+				<li><a href="people.html">People</a></li>
+                <li class="selected"><a href="people-piechart.html">People-Piechart</a></li>
+			  </ul>
+			</nav>
+	   </div>
+	   
+		
+        <div class="main-padding">
+		
+          <div id='inputs'>  
+            <input type="radio" name="radData" id="rad1" value="fractionWeightToVis" checked="checked" onclick='change(fractionWeightToVis);' />
+            <label for="rad1">Fraction</label>
+
+            <input type="radio" name="radData" id="rad2" value="genToVis" onclick='change(genToVis);' />
+            <label for="rad2">Gender</label>
+
+            <input type="radio" name="radData" id="rad3" value="hairColorsToVis" onclick='change(hairColorsToVis);' />
+            <label for="rad2">Haircolor</label>
+
+            <input type="radio" name="radData" id="rad4" value="eyeColorsToVis" onclick='change(eyeColorsToVis);' />
+            <label for="rad2">Eyecolor</label>
+
+            <input type="radio" name="radData" id="rad5" value="skincolorsToVis" onclick='change(skinColorsToVis);' />
+            <label for="rad2">Skincolor</label>
+            </div>
+           <div class='chartDiv'>
+      
+        </div>
+		<p class="text">TEXTTEXTTEXTTEEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
+		<script src="resources/lib/d3/d3.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+		<script src="resources/js/DonutApp/donutApp.js"></script>
+
+    </body>
+</html>

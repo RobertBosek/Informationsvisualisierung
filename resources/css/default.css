@@ -2,40 +2,6 @@
   background: url("../../data/images/background/bg_hp.jpg") no-repeat center center fixed;
 }
 */
-/*from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369*/
-div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 500px;
-    height: 500px;
-    padding: 2px;
-    font: 26px sans-serif;
-    background: #222222;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-h1{
-  font-size: 150%;
-}
-
-
-
-.chart div {
-/*  font: 10px sans-serif; */
-  background-color: green;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: black;
-}
-
-
-
-.inactive{
-  opacity: 0.3;
-}
 
 .body-divider {
   display: grid;
@@ -50,21 +16,19 @@ h1{
 .films{
   width: 12%;
   height: 12%;
+  cursor:pointer;
   margin: auto;
 }
 
 .icon{
   margin: 0.5%;
-  width: 6vw;
-  height: 6vw;
+  width: 8%;
   position: relative;
 }
 
-.icon img{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.centered{
+  display: block;
+  margin: auto auto;
 }
 
 .pointer{
@@ -74,6 +38,7 @@ h1{
 .info-section{
     display: block;
     float: left;
+    font-size: 1.7em;
     list-style-type: none;
     position: relative;
     margin: 0;
@@ -82,7 +47,8 @@ h1{
 .info-section .info {
     display: block;
     position: relative;
-    width: 80%;
+    width: 204px;
+    height: 204px;
     margin: 1em;
     float: left;
     overflow: hidden;
@@ -92,7 +58,7 @@ h1{
 
 .universe-screen{
   display: grid;
-  grid-template-columns: 2fr 7fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 .main-padding {

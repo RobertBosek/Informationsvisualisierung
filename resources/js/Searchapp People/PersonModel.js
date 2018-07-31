@@ -7,13 +7,48 @@ PersonApp.PersonModel = function(options) {
 	personID;
 
   function init() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.status == 200) { 
-            jsonData = JSON.parse(this.responseText);
-            parseDataSetList(jsonData);
-        }
-    };
+	  
+ //create http request to local opening of the json file
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function() {
+    if (this.status == 200) { 
+         jsonData = JSON.parse(this.responseText);
+		 
+	for(var i = 0; i<jsonData.length; i++){
+		
+		//get the values of the key "url" from the json file
+		//in jsonUrlEl is stored the value of the key with name "url"
+		var jsonUrlEl = jsonData[i]["url"];
+		
+		//the last number or the last 2 numbers of the jsonUrlEl is the id of the person
+		var lastCharJsonValueID = jsonUrlEl.charAt(jsonUrlEl.length-2);
+		var preLastCharJsonValueID = jsonUrlEl.charAt(jsonUrlEl.length-3);
+		
+		var str = parseInt(preLastCharJsonValueID + lastCharJsonValueID);
+		if(isNaN(str)){
+				jsonUrlEl = jsonUrlEl.slice(jsonUrlEl.length-2,jsonUrlEl.length-1);
+		}else{
+				jsonUrlEl = jsonUrlEl.slice(jsonUrlEl.length-3,jsonUrlEl.length-1);
+		}
+		jsonUrlEl = parseInt(jsonUrlEl);
+		jsonData[i]["url"] = jsonUrlEl;
+		
+		//modify the value format of the key "gender"
+		if(jsonData[i]["gender"] === "n/a"){
+			jsonData[i]["gender"] = "n.a.";
+		}
+		//modify the values formats of the key "hair_color" and of the key "skin_color"
+		if(jsonData[i]["hair_color"] === "n/a" || jsonData[i]["skin_color"] === "n/a"){
+			jsonData[i]["hair_color"] = "n.a.";
+			jsonData[i]["skin_color"] = "n.a.";
+		}
+	}
+	//sorts the names of the persons alphabetically
+	personList = _.sortBy(jsonData, function(person){
+		return person.name;
+		});
+    }
+  };
   
   //opens the json local file and sends the request to the server
 	xmlhttp.open("GET", "data/database/people.json", false);
@@ -21,42 +56,6 @@ PersonApp.PersonModel = function(options) {
     return that;
   }
   
-    function parseDataSetList(jsonData) {
-      for(var i = 0; i<jsonData.length; i++){
-
-        //get the values from the json file, values key is "url"
-        //output of console.log(jsonUrlEl) is the value of the key with name "url"
-        var jsonUrlEl = jsonData[i]["url"];
-
-        //the last number or the last 2 numbers of the jsonUrlEl is the id of the person
-        var lastCharJsonValueID = jsonUrlEl.charAt(jsonUrlEl.length-2);
-        var preLastCharJsonValueID = jsonUrlEl.charAt(jsonUrlEl.length-3);
-
-        var str = parseInt(preLastCharJsonValueID + lastCharJsonValueID);
-        if(isNaN(str)){
-                jsonUrlEl = jsonUrlEl.slice(jsonUrlEl.length-2,jsonUrlEl.length-1);
-        }else{
-                jsonUrlEl = jsonUrlEl.slice(jsonUrlEl.length-3,jsonUrlEl.length-1);
-        }
-        jsonUrlEl = parseInt(jsonUrlEl);
-        jsonData[i]["url"] = jsonUrlEl;
-
-        //gender
-        if(jsonData[i]["gender"] === "n/a"){
-            jsonData[i]["gender"] = "n.a.";
-        }
-        //
-        if(jsonData[i]["hair_color"] === "n/a" || jsonData[i]["skin_color"] === "n/a"){
-            jsonData[i]["hair_color"] = "n.a.";
-            jsonData[i]["skin_color"] = "n.a.";
-        }
-   }
-    //sorts the names of the persons alphabetically
-    personList = _.sortBy(jsonData, function(person){
-        return person.name;
-        });
-    }
-    
   function getPersonList() {
     return personList;
   }
@@ -73,7 +72,7 @@ PersonApp.PersonModel = function(options) {
     });
   }
   
-  //find the id of the persons, where the url is a variable from the people.html
+  //finds the id of the persons, where the url is a variable from the people.html
   //(template)
   function getPersonById(iD) {
 	var personWithId = _.findWhere(personList, { url: iD });
@@ -87,7 +86,6 @@ PersonApp.PersonModel = function(options) {
     return getPersonById(id);
   }
   
-    that.parseDataSetList = parseDataSetList;
   that.init = init;
   that.getPersonList = getPersonList;
   that.filterPersonListByName = getFilteredPersonList.bind(this, "name");

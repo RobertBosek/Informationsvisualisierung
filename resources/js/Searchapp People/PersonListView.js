@@ -5,7 +5,7 @@ PersonApp.PersonListView = function() {
     personList;
 
 
-  //initialise PersonListView and create entry template
+  //initialises PersonListView and creates an entry template
   function init() {
 	var entryEl = document.querySelector("#person-list-entry").innerHTML;
 	createEntryTemplate = _.template(entryEl);
@@ -25,12 +25,7 @@ PersonApp.PersonListView = function() {
       personList.removeChild(personList.firstChild);
     }
   }
-  
-  function clearView() {
-	personList.innerHTML = "";
-  }
 
-  that.clearView = clearView;
   that.init = init;
   that.addListEntry = addListEntry;
   that.removeFirstListEntry = removeFirstListEntry;

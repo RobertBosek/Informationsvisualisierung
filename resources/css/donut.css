@@ -1,23 +1,50 @@
+body {
+  background: url("../../data/images/background/searchApp_bg_main.jpg")
+}
+
 #inputs {
     font: 11px 'Arial';
     color: white;
     text-align: center;
-	margin-top:300px;
+	margin-top:100px;
+	width: 300px;
+	height: 200px;
+	margin-left: 700px;	
 	
 }
 #tooltipDiv {
     color: white;
     text-align: center;
     font: 30px 'Arial';
+	margin-top: 10px;
+	margin-left: 200px;
 }
 .chartDiv {
     fill: black;
     text-align: center;
     font: 30px 'Arial';
     height: 100%;
+	margin-left: 580px;
+	margin-top: -100px;
 }
 #hover {
     cursor: pointer;
 }
+
+.text{
+margin-left: 30px;
+margin-top: -180px;	
+}
+
+.main-padding{
+	width:300px;
+	height: 400px;	
+}
+
+.text{
+	
+	
+}
+
         
         

@@ -1,8 +1,6 @@
 body {
   background: url("../../data/images/background/searchApp_bg_main.jpg") 
-  /* no-repeat center center fixed; */
 }
-
 
 @font-face {
 	font-family: "Star Jedi";
@@ -17,17 +15,16 @@ html {
 .person-menu {
     display: block;
     float: left;
-    width: 300px;
     height: 500px;
     margin: 1em;
     overflow: hidden;
-	margin-left: 100px;
-	margin-top: 100px
+	margin-left: 5%;
+	margin-top: 6%;
 }
 
 .person-search {
     display: block;
-    width: 230px;
+    width: 90%;
     height: 25px;
     padding: 5px 6px;
     border-radius: 6px;
@@ -40,26 +37,16 @@ html {
 }
 
 .person-menu .person-list {
-    width: 260px;
     height: 80%;
+    width: 260px;
     list-style-type: none;
-    margin: 1px 0;
     padding: 0;
     overflow-y: auto
 }
 
-.person-menu .person-list::-webkit-scrollbar {
-    width: 10px;
-    background: rgb(204, 189, 223)
-}
-
-.person-menu .person-list::-webkit-scrollbar-thumb {
-    background: rgb(142, 96, 199)
-}
-
 .person-menu .person-list-entry {
     position: relative;
-    width: 230px;
+    width: 98%;
 	height: 40px;
     clear: both;
     margin: 8px 0;
@@ -94,15 +81,25 @@ html {
 	background: rgb(154, 143, 167)
 }
 
+.person-menu .person-list::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(204, 189, 223)
+}
+
+.person-menu .person-list::-webkit-scrollbar-thumb {
+    background: rgb(142, 96, 199)
+}
+
 .person-gallery {
     display: block;
+    position: relative;
     float: left;
     width: 800px;
     height: 600px;
 }
 
 .person-gallery .person-list {
-    width: 800px;
+    width: 130%;
     list-style-type: none;
     margin: 0;
     padding: 0
@@ -112,17 +109,18 @@ html {
     display: block;
     position: relative;
     height: 904px;
-    margin: 1em;
+    margin: 2em;
     float: left;
 }
 
 .person-gallery .person-image {
-	margin-top: 100px;
-    width: 500px;
-    height: 300px;
+	margin-top: 26%;
+    width: 98%;
+    height: 35%;
     border-radius: 1%;
     border-color: #FFF;
     z-index: 1;
+	margin-left: 12%;
 }
 
 .person-interface {
@@ -135,13 +133,6 @@ html {
     background: rgba(255, 255, 255, .5)
 }
 
-.bg_img{
-	position: relative;
-	width: 750px;
-    height: 400px;
-	margin-top: 110px;
-	margin-left: -500px;
-}
 
 .person-gallery .person-name-box {
     text-align: center;
@@ -155,52 +146,40 @@ html {
 	color: black;
 }
 
-.person-gallery  {
-    position: relative;
-    max-width: 400px;
-}
-
 .person-gallery .btn-close {
     position: absolute;
-    top: 430px;
-    left: 68%;
-    transform: translate(180%, -750%);
+    top: 16%;
+    left: 100.5%;
     background-color: #555;
     color: white;
     font-size: 16px;
-    padding: 12px 24px;
+    padding: 2% 4%;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
 }
 
-/* ----------- */
-
 .person-info-box{
     position: absolute;
-    margin-left: 550px;
-	width:270px;
+    margin-left: 130%;
+	width: 50%;
     background: rgba(255, 255, 255, .5);
-	margin-top:-280px;
+	margin-top: -45%;
+    
 	text-align: left;
 	color: black;
-	padding-left:30px;
+	padding-left: 5%;
 }
 
 .dot {
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
   display: inline-block;
-  
+  height: 7%;
+  width: 7%;
+  border-radius: 50%;
 }
-
-
-/* ------ */
 
 .person-gallery .btn-close:hover {
     cursor: pointer;
-	background: rgba(255, 119, 119, .6);
-	
+	background: rgba(255, 119, 119, .5);
 }
