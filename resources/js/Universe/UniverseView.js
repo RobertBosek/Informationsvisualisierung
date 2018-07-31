@@ -32,23 +32,23 @@ UniverseAdministration.UniverseView = function() {
   }
 
   function _updateFilms(films) {
-/*
-    var chartDiv = document.querySelector("#film-chart");
-    chartDiv.innerHTML = "";
+    var display = document.querySelector("#film-display");
+    var selected = document.querySelector("#film-selected");
     let counter = 0;
     for (let i=0; i < films.length; i++) {
       if (films[i].getState()) {
         counter += 1;
       }
     }
-    var childDiv = document.createElement("div");
-    childDiv.setAttribute("style", function() {
-      let percentage = counter/films.length*100
-      return "width: " + percentage + "%;";
-    })
-    childDiv.innerHTML = counter;
-    chartDiv.appendChild(childDiv);
-*/
+    var percentage = (counter/films.length*100).toFixed(0);
+    let style = "width: " + percentage.toString() + "%;"
+    display.setAttribute("style", style);
+    selected.innerHTML = percentage + "%";
+    if (percentage != 100) {
+      selected.setAttribute("style", "color: #2A9FD6");
+    } else {
+      selected.removeAttribute("style");
+    }
     var parentSelection = d3.select("#film-div");
     var filmSelection = parentSelection.selectAll(".films").data(films);
     var enterSelection = filmSelection.enter();
@@ -70,7 +70,7 @@ UniverseAdministration.UniverseView = function() {
     .on('click', _handleFilmClick)
     .on("mouseover", function(element) {
             tooltip.transition()
-                .duration(100)
+                .duration(200)
                 .style("opacity", .9);
             tooltip.html(_insertData(element.getTemplateData(), _.template(filmTemplate)).innerHTML)
                 .style("left", (d3.event.pageX) + "px")
@@ -78,12 +78,30 @@ UniverseAdministration.UniverseView = function() {
             })
         .on("mouseout", function(d) {
             tooltip.transition()
-                .duration(500)
+                .duration(100)
                 .style("opacity", 0);
         });
   }
 
   function _updatePlanets(planets) {
+    var display = document.querySelector("#planet-display");
+    var selected = document.querySelector("#planet-selected");
+    let counter = 0;
+    for (let i=0; i < planets.length; i++) {
+      if (planets[i].getState()) {
+        counter += 1;
+      }
+    }
+    var percentage = (counter/planets.length*100).toFixed(0);
+    let style = "width: " + percentage.toString() + "%;"
+    display.setAttribute("style", style);
+    selected.innerHTML = percentage + "%";
+    if (percentage != 100) {
+      selected.setAttribute("style", "color: #2A9FD6");
+    } else {
+      selected.removeAttribute("style");
+    }
+
     var parentSelection = d3.select("#planet-div");
     var planetSelection = parentSelection.selectAll(".icon").data(planets);
     var enterSelection = planetSelection.enter();
@@ -120,7 +138,7 @@ UniverseAdministration.UniverseView = function() {
     .on('click', _handlePlanetClick)
     .on("mouseover", function(element) {
             tooltip.transition()
-                .duration(100)
+                .duration(200)
                 .style("opacity", .9);
             tooltip.html(_insertData(element.getTemplateData(), _.template(planetTemplate)).innerHTML)
                 .style("left", (d3.event.pageX) + "px")
@@ -134,6 +152,24 @@ UniverseAdministration.UniverseView = function() {
   }
 
   function _updateCharacters(characters) {
+    var display = document.querySelector("#people-display");
+    var selected = document.querySelector("#people-selected");
+    let counter = 0;
+    for (let i=0; i < characters.length; i++) {
+      if (characters[i].getState()) {
+        counter += 1;
+      }
+    }
+    var percentage = (counter/characters.length*100).toFixed(0);
+    let style = "width: " + percentage.toString() + "%;"
+    display.setAttribute("style", style);
+    selected.innerHTML = percentage + "%";
+    if (percentage != 100) {
+      selected.setAttribute("style", "color: #2A9FD6");
+    } else {
+      selected.removeAttribute("style");
+    }
+
     var parentSelection = d3.select("#people-div");
     var characterSelection = parentSelection.selectAll(".icon").data(characters);
     var enterSelection = characterSelection.enter();
@@ -157,7 +193,7 @@ UniverseAdministration.UniverseView = function() {
 
     .on("mouseover", function(element) {
             tooltip.transition()
-                .duration(100)
+                .duration(200)
                 .style("opacity", .9);
             tooltip.html(_insertData(element.getTemplateData(), _.template(characterTemplate)).innerHTML)
                 .style("left", (d3.event.pageX) + "px")
@@ -171,6 +207,24 @@ UniverseAdministration.UniverseView = function() {
   }
 
   function _updateStarships(starships) {
+    var display = document.querySelector("#starship-display");
+    var selected = document.querySelector("#starship-selected");
+    let counter = 0;
+    for (let i=0; i < starships.length; i++) {
+      if (starships[i].getState()) {
+        counter += 1;
+      }
+    }
+    var percentage = (counter/starships.length*100).toFixed(0);
+    let style = "width: " + percentage.toString() + "%;"
+    display.setAttribute("style", style);
+    selected.innerHTML = percentage + "%";
+    if (percentage != 100) {
+      selected.setAttribute("style", "color: #2A9FD6");
+    } else {
+      selected.removeAttribute("style");
+    }
+
     var parentSelection = d3.select("#starship-div");
     var starshipSelection = parentSelection.selectAll(".icon").data(starships);
     var enterSelection = starshipSelection.enter();
@@ -191,7 +245,7 @@ UniverseAdministration.UniverseView = function() {
     .on('click', _handleStarshipClick)
     .on("mouseover", function(element) {
             tooltip.transition()
-                .duration(100)
+                .duration(200)
                 .style("opacity", .9);
             tooltip.html(_insertData(element.getTemplateData(), _.template(starshipTemplate)).innerHTML)
                 .style("left", (d3.event.pageX) + "px")
@@ -205,6 +259,24 @@ UniverseAdministration.UniverseView = function() {
   }
 
   function _updateVehicles(vehicles) {
+    var display = document.querySelector("#vehicle-display");
+    var selected = document.querySelector("#vehicle-selected");
+    let counter = 0;
+    for (let i=0; i < vehicles.length; i++) {
+      if (vehicles[i].getState()) {
+        counter += 1;
+      }
+    }
+    var percentage = (counter/vehicles.length*100).toFixed(0);
+    let style = "width: " + percentage.toString() + "%;"
+    display.setAttribute("style", style);
+    selected.innerHTML = percentage + "%";
+    if (percentage != 100) {
+      selected.setAttribute("style", "color: #2A9FD6");
+    } else {
+      selected.removeAttribute("style");
+    }
+
     var parentSelection = d3.select("#vehicle-div");
     var vehicleSelection = parentSelection.selectAll(".icon").data(vehicles);
     var enterSelection = vehicleSelection.enter();
@@ -226,7 +298,7 @@ UniverseAdministration.UniverseView = function() {
     .on('click', _handleVehicleClick)
     .on("mouseover", function(element) {
             tooltip.transition()
-                .duration(100)
+                .duration(200)
                 .style("opacity", .9);
             tooltip.html(_insertData(element.getTemplateData(), _.template(vehicleTemplate)).innerHTML)
                 .style("left", (d3.event.pageX) + "px")
