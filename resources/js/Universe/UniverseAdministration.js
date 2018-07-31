@@ -7,20 +7,7 @@ UniverseAdministration = (function() {
   var that = {},
   universeView,
   universeController,
-  universeModel,
-  filmsDOM,
-  planetsDOM,
-  starshipsDOM,
-  vehiclesDOM,
-  peopleDOM;
-
-  function getDomElements() {
-    filmsDOM = document.getElementById("film-div");
-    planetsDOM = document.getElementById("planet-div");
-    starshipsDOM = document.getElementById("starship-div");
-    vehiclesDOM = document.getElementById("vehicle-div");
-    peopleDOM = document.getElementById("people-div");
-  }
+  universeModel;
 
   function setListeners() {
     universeModel.setOnDataReadyListener(universeView.update);
@@ -31,11 +18,10 @@ UniverseAdministration = (function() {
   function initModules() {
     universeModel = new UniverseAdministration.UniverseModel();
     universeView = new UniverseAdministration.UniverseView();
-    universeController = new UniverseAdministration.UniverseController(universeModel, universeView);
+    universeController = new UniverseAdministration.UniverseController();
   }
 
   function init(){
-  //  getDomElements();
     initModules();
     setListeners();
     universeModel.getData();

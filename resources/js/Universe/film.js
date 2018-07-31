@@ -120,7 +120,7 @@ UniverseAdministration.film = function() {
       "producer": producer,
       "release_date": release_date,
       "opening_crawl": opening_crawl
-    }
+    };
   }
 
   that.init = init;

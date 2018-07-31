@@ -103,7 +103,7 @@ UniverseAdministration.planet = function() {
       "rotation_period": rotation_period,
       "surface_water": surface_water,
       "terrain": terrain
-    }
+    };
   }
 
 

@@ -125,7 +125,7 @@ UniverseAdministration.character = function() {
       "skin_color" : skin_color,
       "hair_color" : hair_color,
       "eye_color" : eye_color
-    }
+    };
   }
 
   that.init = init;

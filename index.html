@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Star Wars Universe</title>
         <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
     </head>
     <body>
       <div id="wrapper">
@@ -20,7 +19,6 @@
         <div class="main-padding universe-screen">
           <div class="info-section">
               <div class="info">
-
               </div>
           </div>
           <div class="main-content">
@@ -91,6 +89,8 @@
             </div>
           </div>
         </div>
+
+        <!-- templates for each category -->
         <script type="text/template" id="episode-template">
           <table>
             <tr>
@@ -291,19 +291,9 @@
               </tr>
             </table>
   			  </div>
-  			  <div class="people_description">
-            <img src="<%=" data/images/people/full/" + id + ".jpg" %>" class="people-image" />
-    			  <span class="people_name"><%= name %></span>
-    			  <span class="people_birth_year"><%= birth_year %></span>
-    			  <span class="people_gender"><%= gender %></span>
-    			  <span class="people_mass"><%= mass %></span>
-    			  <span class="people_height"><%= height %></span>
-    			  <span class="people_skin_color"><%= skin_color %></span>
-    			  <span class="people_hair_color"><%= hair_color %></span>
-    			  <span class="people_eye_color"><%= eye_color %></span>
-  			  </div>
         </script>
 
+        <script src="vendors/d3v5/d3.min.js"></script>
         <script src="vendors/underscore/underscore-min.js"></script>
         <script src="resources/js/Universe/UniverseController.js"></script>
         <script src="resources/js/Universe/UniverseView.js"></script>

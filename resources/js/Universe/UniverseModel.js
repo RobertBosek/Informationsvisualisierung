@@ -34,6 +34,12 @@ UniverseAdministration.UniverseModel = function() {
     onDataReadyCallback = callback;
   }
 
+  /*
+  this method connects all object with eachother based on the database.
+  since planets, spaceships and vehicles arent connected between eachother,
+  iterating over film and character objects and linking both ways is enough to
+  completely link all objects
+  */
   function connectData() {
     _connectFilms();
     _connectPeople();
@@ -43,7 +49,6 @@ UniverseAdministration.UniverseModel = function() {
     var j;
     for (let i = 0; i < charactersList.length; i++){
       let currentCharacter = charactersList[i];
-
       let currentCharactersPlanets = currentCharacter.getPlanets('ids');
       for (j = 0; j < currentCharactersPlanets.length; j++){
         let planetId = currentCharactersPlanets[j];
@@ -74,7 +79,6 @@ UniverseAdministration.UniverseModel = function() {
       let currentFilm = filmsList[i];
       let currentFilmsPlanets = currentFilm.getPlanets('ids');
       for (j = 0; j < currentFilmsPlanets.length; j++){
-
         let planetId = currentFilmsPlanets[j]
         let currentPlanet = planetsById[planetId];
         currentFilm.addPlanet(currentPlanet);
@@ -104,6 +108,11 @@ UniverseAdministration.UniverseModel = function() {
     }
   }
 
+  /*
+  this function checks if all data is loaded successfully and if it is it calls
+  function to connect the object with eachother based on the information in the data
+  after the objects are connected the onDataReadyCallback let UniverseView draw the data.
+  */
   function checkDataLoaded() {
     if (filmsLoaded && planetsLoaded && charactersLoaded && starshipsLoaded && vehiclesLoaded) {
       connectData();
@@ -111,6 +120,11 @@ UniverseAdministration.UniverseModel = function() {
     }
   }
 
+  /*
+  loads the data for each category of objects every getItem-method uses d3 to
+  load the json-format data and then uses a callback method to process this data
+  building objects for each element of the respective type
+  */
   function getData() {
     _getFilms();
     _getPlanets();
@@ -224,6 +238,9 @@ UniverseAdministration.UniverseModel = function() {
     checkDataLoaded();
   }
 
+  /*
+  sets all objects of every category inactive
+  */
   function setAllInactive(){
     let i;
     for (i = 0; i < filmsList.length; i++) {
@@ -243,6 +260,10 @@ UniverseAdministration.UniverseModel = function() {
     }
   }
 
+  /*
+  after setting all objects of every category inactive, this function is using
+  the clicked element object to activate all connected objects.
+  */
   function activeItemChanged(type, id){
     setAllInactive();
     var clickedItem;

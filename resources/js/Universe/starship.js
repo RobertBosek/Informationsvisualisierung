@@ -94,7 +94,7 @@ UniverseAdministration.starship = function() {
       "hyperdrive_rating": hyperdrive_rating,
       "MGLT": mglt,
       "cost_in_credits": cost
-    }
+    };
   }
 
   that.init = init;

@@ -89,7 +89,7 @@ UniverseAdministration.vehicle = function() {
       "length": length,
       "max_atmosphering_speed": max_atmosphering_speed,
       "cost_in_credits": cost
-    }
+    };
   }
 
 

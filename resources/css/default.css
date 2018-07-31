@@ -31,15 +31,39 @@ div.info img{
   height: 220px
 }
 
+.info-section{
+    display: block;
+    float: left;
+    list-style-type: none;
+    position: relative;
+    margin: 0;
+    padding: 0
+}
+.info-section .info {
+    display: block;
+    width: 80%;
+    margin: 1em;
+    float: left;
+    overflow: hidden;
+    list-style-type: none;
+    padding: 0
+    position: -webkit-sticky;
+    position: sticky;
+    top:60px;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
+
+
 .main-content>div{
   background: #222222;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 h1{
-  padding-left: 1%;
+  padding-left: 2%;
   padding-top: 1%;
-  font-size: 150%;
+  font-size: 200%;
 }
 
 .chart{
@@ -50,14 +74,14 @@ h1{
   grid-template-columns: 1fr 9fr;
 }
 
-.chart div {
-  position: relative;
-  width: 100%;
-}
-
 .chart>img{
   width: 100%;
   height: 30px;
+}
+
+.chart div {
+  position: relative;
+  width: 100%;
 }
 
 .chart div img {
@@ -75,10 +99,6 @@ h1{
 
 .inactive{
   opacity: 0.3;
-}
-
-.body-divider {
-  display: grid;
 }
 
 .horizontal{
@@ -111,29 +131,6 @@ h1{
   cursor: pointer;
 }
 
-.info-section{
-    display: block;
-    float: left;
-    list-style-type: none;
-    position: relative;
-    margin: 0;
-    padding: 0
-}
-.info-section .info {
-    display: block;
-    width: 80%;
-    margin: 1em;
-    float: left;
-    overflow: hidden;
-    list-style-type: none;
-    padding: 0
-    position: -webkit-sticky;
-    position: sticky;
-    top:60px;
-    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-}
-
-
 .universe-screen{
   display: grid;
   grid-template-columns: 2fr 7fr;
@@ -144,13 +141,8 @@ h1{
   padding-top: 20px;
 }
 
-.sub-padding {
-  padding: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  max-width: 500px;
-  background-color: #303030;
-}
+
+
 
 /* Die visuelle Gestaltung der folgenden Komponenten orientiert sich an:
  Dark Admin Bootstrap Theme by PrepBootstrap - http://www.prepbootstrap.com/bootstrap-theme/dark-admin*/
