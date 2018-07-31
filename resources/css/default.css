@@ -1,5 +1,7 @@
-/*body {
-  background: url("../../data/images/background/bg_hp.jpg") no-repeat center center fixed;
+/*
+body {
+  background: url("../../data/images/background/bg_hp.jpg") no-repeat center center;
+  background-size: cover;
 }
 */
 /*from http://bl.ocks.org/d3noob/a22c42db65eb00d4e369*/
@@ -9,7 +11,7 @@ div.tooltip {
     width: auto;
     height: auto;
     padding: 2px;
-    background: #222222;
+    background: #000000;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
@@ -29,7 +31,14 @@ div.info img{
   height: 220px
 }
 
+.main-content>div{
+  background: #222222;
+  border-radius: 10px;
+}
+
 h1{
+  padding-left: 1%;
+  padding-top: 1%;
   font-size: 150%;
 }
 
