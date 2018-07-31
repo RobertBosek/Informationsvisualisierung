@@ -147,8 +147,8 @@ html {
 }
 
 .person-gallery .btn-close {
-    position: absolute;
-    top: 16%;
+    position: relative;
+    top: -35.5%;
     left: 100.5%;
     background-color: #555;
     color: white;
@@ -161,7 +161,7 @@ html {
 }
 
 .person-info-box{
-    position: absolute;
+    position: relative;
     margin-left: 130%;
 	width: 50%;
     background: rgba(255, 255, 255, .5);
