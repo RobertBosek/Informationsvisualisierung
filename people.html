@@ -24,7 +24,7 @@
 			</nav>
 		
 		<!-- Searchapp HTML -------------------------------------------------------------------------------------------------------------->
-		<content>
+		<content class="content">
 			
 			<div class="person-menu">
 				<input type="text" class="person-search" />
@@ -49,10 +49,11 @@
 		<script type="text/template" id="person-entry">
 			<li class="person-list-entry" person-id="<%= url %>">
 				<img src="<%= "data/images/people/full/" + url + ".jpg" %>" class="person-image"/>
-				<button class="btn-close">X</button>
+				
 				
 				
 				<div class="person-info-box">
+				<button class="btn-close">X</button>
 				<span class="person-name"><%= name %></span>
 					<span class="person-info-gender"><br>Gender: <%= gender %> 
 					<img src="<%= "data/images/people/gender/" + gender + ".png" %>" class="person-image-gender"/>
