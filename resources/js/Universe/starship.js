@@ -35,7 +35,7 @@ UniverseAdministration.starship = function() {
     max_atmosphering_speed = data.max_atmosphering_speed;
     mglt = data.MGLT;
     hyperdrive_rating = data.hyperdrive_rating;
-    cost = data.cost;
+    cost = data.cost_in_credits;
   }
 
   function getId(){

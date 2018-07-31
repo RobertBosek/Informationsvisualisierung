@@ -32,7 +32,7 @@ UniverseAdministration.vehicle = function() {
     cargo_capacity = data.cargo_capacity;
     length = data.length;
     max_atmosphering_speed = data.max_atmosphering_speed;
-    cost = data.cost;
+    cost = data.cost_in_credits;
   }
 
   function getId(){
