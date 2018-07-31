@@ -22,12 +22,10 @@ UniverseAdministration = (function() {
     peopleDOM = document.getElementById("people-div");
   }
 
-  function initView() {
-    universeView.update(universeModel.getCurrentFilms(), universeModel.getCurrentPlanets());
-  }
-
   function setListeners() {
     universeModel.setOnDataReadyListener(universeView.update);
+    universeController.setOnActiveItemChangeListener(universeModel.activeItemChanged);
+    universeView.setOnItemClickListeners(universeController.getHandleItemClickListeners());
   }
 
   function initModules() {

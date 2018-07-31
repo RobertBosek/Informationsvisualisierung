@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Star Wars Universe</title>
         <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
-        <link rel="stylesheet" type="text/css" href="resources/css/donut.css">		
-		
+        <link rel="stylesheet" type="text/css" href="resources/css/donut.css">
 		</head>
 		<body>
 		  <div id="wrapper">
@@ -15,15 +14,12 @@
 			  <ul class="nav navbar-nav side-nav">
 				<li><a href="index.html">Universe</a></li>
 				<li><a href="people.html">People</a></li>
-                <li class="selected"><a href="people-piechart.html">People-Piechart</a></li>
+        <li class="selected"><a href="people-piechart.html">People-Piechart</a></li>
 			  </ul>
 			</nav>
 	   </div>
-	   
-		
         <div class="main-padding">
-		
-          <div id='inputs'>  
+          <div id='inputs'>
             <input type="radio" name="radData" id="rad1" value="fractionWeightToVis" checked="checked" onclick='change(fractionWeightToVis);' />
             <label for="rad1">Fraction</label>
 
@@ -40,13 +36,10 @@
             <label for="rad2">Skincolor</label>
             </div>
            <div class='chartDiv'>
-      
         </div>
 		<p class="text">TEXTTEXTTEXTTEEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
-		<script src="resources/lib/d3/d3.js"></script>
-        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-
+		<script src="vendors/d3/d3.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 		<script src="resources/js/DonutApp/donutApp.js"></script>
-
     </body>
 </html>

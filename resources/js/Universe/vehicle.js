@@ -1,20 +1,25 @@
 /* eslint-env browser */
 /* global UniverseAdministration*/
 
-UniverseAdministration.starship = function() {
+UniverseAdministration.vehicle = function() {
   "use strict";
 
   var that = {},
-  id,
-  name,
-  model,
-  manufacturer,
-  vehicle_class,
-  consumables,
-  cargo_capacity,
-  length,
-  max_atmosphering_speed,
-  cost;
+    state = true,
+    id,
+    name,
+    model,
+    manufacturer,
+    vehicle_class,
+    consumables,
+    cargo_capacity,
+    length,
+    max_atmosphering_speed,
+    cost,
+
+    films = [],
+    planets = [],
+    characters= [];
 
   function init(data){
     let tid = data.url.split("/");
@@ -34,11 +39,70 @@ UniverseAdministration.starship = function() {
     return id;
   }
 
-  function getName(){
-    return name;
+  function addFilm(obj){
+    films.push(obj);
   }
-  that.getName = getName;
+
+  function addPlanet(obj){
+    planets.push(obj);
+  }
+
+  function addCharacter(obj){
+    characters.push(obj);
+  }
+
+  function getFilms(str){
+    if (str == 'obj'){
+      return films;
+    }
+  }
+
+  function getPlanets(str){
+    if (str == 'obj'){
+      return planets;
+    }
+  }
+
+  function getPeople(str){
+    if (str == 'obj'){
+      return characters;
+    }
+  }
+
+  function setState(b) {
+    state = b;
+  }
+
+  function getState(){
+    return state;
+  }
+
+  function getTemplateData() {
+    return {
+      "id": id,
+      "name": name,
+      "model": model,
+      "manufacturer": manufacturer,
+      "vehicle_class": vehicle_class,
+      "consumables": consumables,
+      "cargo_capacity": cargo_capacity,
+      "length": length,
+      "max_atmosphering_speed": max_atmosphering_speed,
+      "cost_in_credits": cost
+    }
+  }
+
+
   that.init = init;
   that.getId = getId;
+  that.addFilm = addFilm;
+  that.addPlanet = addPlanet;
+  that.addCharacter = addCharacter;
+  that.getFilms = getFilms;
+  that.getPlanets = getPlanets;
+  that.getPeople = getPeople;
+  that.setState = setState;
+  that.getState = getState;
+  that.getTemplateData = getTemplateData;
   return that;
 };
